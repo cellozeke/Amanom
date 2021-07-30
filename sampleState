@@ -1,0 +1,122 @@
+```javascript
+{
+  entities: {
+    users: {
+      1: {
+        id: 1,
+        username: 'strawberryboba',
+        email: 'yummy123@yahoo.com'
+      },
+      2: {
+        id: 2,
+        username: 'iLikeCake',
+        email: 'oinkoink89@gmail.com'
+      },
+    },
+    snacks: {
+      1: {
+        id: 1,
+        name: 'Mint Milano Cookies',
+        description: 'The mintiest Milano cookies. Order now!',
+        price: 599,
+        rating: 30
+      },
+      2: {
+        id: 2,
+        name: 'Fruit Snacks',
+        description: '40 packs per box. Order now!',
+        price: 799,
+        rating: null
+      },
+      3: {
+        id: 3,
+        name: 'Cheese Puffs',
+        description: 'The cheesiest puffs. Order now!',
+        price: 999,
+        rating: 45
+      }
+    },
+    orders: {
+      1: {
+        id: 1,
+        user_id: 2,
+        completed: true
+      },
+      2: {
+        id: 2,
+        user_id: 1,
+        completed: true
+      },
+      3: {
+        id: 3,
+        user_id: 2,
+        completed: false
+      }
+    },
+    orderItems: {
+      2: {
+        id: 2,
+        order_id: 1,
+        snack_id: 2,
+        quantity: 3
+      },
+      5: {
+        id: 5,
+        order_id: 2,
+        snack_id: 3,
+        quantity: 1
+      },
+      6: {
+        id: 6,
+        order_id: 1,
+        snack_id: 3,
+        quantity: 2
+      },
+      9: {
+        id: 9,
+        order_id: 2,
+        snack_id: 1,
+        quantity: 5
+      },
+      12: {
+        id: 12,
+        order_id: 3,
+        snack_id: 2,
+        quantity: 4
+      }
+    },
+    reviews: {
+      1: {
+        id: 1,
+        reviewer_id: 1,
+        snack_id: 3,
+        title: 'good but a little too cheesy',
+        body: 'made my fingers orange',
+        stars: 4
+      },
+      3: {
+        id: 3,
+        reviewer_id: 2,
+        snack_id: 3,
+        title: 'Perfect cheesiness!',
+        body: 'My kids love them, will order again',
+        stars: 5
+      },
+      4: {
+        id: 4,
+        reviewer_id: 1,
+        snack_id: 1,
+        title: 'they were ok',
+        body: 'tasted like toothpaste',
+        stars: 3
+      }
+    }
+  },
+  session: {
+
+  },
+  errors: {
+    userErrors: [],
+    sessionErrors: []
+  },
+}
