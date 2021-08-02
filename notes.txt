@@ -1,2 +1,3 @@
 regex constants for users model and login form?
 database constraints matching user validations?
+change ajax to fetch

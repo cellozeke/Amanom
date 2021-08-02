@@ -18,17 +18,17 @@ const receiveSessionErrors = errors => ({
   errors
 })
 
-export const sign_up = user => dispatch => (
-  SessionApiUtils.sign_up(user)
+export const signUp = user => dispatch => (
+  SessionApiUtils.signUp(user)
     .then(user => dispatch(receiveCurrentUser(user)), errors => dispatch(receiveSessionErrors(errors.responseJSON)))
 )
 
-export const log_in = user => dispatch => (
-  SessionApiUtils.log_in(user)
+export const logIn = user => dispatch => (
+  SessionApiUtils.logIn(user)
     .then(user => dispatch(receiveCurrentUser(user)), errors => dispatch(receiveSessionErrors(errors.responseJSON)))
 )
 
-export const log_out = () => dispatch => (
-  SessionApiUtils.log_out()
+export const logOut = () => dispatch => (
+  SessionApiUtils.logOut()
     .then(() => dispatch(logOutCurrentUser()), errors => dispatch(receiveSessionErrors(errors.responseJSON)))
 )

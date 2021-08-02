@@ -1,3 +1,4 @@
+import { logOut } from "../../actions/session_actions"
 import { connect } from "react-redux"
 import NavBar from "./nav_bar"
 
@@ -6,7 +7,7 @@ const mapStateToProps = ({ entities, session }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  log_out: () => dispatch(log_out())
+  logOut: () => dispatch(logOut())
 })
 
 const NavBarContainer = connect(mapStateToProps, mapDispatchToProps)(NavBar)
