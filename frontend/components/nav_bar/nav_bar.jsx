@@ -11,7 +11,7 @@ export default class NavBar extends React.Component {
     const { currentUser } = this.props
     return (
       <div className='nav-bar'>
-        <img src="./amanom-logo.png" alt="" />
+        <img src="amanom-logo.png" alt="" />
         <Link to='/signup'>Sign Up</Link>
         <Link to='/login'>Log In</Link>
         {/* <h2>Welcome, {currentUser.username}!</h2>
