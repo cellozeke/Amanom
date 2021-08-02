@@ -9,13 +9,16 @@ export default class NavBar extends React.Component {
   
   render() {
     const { currentUser } = this.props
+    if (currentUser) return (
+     <div>
+       <h2>Welcome, {currentUser.username}!</h2>
+       <button onClick={this.logOut}>Log Out</button>
+     </div> 
+    )
     return (
-      <div className='nav-bar'>
-        <img src="./amanom-logo.png" alt="" />
+      <div>
         <Link to='/signup'>Sign Up</Link>
         <Link to='/login'>Log In</Link>
-        {/* <h2>Welcome, {currentUser.username}!</h2>
-       <button onClick={this.logOut}>Log Out</button> */}
       </div>
     )
   }

@@ -8,7 +8,6 @@ import SignupFormContainer from './session_forms/signup_form_container'
 const App = () => (
   <div>
     <header>
-      <h1>Welcome to Amanom!</h1>
       <NavBarContainer />
     </header>
     <AuthRoute path='/signup' component={SignupFormContainer} />
