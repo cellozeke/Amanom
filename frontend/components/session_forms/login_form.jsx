@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"
+import { Link } from "react-router-dom"
 
 export default class LoginForm extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class LoginForm extends React.Component {
   }
 
   handleSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
     (/\A[a-zA-Z0-9]+\z/).test(this.state.usernameOrEmail) ? this.state.username = this.state.usernameOrEmail : this.state.email = this.state.usernameOrEmail
     this.props.logIn(this.state)
   }
@@ -22,6 +23,7 @@ export default class LoginForm extends React.Component {
   }
 
   render() {
+    const { errors } = this.props
     return (
       <div>
         <h2>Log In</h2>
@@ -32,8 +34,10 @@ export default class LoginForm extends React.Component {
           <label>Password: 
             <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
           </label>
+          {errors.map(error => <p key={errors.indexOf(error)}>{error}</p>)}
           <input type="submit" value="Log In" />
         </form>
+        <Link to='/signup'>Sign Up</Link>
       </div>
     )
   }

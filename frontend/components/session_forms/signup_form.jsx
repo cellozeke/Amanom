@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"
+import { Link } from "react-router-dom"
 
 export default class SignupForm extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ export default class SignupForm extends React.Component {
   }
 
   render() {
+    const { errors } = this.props
     return (
       <div>
         <h2>Sign Up</h2>
@@ -33,8 +35,10 @@ export default class SignupForm extends React.Component {
           <label>Password: 
             <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
           </label>
+          {errors.map(error => <p key={errors.indexOf(error)}>{error}</p>)}
           <input type="submit" value="Sign Up" />
         </form>
+        <Link to='/login'>Log In</Link>
       </div>
     )
   }

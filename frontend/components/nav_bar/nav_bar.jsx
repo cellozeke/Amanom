@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 export default class NavBar extends React.Component {
   logOut = () => {
     this.props.logOut()
+    this.props.history.push({pathname: '/'})
   }
   
   render() {
