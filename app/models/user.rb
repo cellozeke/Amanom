@@ -2,7 +2,7 @@ class User < ApplicationRecord
   validates :username,
     presence: true,
     uniqueness: { case_sensitive: false },
-    length: { minimum: 3, maximum: 20 },
+    length: { minimum: 4, maximum: 15 },
     format: { with: /\A[a-zA-Z0-9]+\z/ }
   validates :email,
     presence: true,
