@@ -1,4 +1,4 @@
-.login-container {
+.signup-container {
   font-family: 'amazonEmber';
   width: 100%;
   height: 100%;
@@ -6,12 +6,12 @@
   box-sizing: border-box;
 }
 
-.login-div {
+.signup-div {
   display: block;
   position: relative;
   width: 348px;
   height: 50%;
-  /* height: 300px; */
+  /* height: 425px; */
   margin: auto;
   padding: 20px 26px;
   margin-top: 20px;
@@ -19,20 +19,20 @@
   border-radius: 4px;
 }
 
-.login-signup-link-div {
+.signup-login-link-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   box-sizing: border-box;
   width: 348px;
-  height: 278px;
+  height: 158px;
   margin: auto;
   text-align: center;
   padding: 20px 0px;
 }
 
-.login-signup-bottom-divider {
+.signup-login-bottom-divider {
   display: block;
   position: absolute;
   width: 100%;
@@ -42,27 +42,27 @@
   z-index: 1;
 }
 
-.login-header {
+.signup-header {
   font-size: 28px;
   font-weight: 400;
   margin-bottom: 20px;
 }
 
-.login-cred-1-text, .login-cred-2-text {
+.signup-cred-1-text, .signup-cred-2-text, .signup-cred-3-text {
   display: block;
   font-size: 13px;
   font-weight: bold;
   margin-bottom: 14px;
 }
 
-.login-error-message {
+.signup-error-message {
   display: block;
   font-size: 13px;
   color: #c40000;
   margin-bottom: 4px;
 }
 
-.login-cred-1-input, .login-cred-2-input {
+.signup-cred-1-input, .signup-cred-2-input, .signup-cred-3-input {
   display: block;
   box-sizing: border-box;
   margin-top: 4px;
@@ -73,14 +73,14 @@
   border-radius: 3px;
 }
 
-.login-cred-1-input:focus, .login-cred-2-input:focus {
+.signup-cred-1-input:focus, .signup-cred-2-input:focus, .signup-cred-3-input:focus {
   outline: none !important;
   border: 1px solid darkorange;
   border-color: darkorange;
   box-shadow: 0 0 5px darkorange;
 }
 
-.login-submit {
+.signup-submit {
   display: block;
   box-sizing: border-box;
   height: 31px;
@@ -93,24 +93,24 @@
   margin-bottom: 14px;
 }
 
-.login-submit:hover {
+.signup-submit:hover {
   cursor: pointer;
   background: linear-gradient(to bottom, #f7dd9c, #f0b215);
 }
 
-.login-submit:focus {
+.signup-submit:focus {
   box-shadow: 0 0 5px darkorange;
 }
 
-.login-submit:active {
+.signup-submit:active {
   background: #fac643;
   box-shadow: inset 0 0 2px gray, 0 0 5px darkorange;
 }
 
-.login-signup-text {
+.signup-login-text {
   display: inline-block;
   position: relative;
-  width: 35%;
+  width: 48%;
   font-size: 13px;
   color: #767676;
   z-index: 2;
@@ -118,19 +118,18 @@
   margin-bottom: 14px;
 }
 
-.login-signup-text-strikethrough {
+.signup-login-text-strikethrough {
   width: 100%;
   background-color: transparent;
   display: block;
   height: 1px;
   border-top: 1px solid #e7e7e7;
   position: absolute;
-  top: 50%;
-  margin-top: -113px;
+  bottom: 130px;
   z-index: 1;
 }
 
-.login-signup-link {
+.signup-login-link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,15 +144,15 @@
   background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
 }
 
-.login-signup-link:hover {
+.signup-login-link:hover {
   background: linear-gradient(to bottom,#f7f8fa,#d4d5d8);
 }
 
-.login-signup-link:focus {
+.signup-login-link:focus {
   box-shadow: 0 0 5px darkorange;
 }
 
-.login-signup-link:active {
+.signup-login-link:active {
   background: #dedfe4;
   box-shadow: inset 0 0 2px gray, 0 0 5px darkorange;
 }

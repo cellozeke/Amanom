@@ -45,4 +45,6 @@
   max-height: 42px;
 }
 
-
+.nav-log-out-div {
+  cursor: pointer;
+}

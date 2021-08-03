@@ -12,6 +12,10 @@ export default class LoginForm extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.receiveSessionErrors([])
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     (/\A[a-zA-Z0-9]+\z/).test(this.state.usernameOrEmail) ? this.state.username = this.state.usernameOrEmail : this.state.email = this.state.usernameOrEmail
@@ -44,7 +48,7 @@ export default class LoginForm extends React.Component {
           <div className='login-signup-text-strikethrough'> </div>
           <Link className='login-signup-link' to='/signup'>Create your Amanom account</Link>
         </div>
-        <div className='login-signup-bottom-divider'> </div>
+        {/* <div className='login-signup-bottom-divider'> </div> */}
       </div>
     )
   }
