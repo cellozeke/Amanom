@@ -26,7 +26,7 @@ export default class LoginForm extends React.Component {
     const { errors } = this.props
     return (
       <div>
-        <h2>Log In</h2>
+        <h2 className='log-in'>Log In</h2>
         <form onSubmit={this.handleSubmit}>
           <label>Username or Email: 
             <input type="text" value={this.state.usernameOrEmail} onChange={this.handleInput('usernameOrEmail')} />
