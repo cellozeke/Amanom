@@ -4,8 +4,10 @@
 
 @font-face {
   font-family: 'amazonEmber';
-  src: url('fonts/AmazonEmber_W_Rg.woff') format('woff'),
-       url('fonts/AmazonEmber_W_Rg.woff2') format('woff2');
+  src: font-url('fonts/AmazonEmber_W_Rg.woff') format('woff'),
+       font-url('fonts/AmazonEmber_W_Rg.woff2') format('woff2');
+  // src: url('fonts/AmazonEmber_W_Rg.woff') format('woff'),
+  //      url('fonts/AmazonEmber_W_Rg.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
