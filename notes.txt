@@ -1,3 +1,5 @@
 database constraints matching user validations?
 change ajax to fetch
 scalable css
+
+ADD TAGS TABLE
