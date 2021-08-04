@@ -3,8 +3,8 @@ class CreateSnacks < ActiveRecord::Migration[5.2]
     create_table :snacks do |t|
       t.string :name, null: false
       t.string :description, null: false
-      t.price :integer, null: false
-      t.rating :integer
+      t.integer :price, null: false
+      t.integer :rating
       t.timestamps
     end
     add_index :snacks, :name, unique: true
