@@ -1,0 +1,158 @@
+.signup-container {
+  font-family: 'amazonEmber';
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.signup-div {
+  display: block;
+  position: relative;
+  width: 348px;
+  height: 50%;
+  /* height: 425px; */
+  margin: auto;
+  padding: 20px 26px;
+  margin-top: 20px;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+}
+
+.signup-login-link-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  width: 348px;
+  height: 158px;
+  margin: auto;
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.signup-login-bottom-divider {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 40px;
+  background: linear-gradient(to right, #fff, rgb(173, 173, 173), #fff);
+  z-index: 1;
+}
+
+.signup-header {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.signup-cred-1-text, .signup-cred-2-text, .signup-cred-3-text {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.signup-error-message {
+  display: block;
+  font-size: 13px;
+  color: #c40000;
+  margin-bottom: 4px;
+}
+
+.signup-cred-1-input, .signup-cred-2-input, .signup-cred-3-input {
+  display: block;
+  box-sizing: border-box;
+  margin-top: 4px;
+  border: 1px solid #A6A6A6;
+  height: 31px;
+  width: 100%;
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+
+.signup-cred-1-input:focus, .signup-cred-2-input:focus, .signup-cred-3-input:focus {
+  outline: none !important;
+  border: 1px solid darkorange;
+  border-color: darkorange;
+  box-shadow: 0 0 5px darkorange;
+}
+
+.signup-submit {
+  display: block;
+  box-sizing: border-box;
+  height: 31px;
+  width: 100%;
+  font: 400 13.3333px 'amazonEmber';
+  border: 1px solid #A6A6A6;
+  border-radius: 3px;
+  border-color: #a88734 #9c7e31 #846a29;
+  background: linear-gradient(to bottom, #ebddbc, #f8c134);
+  margin-bottom: 14px;
+}
+
+.signup-submit:hover {
+  cursor: pointer;
+  background: linear-gradient(to bottom, #f7dd9c, #f0b215);
+}
+
+.signup-submit:focus {
+  box-shadow: 0 0 5px darkorange;
+}
+
+.signup-submit:active {
+  background: #fac643;
+  box-shadow: inset 0 0 2px gray, 0 0 5px darkorange;
+}
+
+.signup-login-text {
+  display: inline-block;
+  position: relative;
+  width: 48%;
+  font-size: 13px;
+  color: #767676;
+  z-index: 2;
+  background-color: #fff;
+  margin-bottom: 14px;
+}
+
+.signup-login-text-strikethrough {
+  width: 100%;
+  background-color: transparent;
+  display: block;
+  height: 1px;
+  border-top: 1px solid #e7e7e7;
+  position: absolute;
+  bottom: 130px;
+  z-index: 1;
+}
+
+.signup-login-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 31px;
+  width: 100%;
+  font: 400 13.3333px 'amazonEmber';
+  color: black;
+  border: 1px solid #A6A6A6;
+  border-radius: 3px;
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+}
+
+.signup-login-link:hover {
+  background: linear-gradient(to bottom,#f7f8fa,#d4d5d8);
+}
+
+.signup-login-link:focus {
+  box-shadow: 0 0 5px darkorange;
+}
+
+.signup-login-link:active {
+  background: #dedfe4;
+  box-shadow: inset 0 0 2px gray, 0 0 5px darkorange;
+}
