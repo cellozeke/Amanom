@@ -1,5 +1,7 @@
 database constraints matching user validations?
 change ajax to fetch
 scalable css
+seed goldfish, walker cookies, annie's fruit snacks
 
 ADD TAGS TABLE
+REVIEWS AND ORDER HISTORY
