@@ -29,8 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'jquery-rails'
-gem 'pry-rails'
 gem 'open-uri'
+gem 'pry-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
