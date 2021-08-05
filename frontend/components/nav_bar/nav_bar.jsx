@@ -12,9 +12,9 @@ export default class NavBar extends React.Component {
     return (
       <div className='nav-bar'>
         <div className='nav-left'>
-          <div className='nav-logo-div'>
+          <Link className='nav-logo-button' to='/' >
             <img className='nav-logo' src="images/amanom-logo.png"/>
-          </div>
+          </Link>
           <div className='nav-greeting-div'>
             <p className='nav-text-normal'>Hello,</p>
             <p className='nav-text-bold'>{currentUser ? currentUser.username : 'Guest'}</p>

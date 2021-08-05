@@ -31,11 +31,15 @@
   color: white;
 }
 
+.nav-logo-button {
+  padding: 5px;
+}
+
 .nav-logo {
   width: auto;
   height: auto;
-  max-width: 120px;
-  max-height: 41px;
+  max-width: 130px;
+  max-height: 47px;
 }
 
 .nav-cart-img {
