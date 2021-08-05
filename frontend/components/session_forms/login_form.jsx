@@ -26,6 +26,13 @@ export default class LoginForm extends React.Component {
     this.setState({[field]: e.target.value})
   }
 
+  handleDemo = e => {
+    e.preventDefault();
+    const user = {username: 'Demo', email: 'demo@demo.com', password: 'hunter12'}
+    this.props.logIn(user)
+      .then(() => this.props.history.push({pathname: '/'}))
+  }
+
   render() {
     const { errors } = this.props
     return (
@@ -40,6 +47,8 @@ export default class LoginForm extends React.Component {
               <input className='login-cred-2-input' type="password" value={this.state.password} onChange={this.handleInput('password')} />
             </label>
             <input className='login-submit' type="submit" value="Continue" />
+            <p className='login-or'>or</p>
+            <button className='login-demo-button' onClick={this.handleDemo}>Log in as demo user</button>
             {errors.map(error => <p className='login-error-message' key={errors.indexOf(error)}>{error}</p>)}
           </form>
         </div>

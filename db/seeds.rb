@@ -11,6 +11,8 @@ require 'open-uri'
 User.destroy_all
 Snack.destroy_all
 
+user1 = User.create!(username: 'Demo', email: 'demo@demo.com', password: 'hunter12')
+
 snack1 = Snack.create!(name: 'Airheads Xtremes Rainbow Berry Sour Candy Belts', description: 'Pack of 12, 3 oz. bags', price: 3999)
 snack2 = Snack.create!(name: 'Big Sour Patch Kids Chewy Candy', description: 'Individually wrapped, 240 count box', price: 1358)
 snack3 = Snack.create!(name: 'Jolly Rancher Assorted Fruit Flavored Hard Candy', description: '360 individually wrapped pieces, 5 lb. bag', price: 2349)
