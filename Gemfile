@@ -30,6 +30,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'jquery-rails'
 gem 'pry-rails'
+gem 'open-uri'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
