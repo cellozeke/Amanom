@@ -11,10 +11,12 @@ const App = () => (
     <header>
       <NavBarContainer />
     </header>
-    <AuthRoute exact path='/signup' component={SignupFormContainer} />
-    <AuthRoute exact path='/login' component={LoginFormContainer} />
-    <Route exact path='/snacks/:snackId' component={SnackShowContainer} />
-    <Redirect to='/' />
+    <Switch>
+      <AuthRoute exact path='/signup' component={SignupFormContainer} />
+      <AuthRoute exact path='/login' component={LoginFormContainer} />
+      <Route exact path='/snacks/:snackId' component={SnackShowContainer} />
+      <Redirect to='/' />
+    </Switch>
   </div>
 )
 

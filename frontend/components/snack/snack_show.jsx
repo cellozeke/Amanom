@@ -1,20 +1,19 @@
 import React from 'react'
 
 export default class SnackShow extends React.Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = this.props.snack
-  // }
-
   componentDidMount() {
     this.props.fetchSnack(this.props.match.params.snackId)
   }
 
   render() {
-    console.log(this.props.snack)
     const { snack } = this.props
     if (snack) return (
-      <div>
+      <div className='snack-main-div'>
+        <div className='snack-order-div'>
+          <div className='snack-pic-div'></div>
+          <div className='snack-details-div'></div>
+          <div className='snack-order-div'></div>
+        </div>
         {snack.id}
         {snack.name}
         {snack.description}
@@ -25,4 +24,3 @@ export default class SnackShow extends React.Component {
     return null
   }
 }
-
