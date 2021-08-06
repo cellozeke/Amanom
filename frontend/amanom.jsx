@@ -4,6 +4,7 @@ import configureStore from './store/store'
 import Root from './components/root'
 
 import { signUp, logIn, logOut } from './actions/session_actions'
+import { fetchSnack } from './actions/snack_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
@@ -28,4 +29,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store
   window.dispatch = store.dispatch
   window.getState = store.getState
+  window.fetchSnack = fetchSnack
 })
