@@ -7,16 +7,21 @@ import SignupFormContainer from './session_forms/signup_form_container'
 import SnackShowContainer from './snack/snack_show_container'
 
 const App = () => (
-  <div>
-    <header>
+  <div className='main-div'>
+    <header className='main-header'>
       <NavBarContainer />
     </header>
-    <Switch>
-      <AuthRoute exact path='/signup' component={SignupFormContainer} />
-      <AuthRoute exact path='/login' component={LoginFormContainer} />
-      <Route exact path='/snacks/:snackId' component={SnackShowContainer} />
-      <Redirect to='/' />
-    </Switch>
+    <div className='main-body'>
+      <Switch>
+        <AuthRoute exact path='/signup' component={SignupFormContainer} />
+        <AuthRoute exact path='/login' component={LoginFormContainer} />
+        <Route exact path='/snacks/:snackId' component={SnackShowContainer} />
+        {/* <Route path='/snacks/' render={() => <Redirect to={{pathname: "/"}} />} /> */}
+        {/* <Route render={() => <Redirect to={{pathname: "/"}} />} /> */}
+        <Redirect from='/snacks/*' to='/' />
+        <Redirect to='/' />
+      </Switch>
+    </div>
   </div>
 )
 
