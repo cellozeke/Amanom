@@ -12,15 +12,15 @@ export default class SnackShow extends React.Component {
   render() {
     const { snack } = this.props
     if (snack) return (
-      <div className='snack-show-main-div'>
-        <div className='snack-show-order-div'>
+      <div className='snack-show-div'>
+        <div className='snack-show-main-div'>
           <div className='snack-show-pic-div'>
             <img className='snack-show-pic-img' src={snack.photoUrl} />
           </div>
           <div className='snack-show-details-div'>
             <div className='snack-show-details-name'>
               {snack.name}
-              <p className='snack-show-details-seller'>Sold by Amanom, Inc</p>
+              <p className='snack-show-details-seller'>Sold by AmanomFresh</p>
             </div>
             <div className='snack-show-details-rating-div'>
               <p className='snack-show-details-rating-stars'>(Insert {snack.rating || 0} stars here)</p>
@@ -41,10 +41,12 @@ export default class SnackShow extends React.Component {
                 <li>Perfect for late-night snacking 😪</li>
                 <li>Share with your friends 👫</li>
               </ul>
-              </div>
+            </div>
           </div>
-          <div className='snack-show-order-item-div'>
-            <div className='snack-show-order-item-'></div>
+          <div className='snack-show-buy-item-div'>
+            {/* <p>FREE 2-hour delivery</p>
+            <p></p> */}
+            {/* <div className='snack-show-buy-item-'></div> */}
           </div>
         </div>
       </div>
