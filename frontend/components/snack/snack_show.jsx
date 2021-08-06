@@ -5,15 +5,17 @@ export default class SnackShow extends React.Component {
     this.props.fetchSnack(this.props.match.params.snackId)
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.location !== this.props.location) this.props.fetchSnack(this.props.match.params.snackId)
+  }
+
   render() {
     const { snack } = this.props
-    console.log(snack)
     if (snack) return (
       <div className='snack-show-main-div'>
         <div className='snack-show-order-div'>
           <div className='snack-show-pic-div'>
-            <img className='snack-show-pic-img' src='https://amanom-dev.s3.us-west-1.amazonaws.com/New-Amazon-Snack-Images/Candy/airheads-xtremes.jpg' />
-            {/* <img src={`${snack.photoURL}`} /> */}
+            <img className='snack-show-pic-img' src={snack.photoUrl} />
           </div>
           <div className='snack-show-details-div'>
             <div className='snack-show-details-name'>
