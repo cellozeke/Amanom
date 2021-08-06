@@ -1,4 +1,4 @@
-import { fetchSnack } from "../utils/snack_utils";
+import * as SnackAPIUtils from "../utils/snack_utils";
 
 export const RECEIVE_SNACK = 'RECEIVE_SNACK'
 
@@ -8,6 +8,6 @@ const receiveSnack = snack => ({
 })
 
 export const fetchSnack = snackId => dispatch => (
-  fetchSnack(snackId)
+  SnackAPIUtils.fetchSnack(snackId)
     .then(snack => dispatch(receiveSnack(snack)))
 )

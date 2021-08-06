@@ -11,3 +11,5 @@ const snacksReducer = (state={}, action) => {
       return state
   }
 }
+
+export default snacksReducer
