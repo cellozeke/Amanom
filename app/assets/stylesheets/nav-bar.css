@@ -58,13 +58,24 @@
 }
 
 .nav-logo {
-  height: 100%;
-  width: 95%;
+  height: 60px;
+  width: 120px;
+  /* height: 100%;
+  width: 95%; */
+}
+
+.nav-cart-link {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
 .nav-cart-img {
-  width: auto;
-  height: auto;
-  max-width: 42px;
-  max-height: 42px;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 5px;
+}
+
+.nav-cart-text {
+  margin-bottom: 10px;
 }

@@ -3,6 +3,7 @@ change ajax to fetch
 scalable css
 redirect on bad url. 24graawef showing snack 24...
 add more componentdidupdates
+nonauth routes
 seed goldfish, walker cookies, annie's fruit snacks
 
 ADD TAGS TABLE

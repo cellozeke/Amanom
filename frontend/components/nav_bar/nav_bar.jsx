@@ -39,9 +39,10 @@ export default class NavBar extends React.Component {
             :
             <Link className='nav-log-in-div nav-sub nav-text-bold' to='/login'>Log In</Link>
           }
-          <div className='nav-cart-div nav-sub'>
+          <Link className='nav-cart-link nav-sub' to='/cart'>
             <img className='nav-cart-img' src="images/amanom-cart.png"/>
-          </div>
+            <p className='nav-cart-text nav-text-bold'>Cart</p>
+          </Link>
         </div>
         
       </div>
