@@ -13,16 +13,16 @@ class Api::OrdersController < ApplicationController
     end
   end
 
-  def update
-    @order = Order.find(params[:id])
-    if @order.update(order_params)
-      render :show
-    else
-      render json: @order.errors.full_messages, status: 422
-    end
-  end
+  # def update
+  #   @order = Order.find(params[:id])
+  #   if @order.update(order_params)
+  #     render :show
+  #   else
+  #     render json: @order.errors.full_messages, status: 422
+  #   end
+  # end
 
   def order_params
-    params.require(:order).permit(:user_id, :completed)
+    params.require(:order).permit(:user_id)
   end
 end
