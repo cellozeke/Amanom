@@ -1,4 +1,5 @@
 import * as SessionApiUtils from '../utils/session_api_utils'
+import { fetchCartItems } from './item_actions'
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'
 export const LOG_OUT_CURRENT_USER = 'LOG_OUT_CURRENT_USER'
@@ -26,6 +27,7 @@ export const signUp = user => dispatch => (
 export const logIn = user => dispatch => (
   SessionApiUtils.logIn(user)
     .then(user => dispatch(receiveCurrentUser(user)), errors => dispatch(receiveSessionErrors(errors.responseJSON)))
+    .then(res => fetchCartItems(res.user.id)(dispatch))
 )
 
 export const logOut = () => dispatch => (

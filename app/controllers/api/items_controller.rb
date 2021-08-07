@@ -1,4 +1,14 @@
 class Api::ItemsController < ApplicationController
+  def show_cart_items
+    @items = Item.where('user_id = ?', params[:id])
+    render :show_items
+  end
+
+  def show_order_items
+    @items = Item.where('order_id = ?', params[:id])
+    render :show_items
+  end
+
   def show
     @item = Item.find(params[:id])
     render :show
