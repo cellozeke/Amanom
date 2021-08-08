@@ -5,6 +5,7 @@ import Root from './components/root'
 
 import { signUp, logIn, logOut } from './actions/session_actions'
 import { fetchSnack } from './actions/snack_actions'
+import { fetchCartItems } from './actions/item_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
@@ -12,11 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
     const preloadedState = {
       entities: {
-        users: {[window.currentUser.id]: window.currentUser}
+        users: {[window.currentUser.id]: window.currentUser},
       },
       session: {id: window.currentUser.id}
     }
     store = configureStore(preloadedState)
+    fetchCartItems(window.currentUser.id)(store.dispatch)
     delete window.currentUser
   } else {
     store = configureStore()

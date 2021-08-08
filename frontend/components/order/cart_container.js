@@ -2,7 +2,8 @@ import Cart from "./cart"
 import { connect } from "react-redux"
 
 const mapStateToProps = state => ({
-  currentUser: state.entities.users[state.session.id]
+  // currentUser: state.entities.users[state.session.id]
+  cartItems: state.entities.cartItems
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -1,4 +1,4 @@
-export const fetchCurrentOrder = userId => (
+export const fetchCurrentOrder = orderId => (
   $.ajax({
     url: `/api/orders/${orderId}`
   })

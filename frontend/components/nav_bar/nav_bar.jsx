@@ -8,7 +8,7 @@ export default class NavBar extends React.Component {
   }
   
   render() {
-    const { currentUser } = this.props
+    const { currentUser, cartItems } = this.props
     return (
       <div className='nav-bar'>
         <div className='nav-left'>
@@ -40,7 +40,10 @@ export default class NavBar extends React.Component {
             <Link className='nav-log-in-div nav-sub nav-text-bold' to='/login'>Log In</Link>
           }
           <Link className='nav-cart-link nav-sub' to='/cart'>
-            <img className='nav-cart-img' src="images/amanom-cart.png"/>
+            <div className='nav-cart-combo'>
+              <img className='nav-cart-img' src="images/amanom-cart.png"/>
+              {!currentUser ? <p className='nav-cart-number'>{'0'}</p> : cartItems.length > 9 ? <p className='nav-cart-number nav-cart-big'>{'9+'}</p> : <p className='nav-cart-number'>{cartItems.length}</p>}
+            </div>
             <p className='nav-cart-text nav-text-bold'>Cart</p>
           </Link>
         </div>

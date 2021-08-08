@@ -4,7 +4,8 @@ import NavBar from "./nav_bar"
 import { withRouter } from "react-router-dom"
 
 const mapStateToProps = ({ entities, session }) => ({
-  currentUser: entities.users[session.id]
+  currentUser: entities.users[session.id],
+  cartItems: entities.cartItems
 })
 
 const mapDispatchToProps = dispatch => ({
