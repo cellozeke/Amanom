@@ -89,6 +89,7 @@
 .login-submit:hover {
   cursor: pointer;
   background: linear-gradient(to bottom, #f7dd9c, #f0b215);
+  user-select: none;
 }
 
 .login-submit:focus {

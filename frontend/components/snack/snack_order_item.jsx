@@ -1,16 +1,26 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
 
 export default class SnackOrderItem extends React.Component {
   constructor(props) {
     super(props)
     const { cartItems, snack, sessionId } = this.props
+    let filteredCart = cartItems ? cartItems.filter(item => item.snackId === snack.id) : []
     this.state = {
       snackId: snack.id,
       userId: sessionId,
       orderId: null,
-      quantity: cartItems ? cartItems.filter(item => item.snackId === snack.id)[0].quantity : 0
+      quantity: filteredCart.length ? filteredCart[0].quantity : 0
     }
+  }
+
+  handleQuantity = e => {
+    this.setState({quantity: e.target.value})
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
   }
 
   render() {
@@ -38,11 +48,10 @@ export default class SnackOrderItem extends React.Component {
             <option value="10">10</option>
           </select>
         </div>
-        <div className='snack-order-button'>{quantity ? 'Edit order' : 'Add to cart'}</div>
+        <div className='snack-order-button' onClick={this.handleSubmit}>{quantity ? 'Edit order' : 'Add to cart'}</div>
         <div className='snack-order-secure'><img className='snack-order-secure-img' src="/images/secure.png" />Secure transaction</div>
         <div className='snack-order-ship-sell-text'>Ships from <p className='snack-order-shipper'>AmanomFresh</p></div>
         <div className='snack-order-ship-sell-text'>Sold by <p className='snack-order-seller'>AmanomFresh</p></div>
-        {/* <div className='snack-order-item-'></div> */}
       </div>
     )
   }

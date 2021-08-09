@@ -87,6 +87,7 @@
 .cart-item-delete:hover, .cart-item-deleted-link:hover {
   text-decoration: underline;
   cursor: pointer;
+  user-select: none;
 }
 
 .cart-item-price {

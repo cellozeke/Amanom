@@ -84,6 +84,7 @@
 .cart-checkout-button:hover {
   cursor: pointer;
   background-color: #fccb51;
+  user-select: none;
 }
 
 .cart-empty-message {

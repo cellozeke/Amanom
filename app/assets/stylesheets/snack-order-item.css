@@ -1,6 +1,6 @@
 .snack-order-item-main-div {
   width: 16%;
-  height: 60%;
+  height: 55%;
   display: flex;
   margin: 30px;
   padding: 20px;
@@ -65,6 +65,7 @@
 .snack-order-button:hover {
   cursor: pointer;
   background-color: #fccb51;
+  user-select: none;
 }
 
 .snack-order-secure {
