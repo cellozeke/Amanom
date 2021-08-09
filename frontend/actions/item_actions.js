@@ -3,8 +3,8 @@ import * as ItemAPIUtils from '../utils/item_utils'
 export const RECEIVE_CART_ITEMS = 'RECEIVE_CART_ITEMS'
 export const RECEIVE_ORDER_ITEMS = 'RECEIVE_ORDER_ITEMS'
 export const RECEIVE_CART_ITEM = 'RECEIVE_CART_ITEM'
-// export const REFRESH_CART = 'REFRESH_CART'
-export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM'
+export const REFRESH_CART = 'REFRESH_CART'
+export const ZERO_STORE_CART_ITEM = 'ZERO_STORE_CART_ITEM'
 
 const receiveCartItems = items => ({
   type: RECEIVE_CART_ITEMS,
@@ -21,9 +21,9 @@ const receiveCartItem = item => ({
   item
 })
 
-const removeCartItem = item => ({
-  type: REMOVE_CART_ITEM,
-  item
+const zeroStoreCartItem = itemId => ({
+  type: ZERO_STORE_CART_ITEM,
+  itemId
 })
 
 export const fetchCartItems = userId => dispatch => (
@@ -41,11 +41,11 @@ export const updateCartItem = item => dispatch => (
     .then(item => dispatch(receiveCartItem(item)))
 )
 
-// export const refreshCart = () => dispatch => (
-//   dispatch({type: REFRESH_CART})
-// )
+export const refreshCart = () => dispatch => (
+  dispatch({type: REFRESH_CART})
+)
 
 export const deleteCartItem = itemId => dispatch => (
   ItemAPIUtils.removeCartItem(itemId)
-    .then(item => dispatch(removeCartItem(item)))
+    .then(item => dispatch(zeroStoreCartItem(item.id)))
 )

@@ -9,7 +9,7 @@ export default class NavBar extends React.Component {
   
   render() {
     const { currentUser, cartItems, isCartDataReady } = this.props
-    const cartSize = cartItems.length
+    const cartSize = cartItems.filter(item => item.quantity > 0).length
     return (
       <div className='nav-bar'>
         <div className='nav-left'>

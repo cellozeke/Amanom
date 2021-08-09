@@ -23,13 +23,12 @@ export default class CartItem extends React.Component {
 
   handleDelete = e => {
     this.setState({quantity: 0})
-    // let nextState = Object.assign({}, this.state, {quantity: 0})
     this.props.deleteCartItem(this.props.item.id)
   }
 
   render() {
     const { item } = this.props
-    if (this.state.quantity === 0) return(
+    if (this.state.quantity === 0) return (
       <div className='cart-item-deleted'>
         <p><Link className='cart-item-deleted-link' to={`snacks/${item.snack.id}`}>{item.snack.name}</Link> was removed from your Shopping Cart.</p>
       </div>

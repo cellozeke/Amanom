@@ -5,14 +5,9 @@ import CartItem from '../item/cart_item'
 import Loader from 'react-loader-spinner'
 
 export default class Cart extends React.Component {
-  // componentDidMount() {
-  //   console.log('hi')
-  //   // this.props.refreshCart()
-  // }
-  // componentWillUnmount() {
-  //   console.log('hi')
-  //   this.props.refreshCart()
-  // }
+  componentWillUnmount() {
+    this.props.refreshCart()
+  }
 
   render() {
     const { currentUser, cartItems, updateCartItem, deleteCartItem, isCartDataReady } = this.props
