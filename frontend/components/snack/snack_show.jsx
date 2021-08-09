@@ -1,5 +1,6 @@
 import React from 'react'
 import { moneyFormatter } from '../../utils/extra_utils';
+import SnackOrderItem from './snack_order_item';
 
 export default class SnackShow extends React.Component {
   componentDidMount() {
@@ -11,7 +12,12 @@ export default class SnackShow extends React.Component {
   }
 
   render() {
-    const { snack } = this.props
+    const { snack, cartItems, sessionId, isCartDataReady, createCartItem, updateCartItem, deleteCartItem } = this.props
+    if (!isCartDataReady) return (
+      <div className='snack-show-spinner-div'>
+        <img className='loading-indicator' src="/images/loadIndicator.gif" />
+      </div>
+    )
     if (snack) return (
       <div className='snack-show-div'>
         <div className='snack-show-main-div'>
@@ -21,7 +27,7 @@ export default class SnackShow extends React.Component {
           <div className='snack-show-details-div'>
             <div className='snack-show-details-name'>
               {snack.name}
-              <p className='snack-show-details-seller'>Sold by AmanomFresh</p>
+              <p className='snack-show-details-seller'>by AmanomFresh</p>
             </div>
             <div className='snack-show-details-rating-div'>
               <p className='snack-show-details-rating-stars'>(Insert {snack.rating || 0} stars here)</p>
@@ -44,14 +50,10 @@ export default class SnackShow extends React.Component {
               </ul>
             </div>
           </div>
-          <div className='snack-show-buy-item-div'>
-            {/* <p>FREE 2-hour delivery</p>
-            <p></p> */}
-            {/* <div className='snack-show-buy-item-'></div> */}
-          </div>
+          <SnackOrderItem snack={snack} cartItems={cartItems} sessionId={sessionId} createCartItem={createCartItem} updateCartItem={updateCartItem} deleteCartItem={deleteCartItem} />
         </div>
       </div>
-    );
+    )
     return null
   }
 }

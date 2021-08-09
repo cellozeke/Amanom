@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
 import CartItem from './cart_item'
-import Loader from 'react-loader-spinner'
 
 export default class Cart extends React.Component {
   componentWillUnmount() {
@@ -15,7 +14,7 @@ export default class Cart extends React.Component {
     if (cartItems) subTotal = cartItems.map(item => item.quantity * item.snack.price).reduce((a, b) => a + b, 0)
     if (!isCartDataReady) return (
       <div className='cart-spinner-div'>
-        <Loader type="TailSpin" color="#F08804" secondaryColor='black' height={200} width={200}/>
+        <img className='loading-indicator' src="/images/loadIndicator.gif" />
       </div>
     )
     return (

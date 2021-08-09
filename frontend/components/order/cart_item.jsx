@@ -44,6 +44,7 @@ export default class CartItem extends React.Component {
           <Link className='cart-item-name' to={`/snacks/${item.snack.id}`}>{item.snack.name}</Link>
           <p className='cart-item-seller'>Sold by AmanomFresh</p>
           <p className='cart-item-availability'>In Stock</p>
+          <p className='cart-item-unit-price'>{moneyFormatter.format(item.snack.price / 100)}</p>
           <div className='cart-item-quantity-div'>
             <p className='cart-item-quantity-text'>Qty: </p>
             <select className='cart-item-quantity-select' defaultValue={this.state.quantity} onChange={this.handleQuantity}>

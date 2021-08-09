@@ -4,12 +4,13 @@ scalable css
 redirect on bad url. 24graawef showing snack 24...
 add more componentdidupdates
 change quantity css
-shopping cart empty flicker on refresh
-nonauth routes
 seed goldfish, walker cookies, annie's fruit snacks
+
+
 
 CHECKOUT
 FINISH SNACK PAGE ORDER ITEM SECTION
+nonauth routes
 
 
 PROFILE

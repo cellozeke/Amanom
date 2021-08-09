@@ -1,0 +1,95 @@
+.snack-order-item-main-div {
+  width: 16%;
+  height: 60%;
+  display: flex;
+  margin: 30px;
+  padding: 20px;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  flex-direction: column;
+}
+
+.snack-order-price {
+  font-size: 18px;
+  color: #b12704;
+  margin-bottom: 18px;
+}
+
+.snack-order-delivery {
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.snack-order-returns {
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.snack-order-availability {
+  font-size: 18px;
+  color: #007600;
+  margin-bottom: 18px;
+}
+
+.snack-order-quantity-div {
+  display: flex;
+  margin-bottom: 18px;
+}
+
+.snack-order-quantity-text {
+  font-size: 14px;
+  margin: 1px 7px 0 0;
+}
+
+.snack-order-quantity-select {
+  border-radius: 3px;
+  outline: none;
+  width: 40px;
+}
+
+.snack-order-button {
+  width: 100%;
+  height: 31px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  background-color: #FFD814;
+  border-color: #FCD200;
+  outline: none;
+  box-shadow: none;
+  margin-bottom: 18px;
+}
+
+.snack-order-button:hover {
+  cursor: pointer;
+  background-color: #fccb51;
+}
+
+.snack-order-secure {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #007185;
+  margin-bottom: 18px;
+}
+
+.snack-order-secure-img {
+  width: 11px;
+  height: auto;
+  margin-right: 12px;
+}
+
+.snack-order-ship-sell-text {
+  font-size: 12px;
+  color: #565959;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.snack-order-ship-sell-text > p {
+  color: black;
+  right: 40px;
+}
