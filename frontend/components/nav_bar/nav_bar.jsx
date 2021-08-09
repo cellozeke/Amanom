@@ -36,7 +36,10 @@ export default class NavBar extends React.Component {
             <Link className='nav-sign-up-div nav-sub nav-text-bold' to='/signup'>Sign Up</Link>
           }
           {currentUser ?
-            <div className='nav-log-out-div nav-sub nav-text-bold' onClick={this.logOut}>Log Out</div>
+            <div className='nav-log-out-div nav-sub' onClick={this.logOut}>
+              {/* <p className='nav-text-normal'>Done shopping?</p> */}
+              <p className='nav-text-bold'>Log Out</p>
+            </div>
             :
             <Link className='nav-log-in-div nav-sub nav-text-bold' to='/login'>Log In</Link>
           }

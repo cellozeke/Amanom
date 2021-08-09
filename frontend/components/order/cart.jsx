@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
-import CartItem from '../item/cart_item'
+import CartItem from './cart_item'
 import Loader from 'react-loader-spinner'
 
 export default class Cart extends React.Component {

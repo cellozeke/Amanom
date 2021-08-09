@@ -22,8 +22,9 @@
 
 .nav-text-normal {
   font-size: 12px;
+  font-weight: bold;
   color: #CCCCCC;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 .nav-text-bold {
