@@ -8,7 +8,7 @@ const receiveOrder = order => ({
 })
 
 export const fetchOrder = orderId => dispatch => (
-  OrderAPIUtils.fetchOrder(orderId)
+  OrderAPIUtils.fetchCurrentOrder(orderId)
     .then(order => dispatch(receiveOrder(order)))
 )
 
