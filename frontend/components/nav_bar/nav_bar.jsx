@@ -8,7 +8,8 @@ export default class NavBar extends React.Component {
   }
   
   render() {
-    const { currentUser } = this.props
+    const { currentUser, cartItems, isCartDataReady } = this.props
+    const cartSize = cartItems.filter(item => item.quantity > 0).length
     return (
       <div className='nav-bar'>
         <div className='nav-left'>
@@ -35,13 +36,20 @@ export default class NavBar extends React.Component {
             <Link className='nav-sign-up-div nav-sub nav-text-bold' to='/signup'>Sign Up</Link>
           }
           {currentUser ?
-            <div className='nav-log-out-div nav-sub nav-text-bold' onClick={this.logOut}>Log Out</div>
+            <div className='nav-log-out-div nav-sub' onClick={this.logOut}>
+              {/* <p className='nav-text-normal'>Done shopping?</p> */}
+              <p className='nav-text-bold'>Log Out</p>
+            </div>
             :
             <Link className='nav-log-in-div nav-sub nav-text-bold' to='/login'>Log In</Link>
           }
-          <div className='nav-cart-div nav-sub'>
-            <img className='nav-cart-img' src="images/amanom-cart.png"/>
-          </div>
+          <Link className='nav-cart-link nav-sub' to='/cart'>
+            <div className='nav-cart-combo'>
+              <img className='nav-cart-img' src="images/amanom-cart.png"/>
+              {!isCartDataReady || !currentUser ? <p className='nav-cart-number'></p> : cartSize > 9 ? <p className='nav-cart-number nav-cart-big'>{'9+'}</p> : <p className='nav-cart-number'>{cartSize}</p>}
+            </div>
+            <p className='nav-cart-text nav-text-bold'>Cart</p>
+          </Link>
         </div>
         
       </div>

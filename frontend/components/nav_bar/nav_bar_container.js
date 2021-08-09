@@ -2,9 +2,12 @@ import { logOut } from "../../actions/session_actions"
 import { connect } from "react-redux"
 import NavBar from "./nav_bar"
 import { withRouter } from "react-router-dom"
+import { getCartItems, isCartDataReady } from "../../selectors/cart"
 
-const mapStateToProps = ({ entities, session }) => ({
-  currentUser: entities.users[session.id]
+const mapStateToProps = state => ({
+  currentUser: state.entities.users[state.session.id],
+  cartItems: getCartItems(state),
+  isCartDataReady: isCartDataReady(state)
 })
 
 const mapDispatchToProps = dispatch => ({

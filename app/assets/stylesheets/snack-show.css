@@ -1,21 +1,17 @@
 .snack-show-div {
   width: 100%;
   height: 200%;
-  box-sizing: border-box;
-  position: relative;
 }
 
 .snack-show-main-div {
   width: 100%;
   height: 660px;
-  /* background-color: thistle; */
   display: flex;
 }
 
 .snack-show-pic-div {
   width: 52%;
   height: 90%;
-  /* background-color: yellowgreen; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +28,6 @@
   width: 32%;
   height: 100%;
   padding: 40px 40px;
-  /* background-color: aquamarine; */
   display: flex;
   flex-direction: column;
 }
@@ -46,7 +41,6 @@
 .snack-show-details-seller {
   font-size: 14px;
   color: #007185;
-  /* margin-top: 7px; */
 }
 
 .snack-show-details-rating-div {

@@ -3,4 +3,6 @@ class Snack < ApplicationRecord
   validates :description, :price, presence: true
 
   has_one_attached :photo
+
+  has_many :items
 end
