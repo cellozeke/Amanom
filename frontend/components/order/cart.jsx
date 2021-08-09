@@ -14,9 +14,10 @@ export default class Cart extends React.Component {
   // }
 
   render() {
-    const { currentUser, cartItems, updateCartItem, deleteCartItem } = this.props
+    const { currentUser, cartItems, updateCartItem, deleteCartItem, isCartDataReady } = this.props
     let subTotal = 0
     if (cartItems) subTotal = cartItems.map(item => item.quantity * item.snack.price).reduce((a, b) => a + b, 0)
+    if (!isCartDataReady) return (<div>Spinner</div>)
     return (
       <div className='cart-main-div'>
         {!currentUser ?
