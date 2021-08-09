@@ -86,6 +86,17 @@
   background-color: #fccb51;
 }
 
+.cart-empty-message {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-size: 28px;
+  background-color: white;
+  box-shadow: 0 0 2px rgba(211, 211, 211, 0.185);
+}
+
 .cart-spinner-div {
   height: 660px;
   width: 100%;

@@ -10,6 +10,7 @@ require 'open-uri'
 
 User.destroy_all
 Snack.destroy_all
+Item.destroy_all
 
 user1 = User.create!(username: 'Demo', email: 'demo@demo.com', password: 'hunter12')
 
@@ -168,3 +169,7 @@ snack74.photo.attach(io: URI.open('https://amanom-dev.s3.us-west-1.amazonaws.com
 snack75.photo.attach(io: URI.open('https://amanom-dev.s3.us-west-1.amazonaws.com/New-Amazon-Snack-Images/Other/nutella-breadsticks.jpg'), filename: 'nutella-breadsticks.jpg')
 snack76.photo.attach(io: URI.open('https://amanom-dev.s3.us-west-1.amazonaws.com/New-Amazon-Snack-Images/Other/quaker-chewy-dipps-granola-bars.jpg'), filename: 'quaker-chewy-dipps-granola-bars.jpg')
 snack77.photo.attach(io: URI.open('https://amanom-dev.s3.us-west-1.amazonaws.com/New-Amazon-Snack-Images/Other/rold-gold-tiny-twists-cheddar-pretzels.jpg'), filename: 'rold-gold-tiny-twists-cheddar-pretzels.jpg')
+
+item1 = Item.create!(snack_id: snack2.id, user_id: user1.id, order_id: nil, quantity: 3)
+item2 = Item.create!(snack_id: snack37.id, user_id: user1.id, order_id: nil, quantity: 4)
+item1 = Item.create!(snack_id: snack56.id, user_id: user1.id, order_id: nil, quantity: 3)

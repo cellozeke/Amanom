@@ -41,9 +41,7 @@ export default class Cart extends React.Component {
               </div>
             </div>
             :
-            <div>
-              <p>Your Amanom Cart is empty.</p>
-            </div>
+            <div className='cart-empty-message'>Your Amanom Cart is empty.</div>
         }
       </div>
     )
