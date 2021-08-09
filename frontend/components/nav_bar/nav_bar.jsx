@@ -43,7 +43,7 @@ export default class NavBar extends React.Component {
           <Link className='nav-cart-link nav-sub' to='/cart'>
             <div className='nav-cart-combo'>
               <img className='nav-cart-img' src="images/amanom-cart.png"/>
-              {!isCartDataReady ? <p className='nav-cart-number'></p> : cartSize > 9 ? <p className='nav-cart-number nav-cart-big'>{'9+'}</p> : <p className='nav-cart-number'>{cartSize}</p>}
+              {!isCartDataReady || !currentUser ? <p className='nav-cart-number'></p> : cartSize > 9 ? <p className='nav-cart-number nav-cart-big'>{'9+'}</p> : <p className='nav-cart-number'>{cartSize}</p>}
             </div>
             <p className='nav-cart-text nav-text-bold'>Cart</p>
           </Link>

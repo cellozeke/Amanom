@@ -34,10 +34,8 @@
 
 .nav-sub {
   height: 80%;
-  box-sizing: border-box;
   border-radius: 2px;
   border: 1px solid #0F1111;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;

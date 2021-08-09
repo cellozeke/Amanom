@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
 import CartItem from '../item/cart_item'
+import Loader from 'react-loader-spinner'
 
 export default class Cart extends React.Component {
   // componentDidMount() {
@@ -17,7 +18,11 @@ export default class Cart extends React.Component {
     const { currentUser, cartItems, updateCartItem, deleteCartItem, isCartDataReady } = this.props
     let subTotal = 0
     if (cartItems) subTotal = cartItems.map(item => item.quantity * item.snack.price).reduce((a, b) => a + b, 0)
-    if (!isCartDataReady) return (<div>Spinner</div>)
+    if (!isCartDataReady) return (
+      <div className='cart-spinner-div'>
+        <Loader type="TailSpin" color="#F08804" secondaryColor='black' height={200} width={200}/>
+      </div>
+    )
     return (
       <div className='cart-main-div'>
         {!currentUser ?
