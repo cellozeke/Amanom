@@ -1,4 +1,5 @@
 import React from 'react'
+import { moneyFormatter } from '../../utils/extra_utils';
 
 export default class SnackShow extends React.Component {
   componentDidMount() {
@@ -28,7 +29,7 @@ export default class SnackShow extends React.Component {
             </div>
             <div className='snack-show-details-price-div'>
               <p>Price: </p>
-              <p className='snack-show-details-price'>{`$${Math.floor(snack.price / 100)}.${snack.price % 100}`}</p>
+              <p className='snack-show-details-price'>{moneyFormatter.format(snack.price / 100)}</p>
             </div>
             <div className='snack-show-details-description-div'>
               <p>Product Details</p>

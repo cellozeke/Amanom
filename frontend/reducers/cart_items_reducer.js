@@ -8,7 +8,7 @@ const cartItemsReducer = (state=[], action) => {
       return action.items.sort((a, b) => b.id - a.id)
     case RECEIVE_CART_ITEM:
       let nextState = clone(state)
-      nextState.forEach(item => {if (item.id === action.item.id) item.quantity === action.item.quantity})
+      nextState.forEach(item => {if (item.id === action.item.id) item.quantity = action.item.quantity})
       console.log(nextState)
       return nextState
     // case REFRESH_CART:
