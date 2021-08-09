@@ -1,10 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { moneyFormatter } from '../../utils/extra_utils'
 import CartItem from '../item/cart_item'
 
 export default class Cart extends React.Component {
+  // componentDidMount() {
+  //   console.log('hi')
+  //   // this.props.refreshCart()
+  // }
+  // componentWillUnmount() {
+  //   console.log('hi')
+  //   this.props.refreshCart()
+  // }
+
   render() {
-    const { currentUser, cartItems } = this.props
+    const { currentUser, cartItems, updateCartItem, deleteCartItem } = this.props
+    let subTotal = 0
+    if (cartItems) subTotal = cartItems.map(item => item.quantity * item.snack.price).reduce((a, b) => a + b, 0)
     return (
       <div className='cart-main-div'>
         {!currentUser ?
@@ -17,9 +29,15 @@ export default class Cart extends React.Component {
               <div className='cart-cart-items'>
                 <p className='cart-text-main'>Shopping Cart</p>
                 <p className='cart-text-price'>Price</p>
-                {cartItems.map(item => <CartItem key={item.id} item={item} />)}
+                {cartItems.map(item => <CartItem key={item.id} item={item} updateCartItem={updateCartItem} deleteCartItem={deleteCartItem} />)}
               </div>
-              <div className='cart-checkout-div'></div>
+              <div className='cart-checkout-div'>
+                <div className='cart-checkout-subtotal'>
+                  <p className='cart-checkout-subtotal-text'>Subtotal ({cartItems.length} {cartItems.length > 1 ? 'items' : 'item'}): </p>
+                  <p className='cart-checkout-subtotal-amount'>{moneyFormatter.format(subTotal / 100)}</p>
+                </div>
+                <div className='cart-checkout-button'>Proceed to checkout</div>
+              </div>
             </div>
             :
             <div>
@@ -28,6 +46,5 @@ export default class Cart extends React.Component {
         }
       </div>
     )
-    return null
   }
 }

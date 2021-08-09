@@ -9,6 +9,7 @@ export default class NavBar extends React.Component {
   
   render() {
     const { currentUser, cartItems } = this.props
+    const currentCartSize = cartItems.length || currentUser.cartSize
     return (
       <div className='nav-bar'>
         <div className='nav-left'>
@@ -42,7 +43,7 @@ export default class NavBar extends React.Component {
           <Link className='nav-cart-link nav-sub' to='/cart'>
             <div className='nav-cart-combo'>
               <img className='nav-cart-img' src="images/amanom-cart.png"/>
-              {!currentUser ? <p className='nav-cart-number'>{'0'}</p> : cartItems.length > 9 ? <p className='nav-cart-number nav-cart-big'>{'9+'}</p> : <p className='nav-cart-number'>{cartItems.length}</p>}
+              {!currentUser ? <p className='nav-cart-number'>{'0'}</p> : currentCartSize > 9 ? <p className='nav-cart-number nav-cart-big'>{'9+'}</p> : <p className='nav-cart-number'>{currentCartSize}</p>}
             </div>
             <p className='nav-cart-text nav-text-bold'>Cart</p>
           </Link>

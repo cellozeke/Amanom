@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { moneyFormatter } from '../../utils/extra_utils'
 
 export default class CartItem extends React.Component {
   constructor(props) {
     super(props)
     const { item } = this.props
     this.state = {
+      id: item.id,
       snackId: item.snackId,
       userId: item.userId,
       orderId: item.orderId,
@@ -15,17 +17,22 @@ export default class CartItem extends React.Component {
 
   handleQuantity = e => {
     this.setState({quantity: e.target.value})
+    let nextState = Object.assign({}, this.state, {quantity: e.target.value})
+    this.props.updateCartItem(nextState)
   }
 
   handleDelete = e => {
     this.setState({quantity: 0})
+    // let nextState = Object.assign({}, this.state, {quantity: 0})
+    this.props.deleteCartItem(this.props.item.id)
   }
 
   render() {
     const { item } = this.props
-    console.log(this.state)
     if (this.state.quantity === 0) return(
-      <div className='cart-item-deleted'></div>
+      <div className='cart-item-deleted'>
+        <p><Link className='cart-item-deleted-link' to={`snacks/${item.snack.id}`}>{item.snack.name}</Link> was removed from your Shopping Cart.</p>
+      </div>
     )
     return(
       <div className='cart-item-div'>
@@ -55,7 +62,7 @@ export default class CartItem extends React.Component {
           </div>
           <p className='cart-item-delete' onClick={this.handleDelete}>Delete</p>
         </div>
-        <p className='cart-item-price'>{`$${Math.floor(item.snack.price * this.state.quantity / 100)}.${item.snack.price * this.state.quantity % 100}`}</p>
+        <p className='cart-item-price'>{moneyFormatter.format(item.snack.price * this.state.quantity / 100)}</p>
       </div>
     )
   }

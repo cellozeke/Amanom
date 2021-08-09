@@ -10,4 +10,17 @@ export const fetchOrderItems = orderId => (
   })
 )
 
+export const updateCartItem = item => (
+  $.ajax({
+    method: 'PATCH',
+    url: `/api/items/${item.id}`,
+    data: { item }
+  })
+)
 
+export const removeCartItem = itemId => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/items/${itemId}`
+  })
+)
