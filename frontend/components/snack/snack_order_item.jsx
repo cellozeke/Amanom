@@ -21,7 +21,7 @@ export default class SnackOrderItem extends React.Component {
 
   handleSubmit = e => {
     const { createCartItem, updateCartItem, deleteCartItem, addRecentItem } = this.props
-    if (this.originalQuantity === this.state.quantity) {
+    if (this.originalQuantity === parseInt(this.state.quantity)) {
       this.props.history.push({pathname: '/cart'})
       return
     }
@@ -50,7 +50,7 @@ export default class SnackOrderItem extends React.Component {
         <p className='snack-order-availability'>In Stock</p>
         <div className='snack-order-quantity-div'>
           <p className='snack-order-quantity-text'>Qty: </p>
-          <select className='snack-order-quantity-select' defaultValue={quantity} onChange={this.handleQuantity}>
+          <select className='snack-order-quantity-select' value={quantity} onChange={this.handleQuantity}>
             <option value={0}>0</option>
             <option value={1}>1</option>
             <option value={2}>2</option>

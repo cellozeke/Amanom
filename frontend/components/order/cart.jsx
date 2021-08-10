@@ -6,7 +6,8 @@ import SnackOrderConfirm from '../snack/snack_order_confirm'
 
 export default class Cart extends React.Component {
   componentWillUnmount() {
-    this.props.refreshItems()
+    this.props.refreshCartItems()
+    this.props.refreshRecentItem()
   }
 
   render() {
@@ -19,7 +20,7 @@ export default class Cart extends React.Component {
 
     let subTotal = 0
     if (cartItems) subTotal = cartPrices.reduce((a, b) => a + b, 0)
-
+    // cartItems = cartItems.sort((a, b) => b.updatedAt - a.updatedAt)
     return (
       <div className='cart-main-div'>
         {!currentUser ?

@@ -2,9 +2,13 @@ export const isCartDataReady = state => (
   state.entities.cartItems !== null
 )
 
-export const getCartItems = state => (
-  state.entities.cartItems || []
-)
+export const getCartItems = state => {
+  let items = state.entities.cartItems
+  if (!items) return []
+  let clonedItems = [...items]
+  return clonedItems.sort((a, b) => b.updatedAt - a.updatedAt)
+  // state.entities.cartItems || []
+}
 
 export const getCartPrices = state => {
   let items = state.entities.cartItems

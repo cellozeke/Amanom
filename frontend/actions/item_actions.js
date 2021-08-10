@@ -5,7 +5,8 @@ export const RECEIVE_ORDER_ITEMS = 'RECEIVE_ORDER_ITEMS'
 export const CREATE_CART_ITEM = 'CREATE_CART_ITEM'
 export const UPDATE_CART_ITEM = 'UPDATE_CART_ITEM'
 export const ZERO_STORE_CART_ITEM = 'ZERO_STORE_CART_ITEM'
-export const REFRESH_ITEMS = 'REFRESH_ITEMS'
+export const REFRESH_CART_ITEMS = 'REFRESH_CART_ITEMS'
+export const REFRESH_RECENT_ITEM = 'REFRESH_RECENT_ITEM'
 export const ADD_RECENT_ITEM = 'ADD_RECENT_ITEM'
 
 const receiveCartItems = items => ({
@@ -63,8 +64,12 @@ export const deleteCartItem = itemId => dispatch => (
     .then(item => dispatch(zeroStoreCartItem(item.id)))
 )
 
-export const refreshItems = () => dispatch => (
-  dispatch({type: REFRESH_ITEMS})
+export const refreshCartItems = () => dispatch => (
+  dispatch({type: REFRESH_CART_ITEMS})
+)
+
+export const refreshRecentItem = () => dispatch => (
+  dispatch({type: REFRESH_RECENT_ITEM})
 )
 
 export const addRecentItem = item => dispatch => (
