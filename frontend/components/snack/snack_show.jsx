@@ -11,10 +11,6 @@ export default class SnackShow extends React.Component {
     if (prevProps.location !== this.props.location) this.props.fetchSnack(this.props.match.params.snackId)
   }
 
-  // componentWillUnmount() {
-  //   this.props.refreshItems()
-  // }
-
   render() {
     // console.log(this.props)
     const { snack, cartItems, history, sessionId, isCartDataReady, createCartItem, updateCartItem, deleteCartItem, addRecentItem } = this.props

@@ -27,13 +27,13 @@ export default class CartItem extends React.Component {
   }
 
   render() {
-    const { item } = this.props
+    const { item, itemSubtotal } = this.props
     if (this.state.quantity === 0) return (
       <div className='cart-item-deleted'>
         <p><Link className='cart-item-deleted-link' to={`snacks/${item.snack.id}`}>{item.snack.name}</Link> was removed from your Shopping Cart.</p>
       </div>
     )
-    return(
+    return (
       <div className='cart-item-div'>
         <div className='cart-item-img-div'>
           <Link className='cart-item-img-link' to={`/snacks/${item.snack.id}`}>
@@ -47,7 +47,7 @@ export default class CartItem extends React.Component {
           <p className='cart-item-unit-price'>{moneyFormatter.format(item.snack.price / 100)}</p>
           <div className='cart-item-quantity-div'>
             <p className='cart-item-quantity-text'>Qty: </p>
-            <select className='cart-item-quantity-select' defaultValue={this.state.quantity} onChange={this.handleQuantity}>
+            <select className='cart-item-quantity-select' value={item.quantity} onChange={this.handleQuantity}>
               <option value={1}>1</option>
               <option value={2}>2</option>
               <option value={3}>3</option>
@@ -62,7 +62,7 @@ export default class CartItem extends React.Component {
           </div>
           <p className='cart-item-delete' onClick={this.handleDelete}>Delete</p>
         </div>
-        <p className='cart-item-price'>{moneyFormatter.format(item.snack.price * this.state.quantity / 100)}</p>
+        <p className='cart-item-price'>{moneyFormatter.format(itemSubtotal / 100)}</p>
       </div>
     )
   }

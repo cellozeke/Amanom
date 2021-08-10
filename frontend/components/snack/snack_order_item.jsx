@@ -20,24 +20,18 @@ export default class SnackOrderItem extends React.Component {
   }
 
   handleSubmit = e => {
-    console.log(this.props)
     const { createCartItem, updateCartItem, deleteCartItem, addRecentItem } = this.props
     if (this.originalQuantity === this.state.quantity) {
       this.props.history.push({pathname: '/cart'})
       return
     }
     if (!this.originalQuantity) {
-      console.log('creating')
       createCartItem(this.state)
     } else {
       let originalId = this.filteredCart[0].id
-      console.log(originalId)
-      console.log(this.state.quantity)
       if (!parseInt(this.state.quantity)) {
-        console.log('deleting')
         deleteCartItem(originalId)
       } else {
-        console.log('updating')
         updateCartItem(Object.assign({}, this.state, {id: originalId}))
       }
     }

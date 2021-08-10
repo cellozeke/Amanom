@@ -38,6 +38,7 @@
 }
 
 .cart-item-name {
+  width: fit-content;
   font-size: 20px;
   margin-bottom: 7px;
   color: black;
@@ -79,7 +80,7 @@
 }
 
 .cart-item-delete {
-  width: 20px;
+  width: fit-content;
   color: #007185;
   font-size: 14px;
 }

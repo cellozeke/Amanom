@@ -7,9 +7,8 @@ change quantity css
 seed goldfish, walker cookies, annie's fruit snacks
 
 
-
+refreshing cart while logged out...
 CHECKOUT
-FINISH SNACK PAGE ORDER ITEM SECTION
 nonauth routes
 
 
