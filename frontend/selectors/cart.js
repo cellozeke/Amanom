@@ -13,19 +13,9 @@ export const getCartItem = (state, ownProps) => {
 
 export const getCartItems = state => {
   let items = state.entities.cartItems
-  if (!items) return []
-  let clonedItems = [...items]
-  return clonedItems.sort((a, b) => b.updatedAt - a.updatedAt)
-  // state.entities.cartItems || []
-}
-
-export const getCartPrices = state => {
-  let items = state.entities.cartItems
-  if (!items) return null
-  // if (items === null) return null
+  if (!items) return {items: [], prices: []}
   let sortedItems = [...items].sort((a, b) => b.updatedAt - a.updatedAt)
-  return sortedItems.map(item => item.snack.price * item.quantity)
-  // return items.map(item => item.snack.price * item.quantity)
+  return {items: sortedItems, prices: sortedItems.map(item => item.snack.price * item.quantity)}
 }
 
 export const getCartChange = state => {

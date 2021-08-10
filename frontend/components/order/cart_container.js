@@ -1,12 +1,11 @@
 import Cart from "./cart"
 import { connect } from "react-redux"
 import { deleteCartItem, fetchCartItems, refreshCartItems, refreshRecentItem, updateCartItem } from "../../actions/item_actions"
-import { getCartChange, getCartItems, getCartPrices, isCartDataReady } from "../../selectors/cart"
+import { getCartChange, getCartItems, isCartDataReady } from "../../selectors/cart"
 
 const mapStateToProps = state => ({
   currentUser: state.entities.users[state.session.id],
   cartItems: getCartItems(state),
-  cartPrices: getCartPrices(state),
   isCartDataReady: isCartDataReady(state),
   getCartChange: getCartChange(state)
 })
