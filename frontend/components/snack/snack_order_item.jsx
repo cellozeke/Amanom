@@ -1,62 +1,42 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
 
 export default class SnackOrderItem extends React.Component {
-  constructor(props) {
-    super(props)
-    const { cartItems, snack, sessionId } = this.props
-    this.filteredCart = cartItems ? cartItems.filter(item => item.snackId === snack.id) : []
-    this.originalQuantity = this.filteredCart.length ? this.filteredCart[0].quantity : 0
-    this.state = {
-      snackId: snack.id,
-      userId: sessionId,
-      orderId: null,
-      quantity: this.originalQuantity
-    }
-  }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevProps.history !== this.props.history) this.setState({quantity: 10})
-  // }
-
   handleQuantity = e => {
-    this.setState({quantity: e.target.value})
-  }
+    const { cartItem, createCartItem, updateCartItem, deleteCartItem } = this.props
+    let originalQuantity = cartItem.originalQuantity
+    let newQuantity = parseInt(e.target.value)
+    let nextState = Object.assign(cartItem.matchingItem, {quantity: newQuantity})
 
-  handleSubmit = e => {
-    const { createCartItem, updateCartItem, deleteCartItem, addRecentItem } = this.props
-    if (this.originalQuantity === parseInt(this.state.quantity)) {
-      this.props.history.push({pathname: '/cart'})
+    if (!originalQuantity && newQuantity) {
+      createCartItem(nextState)
       return
     }
-    if (!this.originalQuantity) {
-      createCartItem(this.state)
-    } else {
-      let originalId = this.filteredCart[0].id
-      if (!parseInt(this.state.quantity)) {
-        deleteCartItem(originalId)
-      } else {
-        updateCartItem(Object.assign({}, this.state, {id: originalId}))
-      }
+
+    if (originalQuantity && !newQuantity) {
+      deleteCartItem(cartItem.id)
+      return
     }
-    addRecentItem(this.state)
-    this.props.history.push({pathname: '/cart'})
+
+    if (originalQuantity && newQuantity) {
+      updateCartItem(nextState)
+      return
+    }
   }
 
   render() {
-    const { price, id } = this.props.snack
-    const { cartItems } = this.props
-    let filteredCart = cartItems ? cartItems.filter(item => item.snackId === id) : []
-    let quantity = filteredCart.length ? filteredCart[0].quantity : 0
+    const { cartItem } = this.props
+    const { price } = this.props.snack
     return (
       <div className='snack-order-item-main-div'>
-        <p className='snack-order-price'>{moneyFormatter.format(this.state.quantity * price / 100)}</p>
+        <p className='snack-order-price'>{moneyFormatter.format(cartItem.matchingItem.quantity * price / 100)}</p>
         <p className='snack-order-delivery'>{`FREE 24-hour delivery &`}</p>
         <p className='snack-order-returns'>FREE returns</p>
         <p className='snack-order-availability'>In Stock</p>
         <div className='snack-order-quantity-div'>
           <p className='snack-order-quantity-text'>Qty: </p>
-          <select className='snack-order-quantity-select' defaultValue={this.state.quantity} onChange={this.handleQuantity}>
+          <select className='snack-order-quantity-select' value={cartItem.matchingItem.quantity} onChange={this.handleQuantity}>
             <option value={0}>0</option>
             <option value={1}>1</option>
             <option value={2}>2</option>
@@ -70,7 +50,7 @@ export default class SnackOrderItem extends React.Component {
             <option value={10}>10</option>
           </select>
         </div>
-        <div className='snack-order-button' onClick={this.handleSubmit} to='/cart' >{this.originalQuantity ? 'Edit order' : 'Add to cart'}</div>
+        <Link className='snack-order-button' to='/cart' >Go to cart</Link>
         <div className='snack-order-secure'><img className='snack-order-secure-img' src="/images/secure.png" />Secure transaction</div>
         <div className='snack-order-ship-sell-text'>Ships from <p className='snack-order-shipper'>AmanomFresh</p></div>
         <div className='snack-order-ship-sell-text'>Sold by <p className='snack-order-seller'>AmanomFresh</p></div>

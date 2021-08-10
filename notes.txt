@@ -6,7 +6,7 @@ add more componentdidupdates
 change quantity css
 seed goldfish, walker cookies, annie's fruit snacks
 
-
+get rid of recentItem
 refreshing cart while logged out...
 CHECKOUT
 nonauth routes

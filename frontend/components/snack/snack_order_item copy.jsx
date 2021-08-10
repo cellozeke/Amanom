@@ -44,17 +44,19 @@ export default class SnackOrderItem extends React.Component {
   }
 
   render() {
-    const { price } = this.props.snack
-    const { quantity } = this.state
+    const { price, id } = this.props.snack
+    const { cartItems } = this.props
+    let filteredCart = cartItems ? cartItems.filter(item => item.snackId === id) : []
+    let quantity = filteredCart.length ? filteredCart[0].quantity : 0
     return (
       <div className='snack-order-item-main-div'>
-        <p className='snack-order-price'>{moneyFormatter.format(quantity * price / 100)}</p>
+        <p className='snack-order-price'>{moneyFormatter.format(this.state.quantity * price / 100)}</p>
         <p className='snack-order-delivery'>{`FREE 24-hour delivery &`}</p>
         <p className='snack-order-returns'>FREE returns</p>
         <p className='snack-order-availability'>In Stock</p>
         <div className='snack-order-quantity-div'>
           <p className='snack-order-quantity-text'>Qty: </p>
-          <select className='snack-order-quantity-select' value={quantity} onChange={this.handleQuantity}>
+          <select className='snack-order-quantity-select' defaultValue={this.state.quantity} onChange={this.handleQuantity}>
             <option value={0}>0</option>
             <option value={1}>1</option>
             <option value={2}>2</option>
