@@ -11,12 +11,12 @@ export default class Cart extends React.Component {
   }
 
   render() {
-    const { currentUser, cartItems, cartPrices, updateCartItem, deleteCartItem, isCartDataReady, getCartChange } = this.props
-    if (!isCartDataReady) return (
+    if (!this.props.isCartDataReady) return (
       <div className='cart-spinner-div'>
         <img className='loading-indicator' src="/images/loadIndicator.gif" />
       </div>
     )
+    const { currentUser, cartItems, cartPrices, updateCartItem, deleteCartItem, getCartChange } = this.props
 
     let subTotal = 0
     if (cartItems) subTotal = cartPrices.reduce((a, b) => a + b, 0)
