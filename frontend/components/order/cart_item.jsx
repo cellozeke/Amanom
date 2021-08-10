@@ -48,16 +48,16 @@ export default class CartItem extends React.Component {
           <div className='cart-item-quantity-div'>
             <p className='cart-item-quantity-text'>Qty: </p>
             <select className='cart-item-quantity-select' defaultValue={this.state.quantity} onChange={this.handleQuantity}>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+              <option value={6}>6</option>
+              <option value={7}>7</option>
+              <option value={8}>8</option>
+              <option value={9}>9</option>
+              <option value={10}>10</option>
             </select>
           </div>
           <p className='cart-item-delete' onClick={this.handleDelete}>Delete</p>

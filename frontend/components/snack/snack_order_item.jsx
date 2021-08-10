@@ -32,7 +32,8 @@ export default class SnackOrderItem extends React.Component {
     } else {
       let originalId = this.filteredCart[0].id
       console.log(originalId)
-      if (!this.state.quantity) {
+      console.log(this.state.quantity)
+      if (!parseInt(this.state.quantity)) {
         console.log('deleting')
         deleteCartItem(originalId)
       } else {
@@ -56,17 +57,17 @@ export default class SnackOrderItem extends React.Component {
         <div className='snack-order-quantity-div'>
           <p className='snack-order-quantity-text'>Qty: </p>
           <select className='snack-order-quantity-select' defaultValue={quantity} onChange={this.handleQuantity}>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
+            <option value={0}>0</option>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+            <option value={6}>6</option>
+            <option value={7}>7</option>
+            <option value={8}>8</option>
+            <option value={9}>9</option>
+            <option value={10}>10</option>
           </select>
         </div>
         <div className='snack-order-button' onClick={this.handleSubmit} to='/cart' >{this.originalQuantity ? 'Edit order' : 'Add to cart'}</div>
