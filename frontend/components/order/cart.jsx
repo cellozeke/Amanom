@@ -4,8 +4,12 @@ import { moneyFormatter } from '../../utils/extra_utils'
 import CartItem from './cart_item'
 
 export default class Cart extends React.Component {
+  // componentDidMount() {
+  //   this.props.fetchCartItems()
+  // }
+  
   componentWillUnmount() {
-    this.props.refreshCart()
+    this.props.refreshItems()
   }
 
   render() {

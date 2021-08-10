@@ -11,8 +11,13 @@ export default class SnackShow extends React.Component {
     if (prevProps.location !== this.props.location) this.props.fetchSnack(this.props.match.params.snackId)
   }
 
+  // componentWillUnmount() {
+  //   this.props.refreshItems()
+  // }
+
   render() {
-    const { snack, cartItems, sessionId, isCartDataReady, createCartItem, updateCartItem, deleteCartItem } = this.props
+    // console.log(this.props)
+    const { snack, cartItems, history, sessionId, isCartDataReady, createCartItem, updateCartItem, deleteCartItem, addRecentItem } = this.props
     if (!isCartDataReady) return (
       <div className='snack-show-spinner-div'>
         <img className='loading-indicator' src="/images/loadIndicator.gif" />
@@ -50,7 +55,7 @@ export default class SnackShow extends React.Component {
               </ul>
             </div>
           </div>
-          <SnackOrderItem snack={snack} cartItems={cartItems} sessionId={sessionId} createCartItem={createCartItem} updateCartItem={updateCartItem} deleteCartItem={deleteCartItem} />
+          <SnackOrderItem snack={snack} cartItems={cartItems} sessionId={sessionId} createCartItem={createCartItem} updateCartItem={updateCartItem} deleteCartItem={deleteCartItem} addRecentItem={addRecentItem} history={history} />
         </div>
       </div>
     )

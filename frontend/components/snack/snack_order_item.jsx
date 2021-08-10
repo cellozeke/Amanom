@@ -1,17 +1,17 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
 
 export default class SnackOrderItem extends React.Component {
   constructor(props) {
     super(props)
     const { cartItems, snack, sessionId } = this.props
-    let filteredCart = cartItems ? cartItems.filter(item => item.snackId === snack.id) : []
+    this.filteredCart = cartItems ? cartItems.filter(item => item.snackId === snack.id) : []
+    this.originalQuantity = this.filteredCart.length ? this.filteredCart[0].quantity : 0
     this.state = {
       snackId: snack.id,
       userId: sessionId,
       orderId: null,
-      quantity: filteredCart.length ? filteredCart[0].quantity : 0
+      quantity: this.originalQuantity
     }
   }
 
@@ -20,7 +20,28 @@ export default class SnackOrderItem extends React.Component {
   }
 
   handleSubmit = e => {
-    e.preventDefault();
+    console.log(this.props)
+    const { createCartItem, updateCartItem, deleteCartItem, addRecentItem } = this.props
+    if (this.originalQuantity === this.state.quantity) {
+      this.props.history.push({pathname: '/cart'})
+      return
+    }
+    if (!this.originalQuantity) {
+      console.log('creating')
+      createCartItem(this.state)
+    } else {
+      let originalId = this.filteredCart[0].id
+      console.log(originalId)
+      if (!this.state.quantity) {
+        console.log('deleting')
+        deleteCartItem(originalId)
+      } else {
+        console.log('updating')
+        updateCartItem(Object.assign({}, this.state, {id: originalId}))
+      }
+    }
+    addRecentItem(this.state)
+    this.props.history.push({pathname: '/cart'})
   }
 
   render() {
@@ -48,7 +69,7 @@ export default class SnackOrderItem extends React.Component {
             <option value="10">10</option>
           </select>
         </div>
-        <div className='snack-order-button' onClick={this.handleSubmit}>{quantity ? 'Edit order' : 'Add to cart'}</div>
+        <div className='snack-order-button' onClick={this.handleSubmit} to='/cart' >{this.originalQuantity ? 'Edit order' : 'Add to cart'}</div>
         <div className='snack-order-secure'><img className='snack-order-secure-img' src="/images/secure.png" />Secure transaction</div>
         <div className='snack-order-ship-sell-text'>Ships from <p className='snack-order-shipper'>AmanomFresh</p></div>
         <div className='snack-order-ship-sell-text'>Sold by <p className='snack-order-seller'>AmanomFresh</p></div>
