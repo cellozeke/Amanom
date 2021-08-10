@@ -2,21 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
 import CartItem from './cart_item'
-import SnackOrderConfirm from '../snack/snack_order_confirm'
 
 export default class Cart extends React.Component {
   componentWillUnmount() {
     this.props.refreshCartItems()
-    this.props.refreshRecentItem()
   }
 
   render() {
-    if (!this.props.isCartDataReady) return (
+    const { currentUser, cartItems, isCartDataReady, updateCartItem, deleteCartItem } = this.props
+
+    if (!isCartDataReady) return (
       <div className='cart-spinner-div'>
         <img className='loading-indicator' src="/images/loadIndicator.gif" />
       </div>
     )
-    const { currentUser, cartItems, updateCartItem, deleteCartItem, getCartChange } = this.props
+
 
     let subTotal = cartItems.prices.reduce((a, b) => a + b, 0)
     return (
@@ -39,7 +39,6 @@ export default class Cart extends React.Component {
                   </div>
                   <div className='cart-checkout-button'>Proceed to checkout</div>
                 </div>
-                <SnackOrderConfirm getCartChange={getCartChange} />
               </div>
             </div>
             :

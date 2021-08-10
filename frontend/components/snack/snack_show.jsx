@@ -16,8 +16,7 @@ export default class SnackShow extends React.Component {
   }
 
   render() {
-    // console.log(this.props)
-    const { snack, cartItem, cartItems, history, sessionId, isCartDataReady, createCartItem, updateCartItem, deleteCartItem, addRecentItem } = this.props
+    const { snack, cartItem, isCartDataReady, createCartItem, updateCartItem, deleteCartItem } = this.props
     if (!isCartDataReady) return (
       <div className='snack-show-spinner-div'>
         <img className='loading-indicator' src="/images/loadIndicator.gif" />
@@ -55,7 +54,7 @@ export default class SnackShow extends React.Component {
               </ul>
             </div>
           </div>
-          <SnackOrderItem snack={snack} cartItem={cartItem} cartItems={cartItems} sessionId={sessionId} createCartItem={createCartItem} updateCartItem={updateCartItem} deleteCartItem={deleteCartItem} addRecentItem={addRecentItem} history={history} />
+          <SnackOrderItem snack={snack} cartItem={cartItem} createCartItem={createCartItem} updateCartItem={updateCartItem} deleteCartItem={deleteCartItem} />
         </div>
       </div>
     )

@@ -6,8 +6,6 @@ export const CREATE_CART_ITEM = 'CREATE_CART_ITEM'
 export const UPDATE_CART_ITEM = 'UPDATE_CART_ITEM'
 export const ZERO_STORE_CART_ITEM = 'ZERO_STORE_CART_ITEM'
 export const REFRESH_CART_ITEMS = 'REFRESH_CART_ITEMS'
-export const REFRESH_RECENT_ITEM = 'REFRESH_RECENT_ITEM'
-export const ADD_RECENT_ITEM = 'ADD_RECENT_ITEM'
 
 const receiveCartItems = items => ({
   type: RECEIVE_CART_ITEMS,
@@ -32,11 +30,6 @@ const editCartItem = item => ({
 const zeroStoreCartItem = itemId => ({
   type: ZERO_STORE_CART_ITEM,
   itemId
-})
-
-const receiveRecentItem = item => ({
-  type: ADD_RECENT_ITEM,
-  item
 })
 
 export const fetchCartItems = userId => dispatch => (
@@ -66,12 +59,4 @@ export const deleteCartItem = itemId => dispatch => (
 
 export const refreshCartItems = () => dispatch => (
   dispatch({type: REFRESH_CART_ITEMS})
-)
-
-export const refreshRecentItem = () => dispatch => (
-  dispatch({type: REFRESH_RECENT_ITEM})
-)
-
-export const addRecentItem = item => dispatch => (
-  dispatch(receiveRecentItem(item))
 )
