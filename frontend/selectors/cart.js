@@ -1,8 +1,10 @@
-export const isCartDataReady = state => (
-  state.entities.cartItems !== null
-)
+export const isCartDataReady = state => {
+  if (!state.session.id) return null
+  return state.entities.cartItems !== null
+}
 
 export const getCartItem = (state, ownProps) => {
+  // if (!state.session.id) return null
   let items = state.entities.cartItems
   if (!items) return null
   let snackId = parseInt(ownProps.match.params.snackId)

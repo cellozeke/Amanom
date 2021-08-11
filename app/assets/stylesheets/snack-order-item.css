@@ -1,12 +1,29 @@
 .snack-order-item-main-div {
   width: 16%;
-  height: 55%;
+  height: fit-content;
   display: flex;
   margin: 30px;
   padding: 20px;
   border: 1px solid #CCCCCC;
   border-radius: 8px;
   flex-direction: column;
+}
+
+.snack-order-item-login {
+  width: 16%;
+  height: fit-content;
+  display: flex;
+  margin: 30px;
+  padding: 20px;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.snack-order-item-login-text {
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .snack-order-price {

@@ -1,5 +1,6 @@
 import { receiveSessionErrors, signUp } from "../../actions/session_actions"
 import { connect } from "react-redux"
+import { withRouter } from "react-router"
 import SignupForm from "./signup_form"
 
 const mapStateToProps = state => ({
@@ -11,5 +12,5 @@ const mapDispatchToProps = dispatch => ({
   receiveSessionErrors: errors => dispatch(receiveSessionErrors(errors))
 })
 
-const SignupFormContainer = connect(mapStateToProps, mapDispatchToProps)(SignupForm)
+const SignupFormContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(SignupForm))
 export default SignupFormContainer

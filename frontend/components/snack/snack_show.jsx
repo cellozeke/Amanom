@@ -1,6 +1,7 @@
 import React from 'react'
 import { moneyFormatter } from '../../utils/extra_utils';
 import SnackOrderItem from './snack_order_item';
+import { Link } from 'react-router-dom';
 
 export default class SnackShow extends React.Component {
   componentDidMount() {
@@ -16,8 +17,8 @@ export default class SnackShow extends React.Component {
   }
 
   render() {
-    const { snack, cartItem, isCartDataReady, createCartItem, updateCartItem, deleteCartItem } = this.props
-    if (!isCartDataReady) return (
+    const { snack, currentUser, cartItem, isCartDataReady, createCartItem, updateCartItem, deleteCartItem, refreshCartItems } = this.props
+    if (!isCartDataReady && currentUser) return (
       <div className='snack-show-spinner-div'>
         <img className='loading-indicator' src="/images/loadIndicator.gif" />
       </div>
@@ -54,7 +55,14 @@ export default class SnackShow extends React.Component {
               </ul>
             </div>
           </div>
-          <SnackOrderItem snack={snack} cartItem={cartItem} createCartItem={createCartItem} updateCartItem={updateCartItem} deleteCartItem={deleteCartItem} />
+          {currentUser ? 
+            <SnackOrderItem snack={snack} currentUser={currentUser} cartItem={cartItem} createCartItem={createCartItem} updateCartItem={updateCartItem} deleteCartItem={deleteCartItem} refreshCartItems={refreshCartItems}/>
+            :
+            <div className='snack-order-item-login'>
+              <p className='snack-order-item-login-text'>Please log in to view and modify your cart.</p>
+              <Link className='snack-order-button' to='/login' >Log In</Link>
+            </div>
+          }
         </div>
       </div>
     )

@@ -11,7 +11,7 @@ export default class Cart extends React.Component {
   render() {
     const { currentUser, cartItems, isCartDataReady, updateCartItem, deleteCartItem } = this.props
 
-    if (!isCartDataReady) return (
+    if (!isCartDataReady && currentUser) return (
       <div className='cart-spinner-div'>
         <img className='loading-indicator' src="/images/loadIndicator.gif" />
       </div>

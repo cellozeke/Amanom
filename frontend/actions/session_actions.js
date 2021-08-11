@@ -22,6 +22,7 @@ export const receiveSessionErrors = errors => ({
 export const signUp = user => dispatch => (
   SessionApiUtils.signUp(user)
     .then(user => dispatch(receiveCurrentUser(user)), errors => dispatch(receiveSessionErrors(errors.responseJSON)))
+    .then(res => fetchCartItems(res.user.id)(dispatch))
 )
 
 export const logIn = user => dispatch => (

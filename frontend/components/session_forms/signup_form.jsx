@@ -18,6 +18,7 @@ export default class SignupForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     this.props.signUp(this.state)
+      .then(() => this.props.history.go(-1))
   }
 
   handleInput = field => e => {

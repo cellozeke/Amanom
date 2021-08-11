@@ -1,18 +1,18 @@
-database constraints matching user validations?
-change ajax to fetch
-scalable css
 redirect on bad url. 24graawef showing snack 24...
-add more componentdidupdates
 change quantity css
 seed goldfish, walker cookies, annie's fruit snacks
+database constraints matching user validations?
+fetch
+modals
 
-get rid of recentItem
-refreshing cart while logged out...
+SLIDER
 CHECKOUT
-nonauth routes
-
+CATEGORIES BAR SURPRISE ME
+SEARCH RESULTS FILTER AND SORT
+SEARCH DROPDOWN SUGGESTIONS
+ADVANCED SEARCH RESULTS
+ASSIGN PROTECTED ROUTES (PROFILE)
 
 PROFILE
-SEARCH WITH SORTING
 REVIEWS
 TAGS

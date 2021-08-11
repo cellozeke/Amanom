@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :items, only: %i[show create update destroy]
     get '/cart_items/:id', to: 'items#show_cart_items'
     get '/order_items/:id', to: 'items#show_order_items'
+    get '/search_results', to: 'snacks#show_search_results'
     resource :session, only: %i[create destroy]
   end
 end
