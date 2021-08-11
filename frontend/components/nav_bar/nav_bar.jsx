@@ -5,7 +5,7 @@ import SearchBar from './search_bar'
 export default class NavBar extends React.Component {
   logOut = () => {
     this.props.logOut()
-    this.props.history.push({pathname: '/'})
+    // this.props.history.push({pathname: '/'})
   }
   
   render() {

@@ -8,6 +8,7 @@ import SnackShow from "./snack_show"
 
 const mapStateToProps = (state, ownProps) => ({
   snack: state.entities.snacks[ownProps.match.params.snackId],
+  currentUser: state.session.id,
   cartItem: getCartItem(state, ownProps),
   isCartDataReady: isCartDataReady(state)
 })

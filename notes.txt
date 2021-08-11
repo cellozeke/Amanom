@@ -6,6 +6,7 @@ add more componentdidupdates
 change quantity css
 seed goldfish, walker cookies, annie's fruit snacks
 
+only cart when logged in
 CHECKOUT
 ASSIGN PROTECTED ROUTES
 
