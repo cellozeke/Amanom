@@ -19,17 +19,25 @@ export default class SearchResults extends React.Component {
     return (
       <div className='search-results-main-div'>
         <div className='search-results-sorting-div'>
-
+          <p>sort by price</p>
+          <p>sort by rating</p>
+          <p>sort by relevance</p>
         </div>
         <div className='search-results-display-div'>
-          {this.props.searchedSnacks.map(snack =>
-              <div className='search-results-display-item'>
-                <img src={snack.photoUrl} />
-                {snack.name}
-              </div>
-          )}
+          <p className='search-results-text'>{`Search results for "${this.props.words.join(' ')}"`}</p>
+          <div className='search-results-display-item-div'>
+            {this.props.searchedSnacks.map(snack =>
+                <div className='search-results-display-item' key={snack.id}>
+                  <div className='search-results-display-item-img-div'>
+                    <img className='search-results-display-item-img' src={snack.photoUrl} />
+                  </div>
+                  <p className='search-results-display-item-name'>{snack.name}</p>
+                  <p className='search-results-display-item-rating'>Insert {snack.rating || 0} stars here</p>
+                  <p className='search-results-display-item-delivery'>FREE 24-hour delivery</p>
+                </div>
+            )}
+          </div>
         </div>
-        {this.props.searchedSnacks.map(snack => snack.name)}
       </div>
     )
   }

@@ -20,6 +20,7 @@ export default class LoginForm extends React.Component {
     e.preventDefault();
     (/\A[a-zA-Z0-9]+\z/).test(this.state.usernameOrEmail) ? this.state.username = this.state.usernameOrEmail : this.state.email = this.state.usernameOrEmail
     this.props.logIn(this.state)
+      .then(() => this.props.history.go(-1))
   }
 
   handleInput = field => e => {
@@ -30,7 +31,7 @@ export default class LoginForm extends React.Component {
     e.preventDefault();
     const user = {username: 'Demo', email: 'demo@demo.com', password: 'hunter12'}
     this.props.logIn(user)
-      .then(() => this.props.history.push({pathname: '/'}))
+      .then(() => this.props.history.go(-1))
   }
 
   render() {
