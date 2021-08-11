@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import SearchBar from './search_bar'
 
 export default class NavBar extends React.Component {
   logOut = () => {
@@ -23,7 +24,7 @@ export default class NavBar extends React.Component {
         </div>
 
         <div className='nav-center'>
-
+          <SearchBar />
         </div>
 
         <div className='nav-right'>
