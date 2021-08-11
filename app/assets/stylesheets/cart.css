@@ -1,7 +1,7 @@
 .cart-main-div {
   height: 100%;
   width: 100%;
-  min-height: 660px;
+  min-height: 621px;
   background-color: #EAEDED;
   padding: 20px;
 }
@@ -126,7 +126,7 @@
 }
 
 .cart-spinner-div {
-  height: 660px;
+  height: 621px;
   width: 100%;
   background-color: #EAEDED;
   display: flex;

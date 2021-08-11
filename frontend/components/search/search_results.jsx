@@ -4,6 +4,7 @@ import { moneyFormatter } from '../../utils/extra_utils'
 
 export default class SearchResults extends React.Component {
   componentDidMount() {
+    this.props.refreshSearchedSnacks()
     this.props.fetchSearchedSnacks(this.props.words)
   }
 
