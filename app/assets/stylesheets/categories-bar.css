@@ -4,4 +4,24 @@
   background-color: #232F3E;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+
+}
+
+.categories-bar-main-div > * {
+  height: 80%;
+  width: fit-content;
+  padding: 0 20px;
+  color: white;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #232F3E;
+  border-radius: 3px;
+  outline: none;
+}
+
+.categories-bar-main-div > *:hover {
+  border: 1px solid white;
 }
