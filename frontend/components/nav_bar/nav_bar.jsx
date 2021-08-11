@@ -9,7 +9,7 @@ export default class NavBar extends React.Component {
   }
   
   render() {
-    const { currentUser, cartItems, isCartDataReady } = this.props
+    const { currentUser, cartItems, isCartDataReady, history } = this.props
     const cartSize = cartItems.items.filter(item => item.quantity > 0).length
     return (
       <div className='nav-bar'>
@@ -24,7 +24,7 @@ export default class NavBar extends React.Component {
         </div>
 
         <div className='nav-center'>
-          <SearchBar />
+          <SearchBar history={history} />
         </div>
 
         <div className='nav-right'>

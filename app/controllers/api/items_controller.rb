@@ -9,6 +9,10 @@ class Api::ItemsController < ApplicationController
     render :show_items
   end
 
+  def show_search_items
+    @items = Item.where()
+  end
+
   def show
     @item = Item.find(params[:id])
     render :show
