@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { moneyFormatter } from '../../utils/extra_utils'
 
 export default class SearchResults extends React.Component {
   componentDidMount() {
@@ -6,7 +8,10 @@ export default class SearchResults extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.location.search !== this.props.location.search) this.props.fetchSearchedSnacks(this.props.words)
+    if (prevProps.location.search !== this.props.location.search) {
+      this.props.refreshSearchedSnacks()
+      this.props.fetchSearchedSnacks(this.props.words)
+    }
   }
 
   render() {
@@ -28,10 +33,14 @@ export default class SearchResults extends React.Component {
           <div className='search-results-display-item-div'>
             {this.props.searchedSnacks.map(snack =>
                 <div className='search-results-display-item' key={snack.id}>
-                  <div className='search-results-display-item-img-div'>
+                  <Link className='search-results-display-item-img-div' to={`/snacks/${snack.id}`}>
                     <img className='search-results-display-item-img' src={snack.photoUrl} />
+                  </Link>
+                  <Link className='search-results-display-item-name' to={`/snacks/${snack.id}`}>{snack.name}</Link>
+                  <div className='search-results-display-item-price'>Price: 
+                    <p className='search-results-display-item-price-amount'>{moneyFormatter.format(snack.price / 100)}</p>
                   </div>
-                  <p className='search-results-display-item-name'>{snack.name}</p>
+                  <p className='search-results-display-item-availability'>In Stock</p>
                   <p className='search-results-display-item-rating'>Insert {snack.rating || 0} stars here</p>
                   <p className='search-results-display-item-delivery'>FREE 24-hour delivery</p>
                 </div>

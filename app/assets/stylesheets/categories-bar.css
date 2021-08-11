@@ -1,0 +1,7 @@
+.categories-bar-main-div {
+  height: 39px;
+  width: 100%;
+  background-color: #232F3E;
+  display: flex;
+  justify-content: space-evenly;
+}
