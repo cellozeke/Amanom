@@ -3,3 +3,10 @@ export const fetchSnack = snackId => (
     url: `/api/snacks/${snackId}`
   })
 )
+
+export const fetchSearchedSnacks = words => (
+  $.ajax({
+    url: '/api/search_results',
+    data: { words }
+  })
+)

@@ -16,7 +16,6 @@ export default class SearchBar extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     this.props.history.push({pathname: '/search', search: `?q=${this.state.searchString}`})
-    // this.props.history.push({pathname: `/search?q=${this.state.searchString}`})
   }
 
   render() {

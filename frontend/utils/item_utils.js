@@ -32,10 +32,3 @@ export const removeCartItem = itemId => (
     url: `/api/items/${itemId}`
   })
 )
-
-export const testFetch = words => (
-  $.ajax({
-    url: '/api/search_results',
-    data: { words }
-  })
-)

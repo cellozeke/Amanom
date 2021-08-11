@@ -5,7 +5,7 @@ import Root from './components/root'
 
 import { fetchSnack } from './actions/snack_actions'
 import { fetchCartItems } from './actions/item_actions'
-import { testFetch } from './utils/item_utils'
+import { fetchSearchedSnacks } from './utils/snack_utils'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
@@ -29,5 +29,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch
   window.getState = store.getState
   window.fetchSnack = fetchSnack
-  window.testFetch = testFetch
+  window.fetchSearchedSnacks = fetchSearchedSnacks
 })

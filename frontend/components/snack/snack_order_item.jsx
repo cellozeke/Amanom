@@ -4,25 +4,20 @@ import { moneyFormatter } from '../../utils/extra_utils'
 
 export default class SnackOrderItem extends React.Component {
   handleQuantity = e => {
-    const { cartItem, createCartItem, updateCartItem, deleteCartItem } = this.props
+    const { cartItem, createCartItem, updateCartItem, deleteCartItem, refreshCartItems } = this.props
     let originalQuantity = cartItem.originalQuantity
     let newQuantity = parseInt(e.target.value)
     let nextState = Object.assign(cartItem.matchingItem, {quantity: newQuantity})
-
     if (!originalQuantity && newQuantity) {
       createCartItem(nextState)
-      return
     }
-
     if (originalQuantity && !newQuantity) {
       deleteCartItem(cartItem.id)
-      return
     }
-
     if (originalQuantity && newQuantity) {
       updateCartItem(nextState)
-      return
     }
+    refreshCartItems()
   }
 
   render() {

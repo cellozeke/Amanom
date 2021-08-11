@@ -6,3 +6,7 @@ export const getWords = props => {
   if (searchObject.q === '') return null
   return searchObject.q.split(' ')
 }
+
+export const getSearchedSnacks = state => (
+  state.entities.search
+)
