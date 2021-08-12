@@ -9,6 +9,11 @@ class Api::ReviewsController < ApplicationController
     render :show_reviews
   end
 
+  def show
+    @review = Review.find(params[:id])
+    render :show
+  end
+
   def create
     @review = Review.new(review_params)
     if @review.save

@@ -1,7 +1,7 @@
 import { CREATE_CART_ITEM, UPDATE_CART_ITEM, RECEIVE_CART_ITEMS, REFRESH_CART_ITEMS, ZERO_STORE_CART_ITEM } from "../actions/item_actions"
 
 const cartItemsReducer = (state=null, action) => {
-  const clone = (items) => items.map(item => Array.isArray(item) ? clone(item) : item)
+  const clone = items => items.map(item => Array.isArray(item) ? clone(item) : item)
   Object.freeze(state)
   let nextState = clone(state || [])
   switch (action.type) {

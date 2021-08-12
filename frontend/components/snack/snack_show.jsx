@@ -2,14 +2,19 @@ import React from 'react'
 import { moneyFormatter } from '../../utils/extra_utils';
 import SnackOrderItem from './snack_order_item';
 import { Link } from 'react-router-dom';
+import SnackReviews from './snack_reviews';
 
 export default class SnackShow extends React.Component {
   componentDidMount() {
     this.props.fetchSnack(this.props.match.params.snackId)
+    this.props.fetchSnackReviews(this.props.match.params.snackId)
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.location !== this.props.location) this.props.fetchSnack(this.props.match.params.snackId)
+    if (prevProps.location !== this.props.location) {
+      this.props.fetchSnack(this.props.match.params.snackId)
+      this.props.fetchSnackReviews(this.props.match.params.snackId)
+    }
   }
 
   componentWillUnmount() {
@@ -17,7 +22,7 @@ export default class SnackShow extends React.Component {
   }
 
   render() {
-    const { snack, currentUser, cartItem, isCartDataReady, createCartItem, updateCartItem, deleteCartItem, refreshCartItems } = this.props
+    const { snack, reviews, currentUser, cartItem, isCartDataReady, createCartItem, updateCartItem, deleteCartItem, refreshCartItems } = this.props
     if (!isCartDataReady && currentUser) return (
       <div className='snack-show-spinner-div'>
         <img className='loading-indicator' src="/images/loadIndicator.gif" />
@@ -63,6 +68,10 @@ export default class SnackShow extends React.Component {
               <Link className='snack-order-button' to='/login' >Log In</Link>
             </div>
           }
+        </div>
+        <div className='snack-show-divider'> </div>
+        <div className='snack-show-reviews-div'>
+          <SnackReviews snack={snack} reviews={reviews} />
         </div>
       </div>
     )
