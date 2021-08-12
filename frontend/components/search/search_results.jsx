@@ -16,10 +16,16 @@ export default class SearchResults extends React.Component {
   }
 
   render() {
-    if (this.props.words === null) return <div>no search results</div>
+    // if (this.props.words === null) return <div>no search results</div>
     if (this.props.searchedSnacks === null) return (
       <div className='cart-spinner-div'>
         <img className='loading-indicator' src="/images/loadIndicator.gif" />
+      </div>
+    )
+    let numResults = this.props.searchedSnacks.length
+    if (!numResults) return (
+      <div className='search-results-main-div'>
+        <p className='search-results-none'>{`No search results for "${this.props.words.join(' ')}"`}</p>
       </div>
     )
     return (
@@ -30,7 +36,7 @@ export default class SearchResults extends React.Component {
           <p>sort by relevance</p>
         </div>
         <div className='search-results-display-div'>
-          <p className='search-results-text'>{`Search results for "${this.props.words.join(' ')}"`}</p>
+          <p className='search-results-text'>{`Showing ${numResults} result${numResults > 1 ? 's' : ''} for "${this.props.words.join(' ')}"`}</p>
           <div className='search-results-display-item-div'>
             {this.props.searchedSnacks.map(snack =>
                 <div className='search-results-display-item' key={snack.id}>

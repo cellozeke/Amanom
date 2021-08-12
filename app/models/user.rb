@@ -17,6 +17,8 @@ class User < ApplicationRecord
 
   has_many :orders
 
+  has_many :reviews
+
   has_many :cart_items,
   foreign_key: :user_id,
   class_name: :Item
