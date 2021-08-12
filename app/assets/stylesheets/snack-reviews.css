@@ -1,0 +1,35 @@
+.snack-show-reviews-main-div {
+  width: 100%;
+  height: fit-content;
+  padding: 20px;
+  background-color: lightblue;
+  display: flex;
+}
+
+.snack-show-reviews-sidebar {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  background-color: lightcoral;
+}
+
+.snack-show-reviews-sidebar > * {
+  margin-bottom: 20px;
+}
+
+.snack-show-reviews-sidebar-headline {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* .snack-show- */
+
+.snack-show-reviews-stars {
+  display: inline-block;
+}
+
+.snack-show-reviews-stars-out-of {
+  display: inline-block;
+}
+
+

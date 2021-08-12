@@ -70,9 +70,7 @@ export default class SnackShow extends React.Component {
           }
         </div>
         <div className='snack-show-divider'> </div>
-        <div className='snack-show-reviews-div'>
-          <SnackReviews snack={snack} reviews={reviews} />
-        </div>
+        <SnackReviews snack={snack} reviews={reviews} />
       </div>
     )
     return null
