@@ -11,9 +11,10 @@
 
 .search-results-sorting-div {
   width: 20%;
-  height: fit-content;
+  height: 800px;
+  /* height: fit-content; */
   margin-right: 30px;
-  background-color: lightblue;
+  background-color: #CCCCCC;
 }
 
 .search-results-display-div {

@@ -47,6 +47,10 @@
 .cart-item-seller {
   font-size: 14px;
   color: #007185;
+  margin-bottom: 7px;
+}
+
+.cart-item-stars {
   margin-bottom: 16px;
 }
 

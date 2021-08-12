@@ -1,6 +1,5 @@
 redirect on bad url. 24graawef showing snack 24...
 change quantity css
-seed goldfish, walker cookies, annie's fruit snacks
 database constraints matching user validations?
 fetch
 modals
@@ -9,11 +8,15 @@ modals
 SLIDER
 CHECKOUT
 CATEGORIES BAR SURPRISE ME
+STARS
+FINISH REVIEWS
+FOOTER
+GET RID OF CONSOLE LOGS
+
 SEARCH RESULTS FILTER AND SORT
 SEARCH DROPDOWN SUGGESTIONS
 ADVANCED SEARCH RESULTS
 ASSIGN PROTECTED ROUTES (PROFILE)
-GET RID OF CONSOLE LOGS
 
 PROFILE
 REVIEWS

@@ -50,8 +50,9 @@ export default class SnackReviews extends React.Component {
           }
         </div>
         
-        
-        {reviews.map(review => review.title)}
+        <div className='temp-reviews'>
+          {reviews.map(review => <p className='temp-review' key={review.id}>{[review.title, review.body, review.username]}</p>)}
+        </div>
       </div>
     )
   }

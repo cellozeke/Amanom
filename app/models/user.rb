@@ -3,7 +3,7 @@ class User < ApplicationRecord
     presence: true,
     uniqueness: { case_sensitive: false },
     length: { minimum: 4, maximum: 15 },
-    format: { with: /\A[a-zA-Z0-9]+\z/ }
+    format: { with: /\A[a-zA-Z0-9_-]+\z/ }
   validates :email,
     presence: true,
     uniqueness: { case_sensitive: false },
