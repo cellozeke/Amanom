@@ -13,6 +13,9 @@ Snack.destroy_all
 Item.destroy_all
 
 user1 = User.create!(username: 'Demo', email: 'demo@demo.com', password: 'hunter12')
+user2 = User.create!(username: 'walkie_talkie', email: 'walker@aa.io', password: 'hunter12')
+user3 = User.create!(username: 'chairis', email: 'charis@aa.io', password: 'hunter12')
+user4 = User.create!(username: 'AllYouCanEat', email: 'ayce@aa.io', password: 'hunter12')
 
 snack1 = Snack.create!(name: 'Airheads Xtremes Rainbow Berry Sour Candy Belts', description: 'Pack of 12, 3 oz. bags', price: 3999)
 snack2 = Snack.create!(name: 'Big Sour Patch Kids Chewy Candy', description: 'Individually wrapped, 240 count box', price: 1358)
@@ -172,4 +175,8 @@ snack77.photo.attach(io: URI.open('https://amanom-dev.s3.us-west-1.amazonaws.com
 
 item1 = Item.create!(snack_id: snack2.id, user_id: user1.id, order_id: nil, quantity: 3)
 item2 = Item.create!(snack_id: snack37.id, user_id: user1.id, order_id: nil, quantity: 4)
-item1 = Item.create!(snack_id: snack56.id, user_id: user1.id, order_id: nil, quantity: 3)
+item3 = Item.create!(snack_id: snack56.id, user_id: user1.id, order_id: nil, quantity: 3)
+
+review1 = Review.create!(user_id: user2.id, snack_id: snack33.id, title: 'yummy', body: '10/10 would ditch my cohort for these', stars: 5)
+review2 = Review.create!(user_id: user3.id, snack_id: snack37.id, title: 'yummy', body: '10/10 would ditch my cohort for these', stars: 5)
+review3 = Review.create!(user_id: user4.id, snack_id: snack37.id, title: 'eh', body: "they're all right", stars: 2)

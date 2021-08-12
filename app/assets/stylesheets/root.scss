@@ -64,6 +64,10 @@ table {
 	border-spacing: 0;
 }
 
+html {
+  min-width: 1520px;
+}
+
 html * {
   position: relative;
   box-sizing: border-box;

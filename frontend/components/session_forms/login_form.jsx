@@ -18,7 +18,7 @@ export default class LoginForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    (/\A[a-zA-Z0-9]+\z/).test(this.state.usernameOrEmail) ? this.state.username = this.state.usernameOrEmail : this.state.email = this.state.usernameOrEmail
+    (/\A[a-zA-Z0-9_-]+\z/).test(this.state.usernameOrEmail) ? this.state.username = this.state.usernameOrEmail : this.state.email = this.state.usernameOrEmail
     this.props.logIn(this.state)
       .then(() => this.props.history.go(-1))
   }

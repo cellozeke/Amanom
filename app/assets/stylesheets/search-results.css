@@ -5,11 +5,16 @@
   display: flex;
 }
 
+.search-results-none {
+  font-size: 28px;
+}
+
 .search-results-sorting-div {
   width: 20%;
-  height: fit-content;
+  height: 800px;
+  /* height: fit-content; */
   margin-right: 30px;
-  background-color: teal;
+  background-color: #CCCCCC;
 }
 
 .search-results-display-div {
