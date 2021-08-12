@@ -5,7 +5,6 @@ const reviewsReducer = (state=[], action) => {
   Object.freeze(state)
   switch (action.type) {
     case RECEIVE_SNACK_REVIEWS:
-      console.log(action.reviews)
       return action.reviews
     default:
       return state
