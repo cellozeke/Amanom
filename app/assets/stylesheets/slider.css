@@ -1,0 +1,166 @@
+.main-slider-div {
+  /* position: absolute; */
+}
+
+.slider-arrows {
+  position: absolute;
+  width: 1536px;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  padding: 30px 0px;
+  font-size: 80px;
+}
+
+.slider-arrow {
+  color: black;
+  font-family:'Courier New', Courier, monospace;
+  transform: scale(1, 3);
+  /* border: 2px solid gray; */
+  z-index: 1;
+  padding: 0 20px;
+  user-select: none;
+}
+
+.slider-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.295);
+  cursor: pointer;
+}
+
+.slider{
+  width: 1536px;
+  height: 622px;
+  overflow: hidden;
+}
+
+.slides{
+  width: 500%;
+  height: 100%;
+  display: flex;
+}
+
+.slides input{
+  display: none;
+}
+
+.slide{
+  max-width: 20%;
+  width: 20%;
+  transition: 1.2s;
+  background-size: 1536px 622px;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+}
+
+.slide img{
+  width: 1536px;
+  height: 622px;
+}
+
+.slide-img1 {
+  background-image: url('/images/chips.jpg');
+}
+
+.slide-img2 {
+  background-image: url('/images/walkers.jpg');
+}
+
+.slide-img3 {
+  background-image: url('/images/cookies.jpg');
+}
+
+.slide-img4 {
+  background-image: url('/images/chococandy.jpg');
+}
+
+.slide-img5 {
+  background-image: url('/images/goldfish.jpg');
+}
+
+/*css for manual slide navigation*/
+
+.navigation-manual{
+  position: absolute;
+  width: 800px;
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+}
+
+.manual-btn{
+  border: 2px solid #40D3DC;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+  margin-right: 40px;
+}
+
+.manual-btn:hover{
+  background: #40D3DC;
+}
+
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first{
+  margin-left: -40%;
+}
+
+#radio4:checked ~ .first{
+  margin-left: -60%;
+}
+
+#radio5:checked ~ .first{
+  margin-left: -80%;
+}
+
+/*css for automatic navigation*/
+
+/* .navigation-auto{
+  position: absolute;
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  margin-top: 460px;
+}
+
+.navigation-auto div{
+  border: 2px solid #40D3DC;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+.navigation-auto div:not(:last-child){
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+  background: #40D3DC;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+  background: #40D3DC;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+  background: #40D3DC;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4{
+  background: #40D3DC;
+}
+
+#radio5:checked ~ .navigation-auto .auto-btn5{
+  background: #40D3DC;
+} */
