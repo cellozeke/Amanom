@@ -10,3 +10,9 @@ export const fetchSearchedSnacks = words => (
     data: { words }
   })
 )
+
+export const fetchPopularSnacks = () => (
+  $.ajax({
+    url: '/api/popular_snacks'
+  })
+)

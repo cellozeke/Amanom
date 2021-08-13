@@ -14,7 +14,10 @@
   height: 800px;
   /* height: fit-content; */
   margin-right: 30px;
-  background-color: #CCCCCC;
+  border-radius: 10px;
+  padding: 20px;
+  font-style: italic;
+  background-color: #cccccc7c;
 }
 
 .search-results-display-div {

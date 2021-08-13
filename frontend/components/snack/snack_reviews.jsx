@@ -1,10 +1,10 @@
 import React from 'react'
+import SnackReview from './snack_review'
 
 export default class SnackReviews extends React.Component {
   render() {
     const { snack, reviews } = this.props
     if (!reviews) return null
-    console.log(reviews)
     let stars = [5, 4, 3, 2, 1]
     let percent = star => Math.round(reviews.filter(review => review.stars === star).length / snack.numReviews * 100)
     const css = starPercent => {
@@ -51,7 +51,8 @@ export default class SnackReviews extends React.Component {
         </div>
         
         <div className='temp-reviews'>
-          {reviews.map(review => <p className='temp-review' key={review.id}>{[review.title, review.body, review.username]}</p>)}
+          {reviews.map(review => <SnackReview key={review.id} review={review} />)}
+          {/* {reviews.map(review => <p className='temp-review' key={review.id}>{[review.title, review.body, review.username]}</p>)} */}
         </div>
       </div>
     )

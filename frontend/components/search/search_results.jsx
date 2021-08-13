@@ -31,9 +31,10 @@ export default class SearchResults extends React.Component {
     return (
       <div className='search-results-main-div'>
         <div className='search-results-sorting-div'>
-          <p>sort by price</p>
+          <p>Sort and filter features currently unavailable</p>
+          {/* <p>sort by price</p>
           <p>sort by rating</p>
-          <p>sort by relevance</p>
+          <p>sort by relevance</p> */}
         </div>
         <div className='search-results-display-div'>
           <p className='search-results-text'>{`Showing ${numResults} result${numResults > 1 ? 's' : ''} for "${this.props.words.join(' ')}"`}</p>

@@ -13,4 +13,13 @@ class Api::SnacksController < ApplicationController
     @snacks = results.uniq
     render :show_search_results
   end
+
+  def show_popular_snacks
+    @snacks = Snack.find_by_sql ['SELECT snacks.* FROM items JOIN snacks ON snacks.id = items.snack_id GROUP BY snacks.id ORDER BY COUNT(*) DESC LIMIT 4']
+    render :show_search_results
+  end
+
+  def show_random_snacks
+
+  end
 end

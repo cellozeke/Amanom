@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get '/search_results', to: 'snacks#show_search_results'
     get '/user_reviews/:id', to: 'reviews#show_user_reviews'
     get '/snack_reviews/:id', to: 'reviews#show_snack_reviews'
+    get '/popular_snacks', to: 'snacks#show_popular_snacks'
     resource :session, only: %i[create destroy]
   end
 end

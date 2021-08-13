@@ -8,6 +8,10 @@ export default class Cart extends React.Component {
     this.props.refreshCartItems()
   }
 
+  handleSubmit = e => {
+    alert('Thanks for checking out Amanom! Order submission not available at this time')
+  }
+
   render() {
     const { currentUser, cartItems, isCartDataReady, updateCartItem, deleteCartItem } = this.props
 
@@ -16,7 +20,6 @@ export default class Cart extends React.Component {
         <img className='loading-indicator' src="/images/loadIndicator.gif" />
       </div>
     )
-
 
     let subTotal = cartItems.prices.reduce((a, b) => a + b, 0)
     return (
@@ -37,7 +40,7 @@ export default class Cart extends React.Component {
                     <p className='cart-checkout-subtotal-text'>Subtotal ({cartItems.items.length} {cartItems.items.length > 1 ? 'items' : 'item'}): </p>
                     <p className='cart-checkout-subtotal-amount'>{moneyFormatter.format(subTotal / 100)}</p>
                   </div>
-                  <div className='cart-checkout-button'>Proceed to checkout</div>
+                  <div className='cart-checkout-button' onClick={this.handleSubmit}>Proceed to checkout</div>
                 </div>
               </div>
             </div>

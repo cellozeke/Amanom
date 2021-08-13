@@ -1,5 +1,5 @@
 .main-slider-div {
-  /* position: absolute; */
+  width: 100%;
 }
 
 .slider-arrows {
@@ -17,7 +17,6 @@
   color: black;
   font-family:'Courier New', Courier, monospace;
   transform: scale(1, 3);
-  /* border: 2px solid gray; */
   z-index: 1;
   padding: 0 20px;
   user-select: none;
@@ -59,11 +58,11 @@
 }
 
 .slide-img1 {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 1)), url('/images/chips.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 1)), url('/images/walkers.jpg');
 }
 
 .slide-img2 {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgb(255, 255, 255, 1)), url('/images/walkers.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgb(255, 255, 255, 1)), url('/images/chips.jpg');
 }
 
 .slide-img3 {
@@ -126,16 +125,17 @@
 
 /*css for automatic navigation*/
 
-/* .navigation-auto{
+.navigation-auto{
   position: absolute;
   display: flex;
-  width: 800px;
+  width: 100%;
   justify-content: center;
-  margin-top: 460px;
+  bottom: 50px;
+  z-index: 1;
 }
 
 .navigation-auto div{
-  border: 2px solid #40D3DC;
+  border: 2px solid black;
   padding: 5px;
   border-radius: 10px;
   transition: 1s;
@@ -146,21 +146,21 @@
 }
 
 #radio1:checked ~ .navigation-auto .auto-btn1{
-  background: #40D3DC;
+  background: #F08804;
 }
 
 #radio2:checked ~ .navigation-auto .auto-btn2{
-  background: #40D3DC;
+  background: #F08804;
 }
 
 #radio3:checked ~ .navigation-auto .auto-btn3{
-  background: #40D3DC;
+  background: #F08804;
 }
 
 #radio4:checked ~ .navigation-auto .auto-btn4{
-  background: #40D3DC;
+  background: #F08804;
 }
 
 #radio5:checked ~ .navigation-auto .auto-btn5{
-  background: #40D3DC;
-} */
+  background: #F08804;
+}

@@ -77,9 +77,25 @@
   font-size: 14px;
 }
 
-.temp-reviews {
+.review-main-div {
   display: flex;
   flex-direction: column;
-  height: 100px;
-  justify-content: space-evenly;
+  height: fit-content;
+  width: 600px;
+  margin: 20px;
+}
+
+.review-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.review-body {
+  margin-bottom: 10px;
+}
+
+.review-sub-div {
+  display: flex;
+  justify-content: space-between;
 }
