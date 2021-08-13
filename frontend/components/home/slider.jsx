@@ -7,8 +7,7 @@ export default class Slider extends React.Component {
     this.slide = setInterval(() => {
       this.counter++;
       document.getElementById('radio' + this.counter).checked = true;
-      if(this.counter > 5) clearInterval(this.slide)
-      // if(this.counter > 5) this.counter = 1
+      if(this.counter > 4) clearInterval(this.slide)
     }, 5000);
   }
 

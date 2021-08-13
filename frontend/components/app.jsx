@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 import { AuthRoute } from '../utils/route_utils'
 import { CategoriesBar } from './categories_bar/categories_bar'
 import Home from './home/home'
+import Footer from './nav_bar/footer'
 import NavBarContainer from './nav_bar/nav_bar_container'
 import CartContainer from './order/cart_container'
 import SearchResultsContainer from './search/search_results_container'
@@ -30,6 +31,9 @@ const App = () => (
         <Redirect to='/' />
       </Switch>
     </div>
+    <footer>
+      <Footer />
+    </footer>
   </div>
 )
 
