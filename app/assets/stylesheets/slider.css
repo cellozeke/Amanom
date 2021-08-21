@@ -62,19 +62,19 @@
 }
 
 .slide-img2 {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgb(255, 255, 255, 1)), url('/images/chips.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 1)), url('/images/chips.jpg');
 }
 
 .slide-img3 {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgb(255, 255, 255, 1)), url('/images/cookies.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 1)), url('/images/cookies.jpg');
 }
 
 .slide-img4 {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgb(255, 255, 255, 1)), url('/images/chococandy.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 1)), url('/images/chococandy.jpg');
 }
 
 .slide-img5 {
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgb(255, 255, 255, 1)), url('/images/goldfish.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 1)), url('/images/goldfish.jpg');
 }
 
 /*css for manual slide navigation*/
