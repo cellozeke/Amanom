@@ -4,6 +4,7 @@ export const RECEIVE_SNACK = 'RECEIVE_SNACK'
 export const RECEIVE_SEARCHED_SNACKS = 'RECEIVE_SEARCHED_SNACKS'
 export const CLEAR_SEARCHED_SNACKS = 'CLEAR_SEARCHED_SNACKS'
 export const RECEIVE_POPULAR_SNACKS = 'RECEIVE_POPULAR_SNACKS'
+// export const SORT_
 
 const receiveSnack = snack => ({
   type: RECEIVE_SNACK,

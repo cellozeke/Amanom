@@ -5,12 +5,16 @@ class Api::SnacksController < ApplicationController
   end
 
   def show_search_results
-    results = []
+    results = {}
     params[:words].each do |word|
-      results.concat((Snack.find_by_sql ['SELECT * FROM snacks WHERE name ILIKE ?', "%#{word}%"]).to_a)
-      results.concat((Snack.find_by_sql ['SELECT * FROM snacks WHERE description ILIKE ?', "%#{word}%"]).to_a)
+      (Snack.find_by_sql ['SELECT * FROM snacks WHERE name ILIKE ?', "%#{word}%"]).each do |snack|
+        results[snack] ? results[snack] += 2 : results[snack] = 2
+      end
+      (Snack.find_by_sql ['SELECT * FROM snacks WHERE description ILIKE ?', "%#{word}%"]).each do |snack|
+        results[snack] ? results[snack] += 1 : results[snack] = 1
+      end
     end
-    @snacks = results.uniq
+    @results = Hash[results.sort_by { |_, v| -v }]
     render :show_search_results
   end
 
