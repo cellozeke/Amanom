@@ -15,6 +15,31 @@ export default class SearchResults extends React.Component {
     }
   }
 
+  handleRelevance = e => {
+    e.preventDefault()
+    this.props.sortByRelevance()
+  }
+
+  handleAscendingPrice = e => {
+    e.preventDefault()
+    this.props.sortByAscendingPrice()
+  }
+
+  handleDescendingPrice = e => {
+    e.preventDefault()
+    this.props.sortByDescendingPrice()
+  }
+  
+  handleRating = e => {
+    e.preventDefault()
+    this.props.sortByRating()
+  }
+
+  handleReviews = e => {
+    e.preventDefault()
+    this.props.sortByReviews()
+  }
+
   render() {
     // if (this.props.words === null) return <div>no search results</div>
     if (this.props.searchedSnacks === null) return (
@@ -31,10 +56,11 @@ export default class SearchResults extends React.Component {
     return (
       <div className='search-results-main-div'>
         <div className='search-results-sorting-div'>
-          <p>Sort and filter features currently unavailable</p>
-          {/* <p>sort by price</p>
-          <p>sort by rating</p>
-          <p>sort by relevance</p> */}
+          <button onClick={this.handleRelevance}>sort by relevance</button>
+          <button onClick={this.handleAscendingPrice}>sort by ascending price</button>
+          <button onClick={this.handleDescendingPrice}>sort by descending price</button>
+          <button onClick={this.handleRating}>sort by rating</button>
+          <button onClick={this.handleReviews}>sort by number of reviews</button>
         </div>
         <div className='search-results-display-div'>
           <p className='search-results-text'>{`Showing ${numResults} result${numResults > 1 ? 's' : ''} for "${this.props.words.join(' ')}"`}</p>
