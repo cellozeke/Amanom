@@ -15,29 +15,26 @@ export default class SearchResults extends React.Component {
     }
   }
 
-  handleRelevance = e => {
-    e.preventDefault()
-    this.props.sortByRelevance()
-  }
-
-  handleAscendingPrice = e => {
-    e.preventDefault()
-    this.props.sortByAscendingPrice()
-  }
-
-  handleDescendingPrice = e => {
-    e.preventDefault()
-    this.props.sortByDescendingPrice()
-  }
-  
-  handleRating = e => {
-    e.preventDefault()
-    this.props.sortByRating()
-  }
-
-  handleReviews = e => {
-    e.preventDefault()
-    this.props.sortByReviews()
+  handleChange = e => {
+    switch (e.target.value) {
+      case 'relevance':
+        this.props.sortByRelevance()
+        return
+      case 'price-ascending':
+        this.props.sortByAscendingPrice()
+        return
+      case 'price-descending':
+        this.props.sortByDescendingPrice()
+        return
+      case 'rating':
+        this.props.sortByRating()
+        return
+      case 'reviews':
+        this.props.sortByReviews()
+        return
+      default:
+        return
+    }
   }
 
   render() {
@@ -56,11 +53,17 @@ export default class SearchResults extends React.Component {
     return (
       <div className='search-results-main-div'>
         <div className='search-results-sorting-div'>
-          <button onClick={this.handleRelevance}>sort by relevance</button>
-          <button onClick={this.handleAscendingPrice}>sort by ascending price</button>
-          <button onClick={this.handleDescendingPrice}>sort by descending price</button>
-          <button onClick={this.handleRating}>sort by rating</button>
-          <button onClick={this.handleReviews}>sort by number of reviews</button>
+          <p>Sort by: </p>
+          <label htmlFor="relevance">Relevance</label>
+          <input onClick={this.handleChange} type="radio" name="sort" id="relevance" value="relevance"/>
+          <label htmlFor="relevance">Price ascending</label>
+          <input onClick={this.handleChange} type="radio" name="sort" id="price-ascending" value="price-ascending"/>
+          <label htmlFor="relevance">Price descending</label>
+          <input onClick={this.handleChange} type="radio" name="sort" id="price-descending" value="price-descending"/>
+          <label htmlFor="relevance">Rating</label>
+          <input onClick={this.handleChange} type="radio" name="sort" id="rating" value="rating"/>
+          <label htmlFor="relevance">Reviews</label>
+          <input onClick={this.handleChange} type="radio" name="sort" id="reviews" value="reviews"/>
         </div>
         <div className='search-results-display-div'>
           <p className='search-results-text'>{`Showing ${numResults} result${numResults > 1 ? 's' : ''} for "${this.props.words.join(' ')}"`}</p>
