@@ -54,16 +54,21 @@ export default class SearchResults extends React.Component {
       <div className='search-results-main-div'>
         <div className='search-results-sorting-div'>
           <p>Sort by: </p>
-          <label htmlFor="relevance">Relevance</label>
-          <input onClick={this.handleChange} type="radio" name="sort" id="relevance" value="relevance"/>
-          <label htmlFor="relevance">Price ascending</label>
-          <input onClick={this.handleChange} type="radio" name="sort" id="price-ascending" value="price-ascending"/>
-          <label htmlFor="relevance">Price descending</label>
-          <input onClick={this.handleChange} type="radio" name="sort" id="price-descending" value="price-descending"/>
-          <label htmlFor="relevance">Rating</label>
-          <input onClick={this.handleChange} type="radio" name="sort" id="rating" value="rating"/>
-          <label htmlFor="relevance">Reviews</label>
-          <input onClick={this.handleChange} type="radio" name="sort" id="reviews" value="reviews"/>
+          <label htmlFor="relevance">Relevance
+            <input onClick={this.handleChange} type="radio" name="sort" id="relevance" value="relevance"/>
+          </label>
+          <label htmlFor="relevance">Price ascending
+            <input onClick={this.handleChange} type="radio" name="sort" id="price-ascending" value="price-ascending"/>
+          </label>
+          <label htmlFor="relevance">Price descending
+            <input onClick={this.handleChange} type="radio" name="sort" id="price-descending" value="price-descending"/>
+          </label>
+          <label htmlFor="relevance">Rating
+            <input onClick={this.handleChange} type="radio" name="sort" id="rating" value="rating"/>
+          </label>
+          <label htmlFor="relevance">Reviews
+            <input onClick={this.handleChange} type="radio" name="sort" id="reviews" value="reviews"/>
+          </label>
         </div>
         <div className='search-results-display-div'>
           <p className='search-results-text'>{`Showing ${numResults} result${numResults > 1 ? 's' : ''} for "${this.props.words.join(' ')}"`}</p>

@@ -11,13 +11,13 @@
 
 .search-results-sorting-div {
   width: 20%;
-  height: 800px;
-  /* height: fit-content; */
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
   margin-right: 30px;
   border-radius: 10px;
   padding: 20px;
-  font-style: italic;
-  background-color: #cccccc7c;
+  border: 1px solid orange;
 }
 
 .search-results-display-div {
@@ -100,3 +100,5 @@
 .search-results-display-item-delivery {
   font-size: 14px;
 }
+
+
