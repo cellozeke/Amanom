@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
 
 export default class SearchResults extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      field: ''
+    }
+  }
+
   componentDidMount() {
     this.props.refreshSearchedSnacks()
     this.props.fetchSearchedSnacks(this.props.words)
@@ -16,6 +23,7 @@ export default class SearchResults extends React.Component {
   }
 
   handleChange = e => {
+    console.log(this.state)
     switch (e.target.value) {
       case 'relevance':
         this.props.sortByRelevance()
@@ -44,18 +52,22 @@ export default class SearchResults extends React.Component {
         <img className='loading-indicator' src="/images/loadIndicator.gif" />
       </div>
     )
+
     let numResults = this.props.searchedSnacks.length
     if (!numResults) return (
       <div className='search-results-main-div'>
         <p className='search-results-none'>{`No search results for "${this.props.words.join(' ')}"`}</p>
       </div>
     )
+
+    console.log(this.props.searchedSnacks)
+    console.log(this.state.results)
     return (
       <div className='search-results-main-div'>
         <div className='search-results-sorting-div'>
           <p>Sort by: </p>
           <label htmlFor="relevance">Relevance
-            <input onClick={this.handleChange} type="radio" name="sort" id="relevance" value="relevance"/>
+            <input onClick={this.handleChange} type="radio" name="sort" id="relevance" value="relevance" defaultChecked/>
           </label>
           <label htmlFor="relevance">Price ascending
             <input onClick={this.handleChange} type="radio" name="sort" id="price-ascending" value="price-ascending"/>

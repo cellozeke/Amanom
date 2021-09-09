@@ -5,7 +5,7 @@ import SearchResults from "./search_results"
 
 const mapStateToProps = (state, ownProps) => ({
   words: getWords(ownProps),
-  searchedSnacks: getSearchedSnacks(state)
+  searchedSnacks: state.entities.search
 })
 
 const mapDispatchToProps = dispatch => ({
