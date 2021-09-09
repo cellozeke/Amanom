@@ -6,7 +6,14 @@ export default class SearchResults extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      field: ''
+      field: 'relevance',
+      direction: 'descending',
+      minPrice: '',
+      maxPrice: '',
+      minRating: '',
+      maxRating: '',
+      // inputWarnings: [],
+      // canFilter: true
     }
   }
 
@@ -19,30 +26,33 @@ export default class SearchResults extends React.Component {
     if (prevProps.location.search !== this.props.location.search) {
       this.props.refreshSearchedSnacks()
       this.props.fetchSearchedSnacks(this.props.words)
+      this.setState({
+        field: 'relevance',
+        direction: 'descending',
+        minPrice: '',
+        maxPrice: '',
+        minRating: '',
+        maxRating: ''
+      })
     }
   }
 
-  handleChange = e => {
-    console.log(this.state)
-    switch (e.target.value) {
-      case 'relevance':
-        this.props.sortByRelevance()
-        return
-      case 'price-ascending':
-        this.props.sortByAscendingPrice()
-        return
-      case 'price-descending':
-        this.props.sortByDescendingPrice()
-        return
-      case 'rating':
-        this.props.sortByRating()
-        return
-      case 'reviews':
-        this.props.sortByReviews()
-        return
-      default:
-        return
-    }
+  handleField = e => {
+    this.setState({field: e.target.value})
+  }
+
+  handleDirection = e => {
+    this.setState({direction: e.target.value})
+  }
+
+  handleChange = field => e => {
+    this.setState({[field]: e.target.value})
+    // let warnings = []
+    // if (!+this.state.minPrice && !['0', ''].includes(this.state.minPrice)) warnings.push('Invalid min price')
+    // if (!+this.state.maxPrice && !['0', ''].includes(this.state.maxPrice)) warnings.push('Invalid max price')
+    // if (!+this.state.minRating && !['0', ''].includes(this.state.minRating)) warnings.push('Invalid min rating')
+    // if (!+this.state.maxRating && !['0', ''].includes(this.state.maxRating)) warnings.push('Invalid max rating')
+    // this.setState({inputWarnings: warnings})
   }
 
   render() {
@@ -53,39 +63,61 @@ export default class SearchResults extends React.Component {
       </div>
     )
 
-    let numResults = this.props.searchedSnacks.length
-    if (!numResults) return (
-      <div className='search-results-main-div'>
-        <p className='search-results-none'>{`No search results for "${this.props.words.join(' ')}"`}</p>
-      </div>
+    let filteredSnacks = this.props.searchedSnacks.filter(snack =>
+      (this.state.minPrice === '' || (snack.price / 100) >= this.state.minPrice)
+      && (this.state.maxPrice === '' || (snack.price / 100) <= this.state.maxPrice)
+      && (this.state.minRating === '' || snack.rating >= this.state.minRating)
+      && (this.state.maxRating === '' || snack.rating <= this.state.maxRating)
     )
+    let sortedSnacks = this.state.direction === 'descending' ? filteredSnacks.sort((a, b) => b[this.state.field] - a[this.state.field]) : filteredSnacks.sort((a, b) => a[this.state.field] - b[this.state.field])
+    let numResults = sortedSnacks.length
 
-    console.log(this.props.searchedSnacks)
-    console.log(this.state.results)
     return (
       <div className='search-results-main-div'>
         <div className='search-results-sorting-div'>
           <p>Sort by: </p>
-          <label htmlFor="relevance">Relevance
-            <input onClick={this.handleChange} type="radio" name="sort" id="relevance" value="relevance" defaultChecked/>
+          <label>Relevance
+            <input onClick={this.handleField} type="radio" name="sort" id="relevance" value="relevance" defaultChecked/>
           </label>
-          <label htmlFor="relevance">Price ascending
-            <input onClick={this.handleChange} type="radio" name="sort" id="price-ascending" value="price-ascending"/>
+          <label>Price
+            <input onClick={this.handleField} type="radio" name="sort" id="price" value="price"/>
           </label>
-          <label htmlFor="relevance">Price descending
-            <input onClick={this.handleChange} type="radio" name="sort" id="price-descending" value="price-descending"/>
+          <label>Rating
+            <input onClick={this.handleField} type="radio" name="sort" id="rating" value="rating"/>
           </label>
-          <label htmlFor="relevance">Rating
-            <input onClick={this.handleChange} type="radio" name="sort" id="rating" value="rating"/>
+          <label>Reviews
+            <input onClick={this.handleField} type="radio" name="sort" id="reviews" value="numReviews"/>
           </label>
-          <label htmlFor="relevance">Reviews
-            <input onClick={this.handleChange} type="radio" name="sort" id="reviews" value="reviews"/>
+          <br />
+          <label>Descending
+            <input onClick={this.handleDirection} type="radio" name="direction" id="descending" value='descending' defaultChecked/>
           </label>
+          <label>Ascending
+            <input onClick={this.handleDirection} type="radio" name="direction" id="ascending" value='ascending'/>
+          </label>
+          <br />
+          <p>Filter by: </p>
+          <div>
+            <p>Price</p>
+            <p>Min</p>
+            $<input onChange={this.handleChange('minPrice')} type="text" defaultValue={this.state.minPrice}/>
+            <p>Max</p>
+            $<input onChange={this.handleChange('maxPrice')} type="text" defaultValue={this.state.maxPrice}/>
+          </div>
+          <div>
+            <p>Rating</p>
+            <p>Min</p>
+            <input onChange={this.handleChange('minRating')} type="text" defaultValue={this.state.minRating}/>
+            <p>Max</p>
+            <input onChange={this.handleChange('maxRating')} type="text" defaultValue={this.state.maxRating}/>
+          </div>
+          {/* <p>{this.state.inputWarnings}</p> */}
+          {/* <button onClick={this.handleFilter}>Filter</button> */}
         </div>
         <div className='search-results-display-div'>
-          <p className='search-results-text'>{`Showing ${numResults} result${numResults > 1 ? 's' : ''} for "${this.props.words.join(' ')}"`}</p>
+          <p className='search-results-text'>{`Showing ${numResults} result${numResults > 1 || !numResults ? 's' : ''} for "${this.props.words.join(' ')}"`}</p>
           <div className='search-results-display-item-div'>
-            {this.props.searchedSnacks.map(snack =>
+            {sortedSnacks.map(snack =>
                 <div className='search-results-display-item' key={snack.id}>
                   <Link className='search-results-display-item-img-div' to={`/snacks/${snack.id}`}>
                     <img className='search-results-display-item-img' src={snack.photoUrl} />
