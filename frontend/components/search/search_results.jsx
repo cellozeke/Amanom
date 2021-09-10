@@ -55,6 +55,18 @@ export default class SearchResults extends React.Component {
     // this.setState({inputWarnings: warnings})
   }
 
+  handleClear = e => {
+    e.preventDefault()
+    this.setState({
+      field: 'relevance',
+      direction: 'descending',
+      minPrice: '',
+      maxPrice: '',
+      minRating: '',
+      maxRating: ''
+    })
+  }
+
   render() {
     // if (this.props.words === null) return <div>no search results</div>
     if (this.props.searchedSnacks === null) return (
@@ -100,17 +112,18 @@ export default class SearchResults extends React.Component {
           <div>
             <p>Price</p>
             <p>Min</p>
-            $<input onChange={this.handleChange('minPrice')} type="text" defaultValue={this.state.minPrice}/>
+            $<input onChange={this.handleChange('minPrice')} type="text" value={this.state.minPrice}/>
             <p>Max</p>
-            $<input onChange={this.handleChange('maxPrice')} type="text" defaultValue={this.state.maxPrice}/>
+            $<input onChange={this.handleChange('maxPrice')} type="text" value={this.state.maxPrice}/>
           </div>
           <div>
             <p>Rating</p>
             <p>Min</p>
-            <input onChange={this.handleChange('minRating')} type="text" defaultValue={this.state.minRating}/>
+            <input onChange={this.handleChange('minRating')} type="text" value={this.state.minRating}/>
             <p>Max</p>
-            <input onChange={this.handleChange('maxRating')} type="text" defaultValue={this.state.maxRating}/>
+            <input onChange={this.handleChange('maxRating')} type="text" value={this.state.maxRating}/>
           </div>
+          <button onClick={this.handleClear}>Clear filters</button>
           {/* <p>{this.state.inputWarnings}</p> */}
           {/* <button onClick={this.handleFilter}>Filter</button> */}
         </div>
