@@ -9,7 +9,9 @@ export default class Cart extends React.Component {
   }
 
   handleSubmit = e => {
-    alert('Thanks for checking out Amanom! Order submission not available at this time')
+    this.props.createOrder()
+    alert('Thanks for checking out Amanom!')
+    this.props.history.push('/')
   }
 
   render() {

@@ -1,4 +1,5 @@
 import { CREATE_CART_ITEM, UPDATE_CART_ITEM, RECEIVE_CART_ITEMS, REFRESH_CART_ITEMS, ZERO_STORE_CART_ITEM } from "../actions/item_actions"
+import { CLEAR_CART_ITEMS } from "../actions/order_actions"
 
 const cartItemsReducer = (state=null, action) => {
   const clone = items => items.map(item => Array.isArray(item) ? clone(item) : item)
@@ -18,6 +19,8 @@ const cartItemsReducer = (state=null, action) => {
       return nextState
     case REFRESH_CART_ITEMS:
       return nextState.filter(item => item.quantity > 0)
+    case CLEAR_CART_ITEMS:
+      return []
     default:
       return state
   }

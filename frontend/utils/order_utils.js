@@ -1,21 +1,15 @@
-export const fetchCurrentOrder = orderId => (
-  $.ajax({
-    url: `/api/orders/${orderId}`
-  })
-)
+// export const fetchCurrentOrder = orderId => (
+//   $.ajax({
+//     url: `/api/orders/${orderId}`
+//   })
+// )
 
-export const createOrder = order => (
+export const createOrder = () => (
   $.ajax({
     method: 'POST',
     url: '/api/orders',
-    data: { order }
+    // data: { order }
   })
 )
 
-export const updateOrder = order => (
-  $.ajax({
-    method: 'PATCH',
-    url: `/api/orders/${order.id}`,
-    data: { order }
-  })
-)
+// export const 
