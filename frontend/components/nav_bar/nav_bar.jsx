@@ -29,10 +29,10 @@ export default class NavBar extends React.Component {
 
         <div className='nav-right'>
           {currentUser ?
-            <div className='nav-profile-div nav-sub'>
+            <Link className='nav-profile-div nav-sub' to='/profile'>
               <p className='nav-text-normal'>{'Reviews &'}</p>
-              <Link className='nav-text-bold' to='/profile'>Orders</Link>
-            </div>
+              <p className='nav-text-bold'>Orders</p>
+            </Link>
             :
             <Link className='nav-sign-up-div nav-sub nav-text-bold' to='/signup'>Sign Up</Link>
           }
