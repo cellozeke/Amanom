@@ -31,7 +31,7 @@ export default class NavBar extends React.Component {
           {currentUser ?
             <div className='nav-profile-div nav-sub'>
               <p className='nav-text-normal'>{'Reviews &'}</p>
-              <p className='nav-text-bold'>Orders</p>
+              <Link className='nav-text-bold' to='/profile'>Orders</Link>
             </div>
             :
             <Link className='nav-sign-up-div nav-sub nav-text-bold' to='/signup'>Sign Up</Link>

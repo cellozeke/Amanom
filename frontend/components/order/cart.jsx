@@ -10,7 +10,7 @@ export default class Cart extends React.Component {
 
   handleSubmit = e => {
     this.props.createOrder()
-    alert('Thanks for checking out Amanom!')
+    alert('Thanks for checking out Amanom! 🐷')
     this.props.history.push('/')
   }
 

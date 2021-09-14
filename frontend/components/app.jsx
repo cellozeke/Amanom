@@ -6,6 +6,7 @@ import Home from './home/home'
 import Footer from './nav_bar/footer'
 import NavBarContainer from './nav_bar/nav_bar_container'
 import CartContainer from './order/cart_container'
+import ProfileContainer from './profile/profile_container'
 import SearchResultsContainer from './search/search_results_container'
 import LoginFormContainer from './session_forms/login_form_container'
 import SignupFormContainer from './session_forms/signup_form_container'
@@ -22,6 +23,7 @@ const App = () => (
         <Route exact path='/' component={Home} />
         <AuthRoute exact path='/signup' component={SignupFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
+        <Route exact path='/profile' component={ProfileContainer} />
         <Route exact path='/cart' component={CartContainer} />
         <Route exact path='/search' component={SearchResultsContainer} />
         <Route exact path='/snacks/:snackId' component={SnackShowContainer} />
