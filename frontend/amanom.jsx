@@ -7,6 +7,7 @@ import { fetchSnack } from './actions/snack_actions'
 import { fetchCartItems } from './actions/item_actions'
 import { fetchPopularSnacks, fetchSearchedSnacks } from './utils/snack_utils'
 import { fetchSnackReviews } from './actions/review_actions'
+import { fetchOrders } from './actions/order_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root')
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     store = configureStore(preloadedState)
     fetchCartItems(window.currentUser.id)(store.dispatch)
+    fetchOrders()(store.dispatch)
     delete window.currentUser
   } else {
     store = configureStore()

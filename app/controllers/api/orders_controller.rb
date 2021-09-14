@@ -5,8 +5,8 @@ class Api::OrdersController < ApplicationController
   end
 
   def show_user_orders
-    @orders = Order.find(params[:id])
-    render :show_user_orders
+    @orders = Order.find_by_sql ['SELECT * FROM orders WHERE user_id = ?', current_user.id]
+    render :show_orders
   end
 
   def create
@@ -18,14 +18,5 @@ class Api::OrdersController < ApplicationController
       item.save
     end
     render :show
-    # if @order.save
-    #   render :show
-    # else
-    #   render json: @order.errors.full_messages, status: 422
-    # end
   end
-
-  # def order_params
-  #   params.require(:order).permit(:user_id)
-  # end
 end
