@@ -1,0 +1,8 @@
+.order-history-empty {
+
+}
+
+.order-history-main-div {
+  display: flex;
+  flex-direction: column;
+}

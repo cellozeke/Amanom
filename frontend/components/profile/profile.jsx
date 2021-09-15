@@ -55,7 +55,7 @@ export default class Profile extends React.Component {
         <div className='profile-tabs-div'>
           {tabs}
           <div className='profile-tabs-divider'></div>
-          {this.state.tab === 'orders' ? <OrderHistory orders={orders}/> : <ReviewHistory reviews={reviews}/>}
+          {this.state.tab === 'orders' ? <OrderHistory orders={orders.reverse()}/> : <ReviewHistory reviews={reviews}/>}
         </div>
       </div>
     )
