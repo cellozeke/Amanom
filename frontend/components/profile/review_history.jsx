@@ -2,6 +2,10 @@ import React from 'react'
 
 export default class ReviewHistory extends React.Component {
   render() {
-    return <h1>REVIEWS</h1>
+    return (
+      <div>
+        {this.props.reviews.map(review => review.id)}
+      </div>
+    )
   }
 }
