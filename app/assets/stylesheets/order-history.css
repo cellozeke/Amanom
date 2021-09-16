@@ -11,6 +11,8 @@
   display: flex;
   justify-content: space-between;
   margin: 14px 0;
+  padding: 14px 0;
+  border-bottom: 1px solid #DDD;
 }
 
 .order-history-order-item-link {
@@ -21,7 +23,50 @@
   align-items: center;
 }
 
+.order-history-order-item-subdiv {
+  display: flex;
+  width: 100%;
+}
+
 .order-history-order-item-img {
   height: 100%;
   width: 100%;
+}
+
+.order-history-order-item-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+}
+
+.order-history-order-item-name {
+  font-size: 18px;
+  margin-bottom: 4px;
+  color: black;
+}
+
+.order-history-order-item-rating {
+  margin-bottom: 20px;
+}
+
+.order-history-order-item-price {
+  color: #B12704;
+  margin-bottom: 20px;
+}
+
+.order-history-order-item-subtotal {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.order-history-order-total {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.order-history-order-total-text {
+  font-weight: normal;
+  margin-right: 30px;
 }

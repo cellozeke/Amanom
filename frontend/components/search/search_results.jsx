@@ -136,11 +136,11 @@ export default class SearchResults extends React.Component {
                     <img className='search-results-display-item-img' src={snack.photoUrl} />
                   </Link>
                   <Link className='search-results-display-item-name' to={`/snacks/${snack.id}`}>{snack.name}</Link>
+                  <p className='search-results-display-item-rating'>Insert {snack.rating || 0} stars here</p>
                   <div className='search-results-display-item-price'>Price: 
                     <p className='search-results-display-item-price-amount'>{moneyFormatter.format(snack.price / 100)}</p>
                   </div>
                   <p className='search-results-display-item-availability'>In Stock</p>
-                  <p className='search-results-display-item-rating'>Insert {snack.rating || 0} stars here</p>
                   <p className='search-results-display-item-delivery'>FREE 24-hour delivery</p>
                 </div>
             )}

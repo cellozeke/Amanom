@@ -38,20 +38,27 @@ export default class OrderHistory extends React.Component {
           )}
         </select>
         <div className='order-history-order'>
-          <p>{new Date(order.createdAt).toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}</p>
+          {/* <p>{new Date(order.createdAt).toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}</p> */}
           {order.orderItems.map((orderItem, idx) =>
             <div className='order-history-order-item' key={orderItem.id}>
-              <Link className='order-history-order-item-link' to={`/snacks/${orderItem.snack.id}`}>
-                <img className='order-history-order-item-img' src={orderItem.photoUrl} />
-              </Link>
-              <div className='order-history-order-item-info'>
-                <p>{orderItem.snack.name}</p>
-                <p>{moneyFormatter.format(orderItem.snack.price / 100)}</p>
-                <p>Qty: {orderItem.quantity}</p>
+              <div className='order-history-order-item-subdiv'>
+                <Link className='order-history-order-item-link' to={`/snacks/${orderItem.snack.id}`}>
+                  <img className='order-history-order-item-img' src={orderItem.photoUrl} />
+                </Link>
+                <div className='order-history-order-item-info'>
+                  <Link className='order-history-order-item-name' to={`/snacks/${orderItem.snack.id}`}>{orderItem.snack.name}</Link>
+                  <p className='order-history-order-item-rating'>insert {orderItem.snack.rating} stars here</p>
+                  <p className='order-history-order-item-price'>{moneyFormatter.format(orderItem.snack.price / 100)}</p>
+                  <p>Qty: {orderItem.quantity}</p>
+                </div>
               </div>
-              <p>{moneyFormatter.format(subTotals[idx] / 100)}</p>
+              <p className='order-history-order-item-subtotal'>{moneyFormatter.format(subTotals[idx] / 100)}</p>
             </div>
           )}
+          <div className='order-history-order-total'>
+            <p className='order-history-order-total-text'>Total:</p>
+            <p>{moneyFormatter.format(total / 100)}</p>
+          </div>
         </div>
       </div>
     )
