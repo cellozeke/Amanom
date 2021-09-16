@@ -67,18 +67,18 @@
   margin-bottom: 20px;
 }
 
-.cart-checkout-subtotal {
+.cart-checkout-total {
   width: 100%;
   display: flex;
   font-size: 18px;
   margin-bottom: 26px;
 }
 
-.cart-checkout-subtotal-text {
+.cart-checkout-total-text {
   margin-right: 7px;
 }
 
-.cart-checkout-subtotal-amount {
+.cart-checkout-total-amount {
   font-weight: bold;
 }
 

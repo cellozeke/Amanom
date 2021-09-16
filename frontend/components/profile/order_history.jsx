@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { moneyFormatter } from '../../utils/extra_utils'
 
 export default class OrderHistory extends React.Component {
   constructor(props) {
@@ -23,9 +25,12 @@ export default class OrderHistory extends React.Component {
       </div>
     )
 
+    let subTotals = order.orderItems.map(orderItem => orderItem.snack.price * orderItem.quantity)
+    let total = subTotals.reduce((a, b) => a + b, 0)
+    
     return (
       <div className='order-history-main-div'>
-        <select className='order-history-select' onChange={this.handleChange}>
+        <select className='order-history-select' defaultValue={orders[0].id} onChange={this.handleChange}>
           {orders.map(order =>
             <option className='order-history-select-option' key={order.id} value={order.id}>
               {new Date(order.createdAt).toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}
@@ -34,9 +39,17 @@ export default class OrderHistory extends React.Component {
         </select>
         <div className='order-history-order'>
           <p>{new Date(order.createdAt).toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}</p>
-          {order.orderItems.map(orderItem =>
+          {order.orderItems.map((orderItem, idx) =>
             <div className='order-history-order-item' key={orderItem.id}>
-              {orderItem.quantity}
+              <Link className='order-history-order-item-link' to={`/snacks/${orderItem.snack.id}`}>
+                <img className='order-history-order-item-img' src={orderItem.photoUrl} />
+              </Link>
+              <div className='order-history-order-item-info'>
+                <p>{orderItem.snack.name}</p>
+                <p>{moneyFormatter.format(orderItem.snack.price / 100)}</p>
+                <p>Qty: {orderItem.quantity}</p>
+              </div>
+              <p>{moneyFormatter.format(subTotals[idx] / 100)}</p>
             </div>
           )}
         </div>

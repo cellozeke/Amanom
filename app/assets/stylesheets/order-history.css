@@ -6,3 +6,22 @@
   display: flex;
   flex-direction: column;
 }
+
+.order-history-order-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 0;
+}
+
+.order-history-order-item-link {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-history-order-item-img {
+  height: 100%;
+  width: 100%;
+}

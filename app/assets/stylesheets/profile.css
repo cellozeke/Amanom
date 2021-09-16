@@ -56,7 +56,7 @@
 }
 
 .profile-tab-buttons-div {
-  font-size: 28px;
+  font-size: 27px;
   display: flex;
 }
 
@@ -68,11 +68,12 @@
 
 .profile-selected-tab {
   font-weight: bold;
+  font-size: 28px;
   color: black;
 }
 
 .profile-tabs-divider {
-  width: 90%;
+  width: 100%;
   border-bottom: 1px solid gray;
   margin: 12px 0;
 }

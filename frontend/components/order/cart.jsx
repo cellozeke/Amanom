@@ -10,8 +10,10 @@ export default class Cart extends React.Component {
 
   handleSubmit = e => {
     this.props.createOrder()
-    alert('Thanks for checking out Amanom! 🐷')
-    this.props.history.push('/')
+      .then(res => {
+        alert('Thanks for checking out Amanom! 🐷')
+        this.props.history.push('/profile')
+      })
   }
 
   render() {
@@ -23,7 +25,7 @@ export default class Cart extends React.Component {
       </div>
     )
 
-    let subTotal = cartItems.prices.reduce((a, b) => a + b, 0)
+    let total = cartItems.prices.reduce((a, b) => a + b, 0)
     return (
       <div className='cart-main-div'>
         {!currentUser ?
@@ -38,9 +40,9 @@ export default class Cart extends React.Component {
               </div>
               <div className='cart-aside'>
                 <div className='cart-checkout-div'>
-                  <div className='cart-checkout-subtotal'>
-                    <p className='cart-checkout-subtotal-text'>Subtotal ({cartItems.items.length} {cartItems.items.length > 1 ? 'items' : 'item'}): </p>
-                    <p className='cart-checkout-subtotal-amount'>{moneyFormatter.format(subTotal / 100)}</p>
+                  <div className='cart-checkout-total'>
+                    <p className='cart-checkout-total-text'>Total ({cartItems.items.length} {cartItems.items.length > 1 ? 'items' : 'item'}): </p>
+                    <p className='cart-checkout-total-amount'>{moneyFormatter.format(total / 100)}</p>
                   </div>
                   <div className='cart-checkout-button' onClick={this.handleSubmit}>Proceed to checkout</div>
                 </div>
