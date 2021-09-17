@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.id,
   cartItem: getCartItem(state, ownProps),
   isCartDataReady: isCartDataReady(state),
-  reviews: state.entities.reviews
+  // reviews: state.entities.reviews,
 })
 
 const mapDispatchToProps = dispatch => ({

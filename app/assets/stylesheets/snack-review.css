@@ -1,0 +1,22 @@
+.review-main-div {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 600px;
+  margin: 20px;
+}
+
+.review-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.review-body {
+  margin-bottom: 10px;
+}
+
+.review-sub-div {
+  display: flex;
+  justify-content: space-between;
+}
