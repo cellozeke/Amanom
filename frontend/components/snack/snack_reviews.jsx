@@ -3,8 +3,9 @@ import SnackReview from './snack_review'
 
 export default class SnackReviews extends React.Component {
   render() {
-    const { snack, reviews } = this.props
-    if (!reviews) return null
+    const { snack } = this.props
+    if (!snack.reviews) return null
+    let reviews = [...snack.reviews].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
     let stars = [5, 4, 3, 2, 1]
     let percent = star => Math.round(reviews.filter(review => review.stars === star).length / snack.numReviews * 100)
     const css = starPercent => {
@@ -50,7 +51,7 @@ export default class SnackReviews extends React.Component {
           }
         </div>
         
-        <div className='temp-reviews'>
+        <div className='snack-show-reviews-div'>
           {reviews.map(review => <SnackReview key={review.id} review={review} />)}
           {/* {reviews.map(review => <p className='temp-review' key={review.id}>{[review.title, review.body, review.username]}</p>)} */}
         </div>
