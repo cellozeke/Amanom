@@ -6,7 +6,7 @@ export default class SnackReviewForm extends React.Component {
     return (
       <div>
         <p>{canReview ? 'hi' : 'bye'}</p>
-        <p className='.Stars' style={{color: `pink`}}>★★★★★</p>
+        <p className='stars' style={{'--rating': `2.3`}}></p>
         {/* <p className='.Stars' style={--rating: 2.3}>★★★★★</p> */}
       </div>
     )

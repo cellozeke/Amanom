@@ -18,12 +18,12 @@ export default class SnackReviews extends React.Component {
       if (starPercent === 0) return (
         <div className='snack-show-reviews-star-bar-fill'
           style={{width: `0`}}>
-      </div>
+        </div>
       )
       return (
         <div className='snack-show-reviews-star-bar-fill'
           style={{width: `${starPercent}%`, border: `1px solid #DE7921`}}>
-      </div>
+        </div>
       )
     }
     const mappedCss = stars.map(star => 

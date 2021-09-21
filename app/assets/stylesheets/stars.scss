@@ -4,12 +4,12 @@
   --star-background: #fc0;
 }
 
-.Stars {
+.stars {
   --percent: calc(var(--rating) / 5 * 100%);
   
   display: inline-block;
   font-size: var(--star-size);
-  font-family: Times; // make sure ★ appears correctly
+  font-family: Times;
   line-height: 1;
   
   &::before {
@@ -20,19 +20,4 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-}
-
-// Just to make a preview more beautifull
-
-body {
-  background: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-* {
-  position: relative;
-  box-sizing: border-box;
 }
