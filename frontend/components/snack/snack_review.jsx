@@ -16,7 +16,7 @@ export default class SnackReview extends React.Component {
             <p className='review-title'>{review.title}</p>
             <p className='review-datetime'>{new Date(review.updatedAt).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}</p>
           </div>
-          <p className='review-rating'>insert stars here</p>
+          <div className='review-rating stars' style={{'--rating': `2.3`}} ></div>
           <p className='review-body'>{review.body}</p>
           <div className='review-sub-div'>
           </div>

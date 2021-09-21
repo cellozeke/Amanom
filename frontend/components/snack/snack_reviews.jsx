@@ -41,7 +41,7 @@ export default class SnackReviews extends React.Component {
           <p className='snack-show-reviews-sidebar-headline'>Customer reviews</p>
           {snack.numReviews ? 
           <div>
-            <div className='snack-show-reviews-stars'>(insert {snack.rating} stars here) <p className='snack-show-reviews-stars-out-of'>{snack.rating} out of 5</p></div>
+            <div className='snack-show-reviews-stars stars big-stars' style={{'--rating': `2.3`}} ><p className='snack-show-reviews-stars-out-of'>{snack.rating} out of 5</p></div>
             <p className='snack-show-reviews-star-num-ratings'>{snack.numReviews} global ratings</p>
             <div className='snack-show-reviews-star-details-div'>
               {mappedCss}

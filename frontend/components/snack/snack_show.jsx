@@ -42,8 +42,8 @@ export default class SnackShow extends React.Component {
               <p className='snack-show-details-seller'>by AmanomFresh</p>
             </div>
             <div className='snack-show-details-rating-div'>
-              <p className='snack-show-details-rating-stars'>(Insert {snack.rating || 0} stars here)</p>
-              <a className='snack-show-deatils-rating-count' href="/">(Insert # of ratings here)</a>
+              <div className='snack-show-details-rating-stars stars' style={{'--rating': `2.3`}} ></div>
+              <p className='snack-show-deatils-rating-count'>{snack.numReviews} ratings</p>
             </div>
             <div className='snack-show-details-price-div'>
               <p>Price: </p>

@@ -47,7 +47,9 @@
 
 .snack-show-details-rating-div {
   margin-bottom: 40px;
+  font-size: 14px;
   display: flex;
+  align-items: center;
 }
 
 .snack-show-details-price-div {
