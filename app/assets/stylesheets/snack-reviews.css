@@ -6,8 +6,12 @@
   display: flex;
 }
 
-
 .snack-show-reviews-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.snack-show-reviews-subdiv {
   width: 70%;
   margin-top: 10px;
 }

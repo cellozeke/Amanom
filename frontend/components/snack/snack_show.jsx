@@ -22,7 +22,7 @@ export default class SnackShow extends React.Component {
   }
 
   render() {
-    const { snack, currentUser, cartItem, isCartDataReady, createCartItem, updateCartItem, deleteCartItem, refreshCartItems } = this.props
+    const { snack, currentUser, cartItem, isCartDataReady, canReview, createCartItem, updateCartItem, deleteCartItem, refreshCartItems } = this.props
 
     if (!snack || (!isCartDataReady && currentUser)) return (
       <div className='snack-show-spinner-div'>
@@ -72,7 +72,7 @@ export default class SnackShow extends React.Component {
           }
         </div>
         <div className='snack-show-divider'> </div>
-        <SnackReviews snack={snack} />
+        <SnackReviews snack={snack} canReview={canReview}/>
       </div>
     )
   }

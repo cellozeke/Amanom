@@ -6,13 +6,14 @@ import { getCartItem, isCartDataReady } from "../../selectors/cart"
 import { refreshCartItems } from "../../actions/item_actions"
 import SnackShow from "./snack_show"
 import { fetchSnackReviews } from "../../actions/review_actions"
+import { canReview } from "../../selectors/snack"
 
 const mapStateToProps = (state, ownProps) => ({
   snack: state.entities.snacks[ownProps.match.params.snackId],
   currentUser: state.session.id,
   cartItem: getCartItem(state, ownProps),
   isCartDataReady: isCartDataReady(state),
-  // reviews: state.entities.reviews,
+  canReview: canReview(state, ownProps)
 })
 
 const mapDispatchToProps = dispatch => ({

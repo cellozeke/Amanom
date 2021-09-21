@@ -1,9 +1,10 @@
 import React from 'react'
 import SnackReview from './snack_review'
+import SnackReviewForm from './snack_review_form'
 
 export default class SnackReviews extends React.Component {
   render() {
-    const { snack } = this.props
+    const { snack, canReview } = this.props
     if (!snack.reviews) return null
     let reviews = [...snack.reviews].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
     let stars = [5, 4, 3, 2, 1]
@@ -50,10 +51,12 @@ export default class SnackReviews extends React.Component {
           <p className='snack-show-reviews-none'>No reviews yet</p>
           }
         </div>
-        
         <div className='snack-show-reviews-div'>
-          {reviews.map(review => <SnackReview key={review.id} review={review} />)}
-          {/* {reviews.map(review => <p className='temp-review' key={review.id}>{[review.title, review.body, review.username]}</p>)} */}
+          <SnackReviewForm canReview={canReview} />
+          <div className='snack-show-reviews-subdiv'>
+            {reviews.map(review => <SnackReview key={review.id} review={review} />)}
+            {/* {reviews.map(review => <p className='temp-review' key={review.id}>{[review.title, review.body, review.username]}</p>)} */}
+          </div>
         </div>
       </div>
     )
