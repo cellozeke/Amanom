@@ -42,7 +42,7 @@ export default class SnackShow extends React.Component {
               <p className='snack-show-details-seller'>by AmanomFresh</p>
             </div>
             <div className='snack-show-details-rating-div'>
-              <div className='snack-show-details-rating-stars stars' style={{'--rating': `2.3`}} ></div>
+              <div className='snack-show-details-rating-stars stars' style={{'--rating': `${snack.rating}`}} ></div>
               <p className='snack-show-deatils-rating-count'>{snack.numReviews} ratings</p>
             </div>
             <div className='snack-show-details-price-div'>

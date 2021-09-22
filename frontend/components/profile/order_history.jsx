@@ -47,7 +47,7 @@ export default class OrderHistory extends React.Component {
                 </Link>
                 <div className='order-history-order-item-info'>
                   <Link className='order-history-order-item-name' to={`/snacks/${orderItem.snack.id}`}>{orderItem.snack.name}</Link>
-                  <div className='order-history-order-item-rating stars' style={{'--rating': `2.3`}} ></div>
+                  <div className='order-history-order-item-rating stars' style={{'--rating': `${orderItem.snack.rating}`}} ></div>
                   <p className='order-history-order-item-price'>{moneyFormatter.format(orderItem.snack.price / 100)}</p>
                   <p>Qty: {orderItem.quantity}</p>
                 </div>

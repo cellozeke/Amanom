@@ -1,6 +1,6 @@
 import Cart from "./cart"
 import { connect } from "react-redux"
-import { deleteCartItem, refreshCartItems, updateCartItem } from "../../actions/item_actions"
+import { deleteCartItem, fetchCartItems, refreshCartItems, updateCartItem } from "../../actions/item_actions"
 import { getCartItems, isCartDataReady } from "../../selectors/cart"
 import { createOrder } from "../../actions/order_actions"
 
@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+  fetchCartItems: userId => dispatch(fetchCartItems(userId)),
   updateCartItem: item => dispatch(updateCartItem(item)),
   deleteCartItem: itemId => dispatch(deleteCartItem(itemId)),
   refreshCartItems: () => dispatch(refreshCartItems()),
