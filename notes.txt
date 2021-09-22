@@ -5,6 +5,8 @@ modals
 
 
 FINISH REVIEWS (UPDATE RATINGS)
+  check for stars
+  update backend, frontend with snack rating
 PROFILE REVIEWS
 STARS
 HOMEPAGE RECS

@@ -1,9 +1,14 @@
-import { RECEIVE_SNACK_REVIEWS } from "../actions/review_actions"
+import { RECEIVE_SNACK_REVIEW, RECEIVE_SNACK_REVIEWS } from "../actions/review_actions"
 
 const reviewsReducer = (state=[], action) => {
-  const clone = items => items.map(item => Array.isArray(item) ? clone(item) : item)
+  const clone = reviews => reviews.map(review => Array.isArray(review) ? clone(review) : review)
   Object.freeze(state)
+  let nextState = clone(state || [])
   switch (action.type) {
+    case RECEIVE_SNACK_REVIEW:
+      nextState = nextState.filter(review => review.id !== action.review.id)
+      nextState.push(action.review)
+      return nextState
     case RECEIVE_SNACK_REVIEWS:
       return action.reviews
     default:

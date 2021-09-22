@@ -17,6 +17,11 @@ class Api::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
+      snack = Snack.find(review_params[:snack_id])
+      ratings = snack.reviews.map(&:stars)
+      snack.rating = (ratings.sum / ratings.size)
+      # snack.rating = (ratings.sum / ratings.size).round(1)
+      snack.save
       render :show
     else
       render json: @review.errors.full_messages, status: 422

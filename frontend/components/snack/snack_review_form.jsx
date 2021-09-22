@@ -4,12 +4,30 @@ export default class SnackReviewForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      stars: 0
+      stars: 0,
+      title: '',
+      body: '',
+      userId: this.props.currentUser,
+      snackId: this.props.snackId
     }
   }
 
+  handleChange = field => e => {
+    e.preventDefault()
+    this.setState({[field]: e.target.value})
+  }
+
   handleClick = e => {
+    e.preventDefault()
     this.setState({stars: parseInt(e.target.id)})
+  }
+
+  handleSubmit = e => {
+    e.preventDefault()
+    if (!this.state.stars) console.log('fix this')
+    console.log(this.state)
+    this.props.createSnackReview(this.state)
+      .then(res => this.props.fetchSnack(this.props.snackId))
   }
 
   render() {
@@ -17,7 +35,7 @@ export default class SnackReviewForm extends React.Component {
     if (!canReview) return null
     return (
         <form className='snack-review-form-main-div' onSubmit={this.handleSubmit}>
-          <p>Write a review!</p>
+          <p className='snack-review-form-header'>Write a review!</p>
           <div className='snack-review-form-stars-div'>
             <p className={`snack-review-form-star star-1 ${this.state.stars >= 1 ? 'filled' : ''}`} id={1} onClick={this.handleClick}>★</p>
             <p className={`snack-review-form-star star-2 ${this.state.stars >= 2 ? 'filled' : ''}`} id={2} onClick={this.handleClick}>★</p>
@@ -25,8 +43,9 @@ export default class SnackReviewForm extends React.Component {
             <p className={`snack-review-form-star star-4 ${this.state.stars >= 4 ? 'filled' : ''}`} id={4} onClick={this.handleClick}>★</p>
             <p className={`snack-review-form-star star-5 ${this.state.stars >= 5 ? 'filled' : ''}`} id={5} onClick={this.handleClick}>★</p>
           </div>
-          <input type="text" minLength='1' maxLength='63' placeholder='Title'/>
-          <input type="text" minLength='1' maxLength='255' placeholder='Body'/>
+          <input className='snack-review-form-title' onChange={this.handleChange('title')} type="text" minLength='1' maxLength='63' placeholder='Title'/>
+          <textarea className='snack-review-form-body' onChange={this.handleChange('body')} type="text" minLength='1' placeholder='Body'></textarea>
+          <input type="submit" value="Submit" />
         </form>
     )
   }

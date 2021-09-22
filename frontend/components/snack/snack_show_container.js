@@ -5,7 +5,7 @@ import { fetchSnack } from "../../actions/snack_actions"
 import { getCartItem, isCartDataReady } from "../../selectors/cart"
 import { refreshCartItems } from "../../actions/item_actions"
 import SnackShow from "./snack_show"
-import { fetchSnackReviews } from "../../actions/review_actions"
+import { createSnackReview, fetchSnackReviews } from "../../actions/review_actions"
 import { canReview } from "../../selectors/snack"
 
 const mapStateToProps = (state, ownProps) => ({
@@ -22,7 +22,8 @@ const mapDispatchToProps = dispatch => ({
   updateCartItem: item => dispatch(updateCartItem(item)),
   deleteCartItem: itemId => dispatch(deleteCartItem(itemId)),
   refreshCartItems: () => dispatch(refreshCartItems()),
-  fetchSnackReviews: snackId => dispatch(fetchSnackReviews(snackId))
+  fetchSnackReviews: snackId => dispatch(fetchSnackReviews(snackId)),
+  createSnackReview: review => dispatch(createSnackReview(review))
 })
 
 const SnackShowContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(SnackShow))

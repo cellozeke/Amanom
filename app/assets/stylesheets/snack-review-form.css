@@ -1,11 +1,21 @@
 .snack-review-form-main-div {
-  width: 100%;
+  width: 600px;
   height: fit-content;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  background-color: pink;
+  padding: 12px 20px;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  /* background-color: pink; */
   /* margin: 10px 20px 30px 20px; */
+}
+
+.snack-review-form-main-div > * {
+  margin: 8px 0;
+}
+
+.snack-review-form-header {
+  font-size: 18px;
 }
 
 .snack-review-form-stars-div {
@@ -23,6 +33,20 @@
   color: orange;
 }
 
-/* .snack-review-form-star:hover {
-  color: darkorange;
-} */
+.snack-review-form-title {
+  width: 100%;
+  border: 1px solid #CCCCCC;
+  border-radius: 3px;
+  font-family: 'amazonEmber';
+  padding: 8px;
+}
+
+.snack-review-form-body {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #CCCCCC;
+  border-radius: 3px;
+  font-family: 'amazonEmber';
+  resize: none;
+  padding: 8px;
+}
