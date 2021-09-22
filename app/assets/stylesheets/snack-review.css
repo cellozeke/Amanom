@@ -30,6 +30,7 @@
 
 .review-name {
   margin-top: 8px;
+  text-overflow: clip;
 }
 
 .review-info {

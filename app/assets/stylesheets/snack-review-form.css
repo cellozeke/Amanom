@@ -1,0 +1,28 @@
+.snack-review-form-main-div {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: pink;
+  /* margin: 10px 20px 30px 20px; */
+}
+
+.snack-review-form-stars-div {
+  display: flex;
+}
+
+.snack-review-form-star {
+  font-size: 30px;
+  letter-spacing: -2px;
+  color: #DDD;
+  cursor: pointer;
+}
+
+.filled {
+  color: orange;
+}
+
+/* .snack-review-form-star:hover {
+  color: darkorange;
+} */
