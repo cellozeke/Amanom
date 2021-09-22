@@ -19,8 +19,7 @@ class Api::ReviewsController < ApplicationController
     if @review.save
       snack = Snack.find(review_params[:snack_id])
       ratings = snack.reviews.map(&:stars)
-      snack.rating = (ratings.sum / ratings.size)
-      # snack.rating = (ratings.sum / ratings.size).round(1)
+      snack.rating = (ratings.sum / (ratings.size * 1.0)).round(1)
       snack.save
       render :show
     else
