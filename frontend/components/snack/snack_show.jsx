@@ -22,7 +22,7 @@ export default class SnackShow extends React.Component {
   }
 
   render() {
-    const { snack, currentUser, userReview, cartItem, isCartDataReady, canReview, createCartItem, updateCartItem, deleteCartItem, refreshCartItems, createSnackReview, updateSnackReview, fetchSnack } = this.props
+    const { snack, currentUser, userReview, cartItem, isCartDataReady, canReview, errors, createCartItem, updateCartItem, deleteCartItem, refreshCartItems, createSnackReview, updateSnackReview, fetchSnack } = this.props
 
     if (!snack || (!isCartDataReady && currentUser)) return (
       <div className='snack-show-spinner-div'>
@@ -72,7 +72,7 @@ export default class SnackShow extends React.Component {
           }
         </div>
         <div className='snack-show-divider'> </div>
-        <SnackReviews snack={snack} canReview={canReview} currentUser={currentUser} snackId={parseInt(this.props.match.params.snackId)} createSnackReview={createSnackReview} updateSnackReview={updateSnackReview} fetchSnack={fetchSnack} userReview={userReview}/>
+        <SnackReviews snack={snack} canReview={canReview} currentUser={currentUser} snackId={parseInt(this.props.match.params.snackId)} createSnackReview={createSnackReview} updateSnackReview={updateSnackReview} fetchSnack={fetchSnack} userReview={userReview} errors={errors}/>
       </div>
     )
   }

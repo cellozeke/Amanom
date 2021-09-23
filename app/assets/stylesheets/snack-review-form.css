@@ -50,3 +50,8 @@
   resize: none;
   padding: 8px;
 }
+
+.snack-review-form-errors {
+  color: #C40000;
+  font-size: 14px;
+}

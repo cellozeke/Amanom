@@ -31,7 +31,7 @@ export default class SnackReviewForm extends React.Component {
   }
 
   render() {
-    let { canReview } = this.props
+    let { canReview, errors } = this.props
     if (!canReview) return null
     return (
         <form className='snack-review-form-main-div' onSubmit={this.handleSubmit}>
@@ -45,6 +45,9 @@ export default class SnackReviewForm extends React.Component {
           </div>
           <input className='snack-review-form-title' onChange={this.handleChange('title')} type="text" minLength='1' maxLength='63' placeholder='Title'/>
           <textarea className='snack-review-form-body' onChange={this.handleChange('body')} type="text" minLength='1' placeholder='Body'></textarea>
+          <div className='snack-review-form-errors'>
+            {errors.map(error => <p className='snack-review-form-error' key={errors.indexOf(error)}>{error}</p>)}
+          </div>
           <input type="submit" value="Submit" />
         </form>
     )

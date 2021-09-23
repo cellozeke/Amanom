@@ -1,5 +1,4 @@
 import React from 'react'
-import SnackReviewEditForm from './snack_review_edit_form'
 
 export default class SnackReview extends React.Component {
   constructor(props) {
@@ -47,7 +46,7 @@ export default class SnackReview extends React.Component {
   }
 
   render() {
-    const { review } = this.props
+    const { review, errors } = this.props
 
     if (this.state.editing) return (
       <form className='snack-review-form-main-div' onSubmit={this.handleSubmit}>
@@ -61,6 +60,9 @@ export default class SnackReview extends React.Component {
         </div>
         <input className='snack-review-form-title' onChange={this.handleChange('title')} type="text" minLength='1' maxLength='63' placeholder='Title' defaultValue={this.state.title}/>
         <textarea className='snack-review-form-body' onChange={this.handleChange('body')} type="text" minLength='1' placeholder='Body' defaultValue={this.state.body}></textarea>
+        <div className='snack-review-form-errors'>
+          {errors.map(error => <p className='snack-review-form-error' key={errors.indexOf(error)}>{error}</p>)}
+        </div>
         <input type="submit" value="Submit" />
         <button onClick={this.handleCancel}>Cancel</button>
       </form>

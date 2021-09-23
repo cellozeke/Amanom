@@ -15,7 +15,8 @@ const mapStateToProps = (state, ownProps) => ({
   cartItem: getCartItem(state, ownProps),
   isCartDataReady: isCartDataReady(state),
   canReview: canReview(state, ownProps),
-  userReview: getUserReview(state, ownProps)
+  userReview: getUserReview(state, ownProps),
+  errors: state.errors.review
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -4,7 +4,7 @@ import SnackReviewForm from './snack_review_form'
 
 export default class SnackReviews extends React.Component {
   render() {
-    const { snack, canReview, currentUser, userReview, snackId, createSnackReview, updateSnackReview, fetchSnack } = this.props
+    const { snack, canReview, currentUser, userReview, snackId, createSnackReview, updateSnackReview, fetchSnack, errors} = this.props
     if (!snack.reviews) return null
     let reviews = [...snack.reviews].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
     let stars = [5, 4, 3, 2, 1]
@@ -52,10 +52,9 @@ export default class SnackReviews extends React.Component {
           }
         </div>
         <div className='snack-show-reviews-div'>
-          <SnackReviewForm canReview={canReview} currentUser={currentUser} snackId={snackId} createSnackReview={createSnackReview} fetchSnack={fetchSnack}/>
-          {/* {userReview ? 'yes' : 'no'} */}
+          <SnackReviewForm canReview={canReview} currentUser={currentUser} snackId={snackId} createSnackReview={createSnackReview} fetchSnack={fetchSnack} errors={errors}/>
           <div className='snack-show-reviews-subdiv'>
-            {userReview ? <SnackReview review={userReview} editable={true} snackId={snackId} updateSnackReview={updateSnackReview} fetchSnack={fetchSnack}/> : null}
+            {userReview ? <SnackReview review={userReview} editable={true} snackId={snackId} updateSnackReview={updateSnackReview} fetchSnack={fetchSnack} errors={errors}/> : null}
             {reviews.filter(review => review.userId !== currentUser).map(review => <SnackReview key={review.id} review={review} editable={false}/>)}
           </div>
         </div>
