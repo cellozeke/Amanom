@@ -4,7 +4,7 @@ import SnackReviewForm from './snack_review_form'
 
 export default class SnackReviews extends React.Component {
   render() {
-    const { snack, canReview, currentUser, snackId, createSnackReview, fetchSnack } = this.props
+    const { snack, canReview, currentUser, userReview, snackId, createSnackReview, updateSnackReview, fetchSnack } = this.props
     if (!snack.reviews) return null
     let reviews = [...snack.reviews].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
     let stars = [5, 4, 3, 2, 1]
@@ -41,7 +41,7 @@ export default class SnackReviews extends React.Component {
           <p className='snack-show-reviews-sidebar-headline'>Customer reviews</p>
           {snack.numReviews ? 
           <div>
-            <div className='snack-show-reviews-stars stars big-stars' style={{'--rating': `${snack.rating}`}} ><p className='snack-show-reviews-stars-out-of'>{snack.rating} out of 5</p></div>
+            <div className='snack-show-reviews-stars stars mid-stars' style={{'--rating': `${snack.rating}`}} ><p className='snack-show-reviews-stars-out-of'>{snack.rating} out of 5</p></div>
             <p className='snack-show-reviews-star-num-ratings'>{snack.numReviews} global ratings</p>
             <div className='snack-show-reviews-star-details-div'>
               {mappedCss}
@@ -53,8 +53,10 @@ export default class SnackReviews extends React.Component {
         </div>
         <div className='snack-show-reviews-div'>
           <SnackReviewForm canReview={canReview} currentUser={currentUser} snackId={snackId} createSnackReview={createSnackReview} fetchSnack={fetchSnack}/>
+          {/* {userReview ? 'yes' : 'no'} */}
           <div className='snack-show-reviews-subdiv'>
-            {reviews.map(review => <SnackReview key={review.id} review={review} />)}
+            {userReview ? <SnackReview review={userReview} editable={true} snackId={snackId} updateSnackReview={updateSnackReview} fetchSnack={fetchSnack}/> : null}
+            {reviews.filter(review => review.userId !== currentUser).map(review => <SnackReview key={review.id} review={review} editable={false}/>)}
           </div>
         </div>
       </div>

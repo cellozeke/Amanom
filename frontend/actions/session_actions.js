@@ -1,6 +1,7 @@
 import * as SessionApiUtils from '../utils/session_api_utils'
 import { fetchCartItems } from './item_actions'
 import { fetchOrders } from './order_actions'
+import { fetchUserReviews } from './review_actions'
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER'
 export const LOG_OUT_CURRENT_USER = 'LOG_OUT_CURRENT_USER'
@@ -26,6 +27,7 @@ export const signUp = user => dispatch => (
     .then(res => {
       fetchCartItems(res.user.id)(dispatch)
       fetchOrders()(dispatch)
+      fetchUserReviews(res.user.id)(dispatch)
     })
 )
 
@@ -35,6 +37,7 @@ export const logIn = user => dispatch => (
     .then(res => {
       fetchCartItems(res.user.id)(dispatch)
       fetchOrders()(dispatch)
+      fetchUserReviews(res.user.id)(dispatch)
     })
 )
 

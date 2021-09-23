@@ -22,7 +22,7 @@ export default class SnackShow extends React.Component {
   }
 
   render() {
-    const { snack, currentUser, cartItem, isCartDataReady, canReview, createCartItem, updateCartItem, deleteCartItem, refreshCartItems, createSnackReview, fetchSnack } = this.props
+    const { snack, currentUser, userReview, cartItem, isCartDataReady, canReview, createCartItem, updateCartItem, deleteCartItem, refreshCartItems, createSnackReview, updateSnackReview, fetchSnack } = this.props
 
     if (!snack || (!isCartDataReady && currentUser)) return (
       <div className='snack-show-spinner-div'>
@@ -43,7 +43,7 @@ export default class SnackShow extends React.Component {
             </div>
             <div className='snack-show-details-rating-div'>
               <div className='snack-show-details-rating-stars stars' style={{'--rating': `${snack.rating}`}} ></div>
-              <p className='snack-show-deatils-rating-count'>{snack.numReviews} ratings</p>
+              <p className='snack-show-details-rating-count'>{snack.numReviews} ratings</p>
             </div>
             <div className='snack-show-details-price-div'>
               <p>Price: </p>
@@ -72,7 +72,7 @@ export default class SnackShow extends React.Component {
           }
         </div>
         <div className='snack-show-divider'> </div>
-        <SnackReviews snack={snack} canReview={canReview} currentUser={currentUser} snackId={parseInt(this.props.match.params.snackId)} createSnackReview={createSnackReview} fetchSnack={fetchSnack}/>
+        <SnackReviews snack={snack} canReview={canReview} currentUser={currentUser} snackId={parseInt(this.props.match.params.snackId)} createSnackReview={createSnackReview} updateSnackReview={updateSnackReview} fetchSnack={fetchSnack} userReview={userReview}/>
       </div>
     )
   }

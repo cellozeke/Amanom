@@ -57,3 +57,16 @@
 .review-body {
   margin-top: 10px;
 }
+
+.review-edit-button {
+  margin-top: 10px;
+  width: fit-content;
+  color: #007185;
+  font-size: 14px;
+}
+
+.review-edit-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  user-select: none;
+}

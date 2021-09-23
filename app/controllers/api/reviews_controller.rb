@@ -30,6 +30,10 @@ class Api::ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     if @review.update(review_params)
+      snack = Snack.find(review_params[:snack_id])
+      ratings = snack.reviews.map(&:stars)
+      snack.rating = (ratings.sum / (ratings.size * 1.0)).round(1)
+      snack.save
       render :show
     else
       render json: @review.errors.full_messages, status: 422

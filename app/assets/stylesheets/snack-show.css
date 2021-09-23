@@ -52,6 +52,10 @@
   align-items: center;
 }
 
+.snack-show-details-rating-count {
+  margin-left: 10px;
+}
+
 .snack-show-details-price-div {
   font-size: 14px;
   color: #565959;
