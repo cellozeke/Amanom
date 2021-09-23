@@ -1,0 +1,29 @@
+.review-history-empty {
+
+}
+
+.review-history-main-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-history-review {
+  display: flex;
+  justify-content: space-between;
+  /* margin: 0 0 14px 0; */
+  padding: 14px 0;
+  border-bottom: 1px solid #DDD;
+}
+
+.review-history-review-link {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-history-review-img {
+  height: 100%;
+  width: 100%;
+}
