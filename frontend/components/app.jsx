@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { AuthRoute } from '../utils/route_utils'
 import { CategoriesBar } from './categories_bar/categories_bar'
-import Home from './home/home'
+import HomeContainer from './home/home_container'
 import Footer from './nav_bar/footer'
 import NavBarContainer from './nav_bar/nav_bar_container'
 import CartContainer from './order/cart_container'
@@ -20,7 +20,7 @@ const App = () => (
     </header>
     <div className='main-body'>
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={HomeContainer} />
         <AuthRoute exact path='/signup' component={SignupFormContainer} />
         <AuthRoute exact path='/login' component={LoginFormContainer} />
         <Route exact path='/profile' component={ProfileContainer} />

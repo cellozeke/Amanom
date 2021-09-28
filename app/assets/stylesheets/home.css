@@ -1,0 +1,28 @@
+.home-recs-div {
+  position: absolute;
+  height: 400px;
+  width: 100%;
+  z-index: 5;
+  top: 220px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+}
+
+.home-recs-div > * {
+  height: 100%;
+  width: 420px;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.home-recent-div {
+  
+}
+
+.home-popular-div {
+
+}
+
+.home-suggested-div {
+
+}

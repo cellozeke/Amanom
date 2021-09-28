@@ -11,8 +11,14 @@ export const fetchSearchedSnacks = words => (
   })
 )
 
-export const fetchPopularSnacks = () => (
+// export const fetchPopularSnacks = () => (
+//   $.ajax({
+//     url: '/api/popular_snacks'
+//   })
+// )
+
+export const fetchRecSnacks = () => (
   $.ajax({
-    url: '/api/popular_snacks'
+    url: '/api/rec_snacks'
   })
 )
