@@ -19,9 +19,11 @@ class Api::SnacksController < ApplicationController
   end
 
   def show_recs
-    @recent = Snack.find_by_sql ['SELECT snacks.* FROM items JOIN snacks ON snacks.id = items.snack_id GROUP BY snacks.id ORDER BY COUNT(*) DESC LIMIT 4']
+    # recent = current_user.order_items
+    # @recent = Snack.find_by_sql ['SELECT DISTINCT snacks.*, items.created_at FROM items JOIN snacks ON snacks.id = items.snack_id WHERE items.order_id IN (1, 2) GROUP BY snacks.id ORDER BY items.created_at DESC LIMIT 4']
+    # @recent = Snack.find_by_sql ['SELECT DISTINCT snacks.*, items.created_at FROM items JOIN snacks ON snacks.id = items.snack_id ORDER BY items.created_at DESC LIMIT 4']
     @popular = Snack.find_by_sql ['SELECT snacks.* FROM items JOIN snacks ON snacks.id = items.snack_id GROUP BY snacks.id ORDER BY COUNT(*) DESC LIMIT 4']
-    @suggested = Snack.find_by_sql ['SELECT snacks.* FROM items JOIN snacks ON snacks.id = items.snack_id GROUP BY snacks.id ORDER BY COUNT(*) DESC LIMIT 4']
+    @suggested = Snack.find_by_sql ['SELECT * FROM snacks ORDER BY random() LIMIT 4']
     render :show_recs
   end
 end
