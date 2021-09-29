@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     # get '/popular_snacks', to: 'snacks#show_popular_snacks'
     get '/user_orders', to: 'orders#show_user_orders'
     get '/rec_snacks', to: 'snacks#show_recs'
+    get '/snack_names', to: 'snacks#show_name_list'
     resource :session, only: %i[create destroy]
   end
 end

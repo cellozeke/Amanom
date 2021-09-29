@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom'
 import SearchBar from './search_bar'
 
 export default class NavBar extends React.Component {
+  componentDidMount() {
+    this.props.fetchSnackNames()
+  }
+
   logOut = () => {
     this.props.logOut()
-    // this.props.history.push({pathname: '/'})
   }
   
   render() {
-    const { currentUser, cartItems, isCartDataReady, history } = this.props
+    const { currentUser, cartItems, isCartDataReady, history, names } = this.props
     const cartSize = cartItems.items.filter(item => item.quantity > 0).length
     return (
       <div className='nav-bar'>
@@ -24,7 +27,7 @@ export default class NavBar extends React.Component {
         </div>
 
         <div className='nav-center'>
-          <SearchBar history={history} />
+          <SearchBar history={history} names={names}/>
         </div>
 
         <div className='nav-right'>

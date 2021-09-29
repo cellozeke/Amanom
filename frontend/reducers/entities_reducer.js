@@ -1,5 +1,6 @@
 import { combineReducers } from "redux"
 import cartItemsReducer from "./cart_items_reducer"
+import namesReducer from "./names_reducer"
 import ordersReducer from "./orders_reducer"
 import recsReducer from "./recs_reducer"
 import reviewsReducer from "./reviews_reducer"
@@ -14,7 +15,8 @@ const entitiesReducer = combineReducers({
   cartItems: cartItemsReducer,
   search: searchReducer,
   reviews: reviewsReducer,
-  recs: recsReducer
+  recs: recsReducer,
+  names: namesReducer
 })
 
 export default entitiesReducer

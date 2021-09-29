@@ -24,4 +24,9 @@ class Api::SnacksController < ApplicationController
     @suggested = Snack.find_by_sql ['SELECT * FROM snacks ORDER BY random() LIMIT 4']
     render :show_recs
   end
+
+  def show_name_list
+    @names = Snack.all.map(&:name)
+    render :show_name_list
+  end
 end

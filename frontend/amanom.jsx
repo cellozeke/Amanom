@@ -5,7 +5,7 @@ import Root from './components/root'
 
 import { fetchSnack } from './actions/snack_actions'
 import { fetchCartItems } from './actions/item_actions'
-import { fetchPopularSnacks, fetchSearchedSnacks } from './utils/snack_utils'
+import { fetchSearchedSnacks } from './utils/snack_utils'
 import { fetchSnackReviews, fetchUserReviews } from './actions/review_actions'
 import { fetchOrders } from './actions/order_actions'
 
@@ -32,8 +32,4 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store
   window.dispatch = store.dispatch
   window.getState = store.getState
-  window.fetchSnack = fetchSnack
-  window.fetchSearchedSnacks = fetchSearchedSnacks
-  window.fetchSnackReviews = fetchSnackReviews
-  window.fetchPopularSnacks = fetchPopularSnacks
 })
