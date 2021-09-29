@@ -12,7 +12,8 @@
 .home-recs-div > * {
   height: 100%;
   width: 420px;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 1);
+  padding: 20px;
 }
 
 .home-recent-div {
@@ -25,4 +26,27 @@
 
 .home-suggested-div {
 
+}
+
+.home-recs-header {
+  font-size: 21px;
+  font-weight: bold;
+  margin-bottom: 22px;
+}
+
+.home-recs-grid {
+  display: grid;
+  height: 270px;
+  grid-template-columns: 32% 32%;
+  grid-template-rows: 45% 45%;
+  justify-content: center;
+  align-items: center;
+  column-gap: 75px;
+  row-gap: 25px;
+}
+
+.home-recs-pic {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
 }
