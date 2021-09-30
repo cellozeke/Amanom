@@ -82,6 +82,7 @@ export default class SnackReview extends React.Component {
           <div className='review-header'>
             <p className='review-title'>{review.title}</p>
             <p className='review-datetime'>{new Date(review.updatedAt).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}</p>
+            {/* <p className='review-datetime'>{review.updatedAt === review.createdAt ? '' : 'updated on '}{new Date(review.updatedAt).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}</p> */}
           </div>
           <div className='review-rating stars' style={{'--rating': `${review.stars}`}} ></div>
           <p className='review-body'>{review.body}</p>

@@ -33,7 +33,7 @@ export default class OrderHistory extends React.Component {
         <select className='order-history-select' defaultValue={orders[0].id} onChange={this.handleChange}>
           {orders.map(order =>
             <option className='order-history-select-option' key={order.id} value={order.id}>
-              {new Date(order.createdAt).toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}
+              {new Date(order.createdAt).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}
             </option>
           )}
         </select>

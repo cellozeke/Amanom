@@ -22,8 +22,8 @@ export default class SearchBar extends React.Component {
     return (
       <form className='search-bar-form'>
         <input className='search-bar-input' type="text" list='datalist' onChange={this.handleInput}/>
-        <datalist id='datalist'>
-          {names.map(name => <option value={name}></option>)}
+        <datalist className='search-bar-datalist' id='datalist'>
+          {names.map(name => <option value={name} key={name}></option>)}
         </datalist>
         <button className='search-bar-submit' onClick={this.handleSubmit}>
           <input className='search-bar-img' type="image" src="/images/search.png" onSubmit={this.handleSubmit}/>

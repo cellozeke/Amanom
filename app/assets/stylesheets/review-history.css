@@ -9,7 +9,7 @@
 
 .review-history-review {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   /* margin: 0 0 14px 0; */
   padding: 14px 0;
   border-bottom: 1px solid #DDD;
@@ -26,4 +26,33 @@
 .review-history-review-img {
   height: 100%;
   width: 100%;
+}
+
+.review-history-review-info {
+  margin-left: 75px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-history-review-name {
+  font-size: 18px;
+  color: black;
+  margin-bottom: 14px;
+}
+
+.review-history-review-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.review-history-review-stars {
+  margin-bottom: 6px;
+}
+
+.review-history-review-body {
+  margin-bottom: 12px;
+}
+
+.review-history-review-date {
+  font-size: 14px;
 }
