@@ -53,19 +53,13 @@ export default class SearchResults extends React.Component {
 
   handleChange = field => e => {
     this.setState({[field]: e.target.value})
-    // let warnings = []
-    // if (!+this.state.minPrice && !['0', ''].includes(this.state.minPrice)) warnings.push('Invalid min price')
-    // if (!+this.state.maxPrice && !['0', ''].includes(this.state.maxPrice)) warnings.push('Invalid max price')
-    // if (!+this.state.minRating && !['0', ''].includes(this.state.minRating)) warnings.push('Invalid min rating')
-    // if (!+this.state.maxRating && !['0', ''].includes(this.state.maxRating)) warnings.push('Invalid max rating')
-    // this.setState({inputWarnings: warnings})
   }
 
   handleClear = e => {
     e.preventDefault()
     this.setState({
-      field: 'relevance',
-      direction: 'descending',
+      // field: 'relevance',
+      // direction: 'descending',
       minPrice: '',
       maxPrice: '',
       minRating: '',
@@ -92,53 +86,42 @@ export default class SearchResults extends React.Component {
 
     return (
       <div className='search-results-main-div'>
-        <div className='search-results-sorting-div'>
-        <FormControl component="sort-set">
-          <FormLabel component="sort-label">Sort by: </FormLabel>
-          <RadioGroup defaultValue="relevance" >
-            <FormControlLabel className='search-results-radio' onClick={this.handleField} value="relevance" control={<Radio color='secondary'/>} label="Relevance" />
-            <FormControlLabel className='search-results-radio' onClick={this.handleField} value="price" control={<Radio />} label="Price" />
-            <FormControlLabel className='search-results-radio' onClick={this.handleField} value="rating" control={<Radio />} label="Rating" />
-            <FormControlLabel className='search-results-radio' onClick={this.handleField} value="numReviews" control={<Radio />} label="Reviews" />
-          </RadioGroup>
-        </FormControl>
-          {/* <p>Sort by: </p>
-          <label>Relevance
-            <input onClick={this.handleField} type="radio" name="sort" id="relevance" value="relevance" defaultChecked/>
-          </label>
-          <label>Price
-            <input onClick={this.handleField} type="radio" name="sort" id="price" value="price"/>
-          </label>
-          <label>Rating
-            <input onClick={this.handleField} type="radio" name="sort" id="rating" value="rating"/>
-          </label>
-          <label>Reviews
-            <input onClick={this.handleField} type="radio" name="sort" id="reviews" value="numReviews"/>
-          </label> */}
+        <div className='search-results-sort-div'>
+          <p className="search-results-sort-header">Sort by: </p>
+          <FormControl component="sort-set">
+            <RadioGroup defaultValue="relevance" >
+              <FormControlLabel className='search-results-radio' onClick={this.handleField} value="relevance" control={<Radio />} label="Relevance" />
+              <FormControlLabel className='search-results-radio' onClick={this.handleField} value="price" control={<Radio />} label="Price" />
+              <FormControlLabel className='search-results-radio' onClick={this.handleField} value="rating" control={<Radio />} label="Rating" />
+              <FormControlLabel className='search-results-radio' onClick={this.handleField} value="numReviews" control={<Radio />} label="Reviews" />
+            </RadioGroup>
+          </FormControl>
           <br />
-          <label>Descending
-            <input onClick={this.handleDirection} type="radio" name="direction" id="descending" value='descending' defaultChecked/>
-          </label>
-          <label>Ascending
-            <input onClick={this.handleDirection} type="radio" name="direction" id="ascending" value='ascending'/>
-          </label>
-          <br />
-          <p>Filter by: </p>
-          <div>
-            <p>Price</p>
-            <p>Min</p>
-            $<input onChange={this.handleChange('minPrice')} type="text" value={this.state.minPrice}/>
-            <p>Max</p>
-            $<input onChange={this.handleChange('maxPrice')} type="text" value={this.state.maxPrice}/>
+          <FormControl component="sort-direction">
+            <RadioGroup defaultValue="descending" >
+              <FormControlLabel className='search-results-radio' onClick={this.handleDirection} value="descending" control={<Radio />} label="Descending" />
+              <FormControlLabel className='search-results-radio' onClick={this.handleDirection} value="ascending" control={<Radio />} label="Ascending" />
+            </RadioGroup>
+          </FormControl>
+
+          <div className='search-results-sort-divider'></div>
+
+          <p className="search-results-sort-header">Filter by: </p>
+          <p className="search-results-sort-subheader">Price</p>
+          <div className='search-results-min-max'>
+            <p className='search-results-filter-dollar'>$</p>
+            <input className='search-results-filter-input' onChange={this.handleChange('minPrice')} type="text" value={this.state.minPrice}/>
+            <p className='search-results-filter-dash'>-</p>
+            <p className='search-results-filter-dollar'>$</p>
+            <input className='search-results-filter-input' onChange={this.handleChange('maxPrice')} type="text" value={this.state.maxPrice}/>
           </div>
-          <div>
-            <p>Rating</p>
-            <p>Min</p>
-            <input onChange={this.handleChange('minRating')} type="text" value={this.state.minRating}/>
-            <p>Max</p>
-            <input onChange={this.handleChange('maxRating')} type="text" value={this.state.maxRating}/>
+          <p className="search-results-sort-subheader">Rating</p>
+          <div className='search-results-min-max'>
+            <input className='search-results-filter-input' onChange={this.handleChange('minRating')} type="text" value={this.state.minRating}/>
+            <p className='search-results-filter-dash'>-</p>
+            <input className='search-results-filter-input' onChange={this.handleChange('maxRating')} type="text" value={this.state.maxRating}/>
           </div>
-          <button onClick={this.handleClear}>Clear filters</button>
+          <button className='search-results-clear-button button' onClick={this.handleClear}>Clear filters</button>
           {/* <p>{this.state.inputWarnings}</p> */}
           {/* <button onClick={this.handleFilter}>Filter</button> */}
           

@@ -9,7 +9,7 @@
   font-size: 28px;
 }
 
-.search-results-sorting-div {
+.search-results-sort-div {
   width: 20%;
   height: fit-content;
   display: flex;
@@ -17,7 +17,7 @@
   margin-right: 30px;
   border-radius: 10px;
   padding: 20px;
-  border: 1px solid orange;
+  border: 1px solid #CCCCCC;
 }
 
 .search-results-display-div {
@@ -101,6 +101,48 @@
   font-size: 14px;
 }
 
+.search-results-sort-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.search-results-sort-subheader {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
 .search-results-radio {
   font-family: 'amazonEmber';
+  margin: -5px;
+  width: fit-content;
+}
+
+.search-results-min-max {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.search-results-filter-input {
+  font-family: 'amazonEmber';
+  width: 50px;
+}
+
+.search-results-filter-dollar {
+  margin-right: 2px;
+}
+
+.search-results-filter-dash {
+  margin: 0 5px;
+}
+
+.search-results-clear-button {
+  margin: 10px 0;
+}
+
+.search-results-sort-divider {
+  width: 90%;
+  border-bottom: 1px solid #DDD;
+  margin: 14px 0;
 }
