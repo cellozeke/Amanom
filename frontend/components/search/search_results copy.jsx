@@ -1,12 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
-import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormLabel from '@mui/material/FormLabel';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-
+import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 
 export default class SearchResults extends React.Component {
   constructor(props) {
@@ -93,16 +88,7 @@ export default class SearchResults extends React.Component {
     return (
       <div className='search-results-main-div'>
         <div className='search-results-sorting-div'>
-        <FormControl component="sort-set">
-          <FormLabel component="sort-label">Sort by: </FormLabel>
-          <RadioGroup defaultValue="relevance" >
-            <FormControlLabel className='search-results-radio' onClick={this.handleField} value="relevance" control={<Radio color='secondary'/>} label="Relevance" />
-            <FormControlLabel className='search-results-radio' onClick={this.handleField} value="price" control={<Radio />} label="Price" />
-            <FormControlLabel className='search-results-radio' onClick={this.handleField} value="rating" control={<Radio />} label="Rating" />
-            <FormControlLabel className='search-results-radio' onClick={this.handleField} value="numReviews" control={<Radio />} label="Reviews" />
-          </RadioGroup>
-        </FormControl>
-          {/* <p>Sort by: </p>
+          <p>Sort by: </p>
           <label>Relevance
             <input onClick={this.handleField} type="radio" name="sort" id="relevance" value="relevance" defaultChecked/>
           </label>
@@ -114,7 +100,7 @@ export default class SearchResults extends React.Component {
           </label>
           <label>Reviews
             <input onClick={this.handleField} type="radio" name="sort" id="reviews" value="numReviews"/>
-          </label> */}
+          </label>
           <br />
           <label>Descending
             <input onClick={this.handleDirection} type="radio" name="direction" id="descending" value='descending' defaultChecked/>
@@ -141,7 +127,7 @@ export default class SearchResults extends React.Component {
           <button onClick={this.handleClear}>Clear filters</button>
           {/* <p>{this.state.inputWarnings}</p> */}
           {/* <button onClick={this.handleFilter}>Filter</button> */}
-          
+
         </div>
         <div className='search-results-display-div'>
           <p className='search-results-text'>{`Showing ${numResults} result${numResults > 1 || !numResults ? 's' : ''} for "${this.props.words.join(' ')}"`}</p>
