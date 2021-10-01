@@ -45,7 +45,7 @@ export default class SnackOrderItem extends React.Component {
             <option value={10}>10</option>
           </select>
         </div> : <div></div>}
-        <Link className='snack-order-button' to='/cart' >Go to cart</Link>
+        <Link className='button' to='/cart' >Go to cart</Link>
         <div className='snack-order-secure'><img className='snack-order-secure-img' src="/images/secure.png" />Secure transaction</div>
         <div className='snack-order-ship-sell-text'>Ships from <p className='snack-order-shipper'>AmanomFresh</p></div>
         <div className='snack-order-ship-sell-text'>Sold by <p className='snack-order-seller'>AmanomFresh</p></div>
