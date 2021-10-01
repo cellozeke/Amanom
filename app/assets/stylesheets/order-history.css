@@ -7,6 +7,10 @@
   flex-direction: column;
 }
 
+.order-history-select-menu {
+  height: 50px;
+}
+
 .order-history-order-item {
   display: flex;
   justify-content: space-between;

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 
@@ -130,18 +129,18 @@ export default class SearchResults extends React.Component {
           <p className='search-results-text'>{`Showing ${numResults} result${numResults > 1 || !numResults ? 's' : ''} for "${this.props.words.join(' ')}"`}</p>
           <div className='search-results-display-item-div'>
             {sortedSnacks.map(snack =>
-                <div className='search-results-display-item' key={snack.id}>
-                  <Link className='search-results-display-item-img-div' to={`/snacks/${snack.id}`}>
-                    <img className='search-results-display-item-img' src={snack.photoUrl} />
-                  </Link>
-                  <Link className='search-results-display-item-name' to={`/snacks/${snack.id}`}>{snack.name}</Link>
-                  <div className='search-results-display-item-rating stars' style={{'--rating': `${snack.rating}`}} ></div>
-                  <div className='search-results-display-item-price'>Price: 
-                    <p className='search-results-display-item-price-amount'>{moneyFormatter.format(snack.price / 100)}</p>
-                  </div>
-                  <p className='search-results-display-item-availability'>In Stock</p>
-                  <p className='search-results-display-item-delivery'>FREE 24-hour delivery</p>
+              <div className='search-results-display-item' key={snack.id}>
+                <Link className='search-results-display-item-img-div' to={`/snacks/${snack.id}`}>
+                  <img className='search-results-display-item-img' src={snack.photoUrl} />
+                </Link>
+                <Link className='search-results-display-item-name' to={`/snacks/${snack.id}`}>{snack.name}</Link>
+                <div className='search-results-display-item-rating stars' style={{'--rating': `${snack.rating}`}} ></div>
+                <div className='search-results-display-item-price'>Price: 
+                  <p className='search-results-display-item-price-amount'>{moneyFormatter.format(snack.price / 100)}</p>
                 </div>
+                <p className='search-results-display-item-availability'>In Stock</p>
+                <p className='search-results-display-item-delivery'>FREE 24-hour delivery</p>
+              </div>
             )}
           </div>
         </div>
