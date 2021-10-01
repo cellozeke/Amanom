@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -37,8 +36,6 @@ export default class OrderHistory extends React.Component {
         <div className='order-history-select-menu'>
           <FormControl fullWidth>
             <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
               value={order.id}
               onChange={this.handleChange}
               sx={{height: 30}}

@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { fontSize, width } from '@mui/system';
 
 export default class SnackOrderItem extends React.Component {
   handleQuantity = e => {
@@ -31,7 +35,18 @@ export default class SnackOrderItem extends React.Component {
         <p className='snack-order-availability'>In Stock</p>
         {currentUser ? <div className='snack-order-quantity-div'>
           <p className='snack-order-quantity-text'>Qty: </p>
-          <select className='snack-order-quantity-select' value={cartItem.matchingItem.quantity} onChange={this.handleQuantity}>
+          <FormControl size='small'>
+            <Select
+              value={cartItem.matchingItem.quantity}
+              onChange={this.handleQuantity}
+              sx={{height: 24, width: 56, fontSize: 14}}
+            >
+              {[...Array(11).keys()].map(quantity =>
+                <MenuItem key={quantity} value={quantity}> {quantity} </MenuItem>
+              )}
+            </Select>
+          </FormControl>
+          {/* <select className='snack-order-quantity-select' value={cartItem.matchingItem.quantity} onChange={this.handleQuantity}>
             <option value={0}>0</option>
             <option value={1}>1</option>
             <option value={2}>2</option>
@@ -43,7 +58,7 @@ export default class SnackOrderItem extends React.Component {
             <option value={8}>8</option>
             <option value={9}>9</option>
             <option value={10}>10</option>
-          </select>
+          </select> */}
         </div> : <div></div>}
         <Link className='button' to='/cart' >Go to cart</Link>
         <div className='snack-order-secure'><img className='snack-order-secure-img' src="/images/secure.png" />Secure transaction</div>
