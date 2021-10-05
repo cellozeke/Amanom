@@ -4,7 +4,7 @@ import SearchBar from './search_bar'
 
 export default class NavBar extends React.Component {
   componentDidMount() {
-    this.props.fetchSnackNames()
+    this.props.fetchSuggestions()
   }
 
   logOut = () => {
@@ -12,7 +12,7 @@ export default class NavBar extends React.Component {
   }
   
   render() {
-    const { currentUser, cartItems, isCartDataReady, history, names } = this.props
+    const { currentUser, cartItems, isCartDataReady, history, suggestions } = this.props
     const cartSize = cartItems.items.filter(item => item.quantity > 0).length
     return (
       <div className='nav-bar'>
@@ -27,7 +27,7 @@ export default class NavBar extends React.Component {
         </div>
 
         <div className='nav-center'>
-          <SearchBar history={history} names={names}/>
+          <SearchBar history={history} suggestions={suggestions}/>
         </div>
 
         <div className='nav-right'>

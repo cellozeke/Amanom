@@ -17,8 +17,8 @@ export const fetchRecSnacks = () => (
   })
 )
 
-export const fetchSnackNames = () => (
+export const fetchSuggestions = () => (
   $.ajax({
-    url: '/api/snack_names'
+    url: '/api/snacks'
   })
 )
