@@ -4,6 +4,11 @@ class Api::SnacksController < ApplicationController
     render :show
   end
 
+  def index
+    @snacks = Snack.all
+    render :index
+  end
+
   def show_search_results
     results = {}
     params[:words].each do |word|

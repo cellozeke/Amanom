@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 export default class CartItem extends React.Component {
   constructor(props) {
@@ -48,18 +51,17 @@ export default class CartItem extends React.Component {
           <p className='cart-item-availability'>In Stock</p>
           <div className='cart-item-quantity-div'>
             <p className='cart-item-quantity-text'>Qty: </p>
-            <select className='cart-item-quantity-select' value={item.quantity} onChange={this.handleQuantity}>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
-              <option value={6}>6</option>
-              <option value={7}>7</option>
-              <option value={8}>8</option>
-              <option value={9}>9</option>
-              <option value={10}>10</option>
-            </select>
+            <FormControl >
+              <Select
+                value={item.quantity}
+                onChange={this.handleQuantity}
+                sx={{height: 24, width: 56, fontSize: 14, padding: 0}}
+              >
+                {[...Array(11).keys()].map(quantity =>
+                  <MenuItem key={quantity} value={quantity}> {quantity} </MenuItem>
+                )}
+              </Select>
+            </FormControl>
           </div>
           <p className='cart-item-delete' onClick={this.handleDelete}>Delete</p>
         </div>

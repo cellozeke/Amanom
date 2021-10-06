@@ -8,8 +8,6 @@ const recsReducer = (state=null, action) => {
     case RECEIVE_REC_SNACKS:
       return action.snacks
     case LOG_OUT_CURRENT_USER:
-      // nextState.recent = []
-      // return nextState
       return null
     default:
       return null
