@@ -69,11 +69,12 @@
 .cart-item-quantity-div {
   display: flex;
   margin-bottom: 16px;
+  align-items: center;
 }
 
 .cart-item-quantity-text {
   font-size: 14px;
-  margin: 1px 7px 0 0;
+  margin: -2px 7px 0 0;
 }
 
 .cart-item-quantity-select {

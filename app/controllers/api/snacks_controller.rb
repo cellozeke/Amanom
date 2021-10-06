@@ -4,6 +4,11 @@ class Api::SnacksController < ApplicationController
     render :show
   end
 
+  def index
+    @snacks = Snack.all
+    render :index
+  end
+
   def show_search_results
     results = {}
     params[:words].each do |word|
@@ -18,12 +23,10 @@ class Api::SnacksController < ApplicationController
     render :show_search_results
   end
 
-  def show_popular_snacks
-    @snacks = Snack.find_by_sql ['SELECT snacks.* FROM items JOIN snacks ON snacks.id = items.snack_id GROUP BY snacks.id ORDER BY COUNT(*) DESC LIMIT 4']
-    render :show_search_results
-  end
-
-  def show_random_snacks
-
+  def show_recs
+    @recent = current_user ? current_user.order_items.map { |order_item| order_item.snack }.reverse.uniq.first(4) : []
+    @popular = Snack.find_by_sql ['SELECT snacks.* FROM items JOIN snacks ON snacks.id = items.snack_id GROUP BY snacks.id ORDER BY COUNT(*) DESC LIMIT 4']
+    @suggested = Snack.find_by_sql ['SELECT * FROM snacks ORDER BY random() LIMIT 4']
+    render :show_recs
   end
 end

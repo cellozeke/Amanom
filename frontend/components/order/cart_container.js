@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const CartContainer = connect(mapStateToProps, mapDispatchToProps)(Cart)
-export default CartContainer
+export default CartContainer;

@@ -1,0 +1,40 @@
+.home-recs-div {
+  position: absolute;
+  height: 400px;
+  width: 100%;
+  z-index: 5;
+  top: 220px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+}
+
+.home-recs-div > * {
+  height: 100%;
+  width: 420px;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 20px;
+}
+
+.home-recs-header {
+  font-size: 21px;
+  font-weight: bold;
+  margin-bottom: 22px;
+}
+
+.home-recs-grid {
+  display: grid;
+  height: 270px;
+  grid-template-columns: 32% 32%;
+  grid-template-rows: 45% 45%;
+  justify-content: center;
+  align-items: center;
+  column-gap: 75px;
+  row-gap: 25px;
+}
+
+.home-recs-pic {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}

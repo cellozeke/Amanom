@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :users, only: :create
-    resources :snacks, only: :show
+    resources :snacks, only: %i[show index]
     resources :orders, only: %i[show create]
     resources :items, only: %i[show create update destroy]
     resources :reviews, only: %i[show create update destroy]
@@ -12,8 +12,10 @@ Rails.application.routes.draw do
     get '/search_results', to: 'snacks#show_search_results'
     get '/user_reviews/:id', to: 'reviews#show_user_reviews'
     get '/snack_reviews/:id', to: 'reviews#show_snack_reviews'
-    get '/popular_snacks', to: 'snacks#show_popular_snacks'
+    # get '/popular_snacks', to: 'snacks#show_popular_snacks'
     get '/user_orders', to: 'orders#show_user_orders'
+    get '/rec_snacks', to: 'snacks#show_recs'
+    # get '/snack_names', to: 'snacks#show_name_list'
     resource :session, only: %i[create destroy]
   end
 end

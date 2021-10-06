@@ -67,7 +67,7 @@ export default class SnackShow extends React.Component {
             :
             <div className='snack-order-item-login'>
               <p className='snack-order-item-login-text'>Please log in to view and modify your cart.</p>
-              <Link className='snack-order-button' to='/login' >Log In</Link>
+              <Link className='button' to='/login' >Log In</Link>
             </div>
           }
         </div>

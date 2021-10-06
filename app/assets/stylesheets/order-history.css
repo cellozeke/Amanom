@@ -36,7 +36,7 @@
 .order-history-order-item-info {
   display: flex;
   flex-direction: column;
-  margin-left: 100px;
+  margin-left: 75px;
 }
 
 .order-history-order-item-name {
