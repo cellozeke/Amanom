@@ -37,9 +37,6 @@ export default class SnackReview extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    if (!this.state.stars) console.log('fix this')
-    console.log(this.state)
-
     this.props.updateSnackReview(this.state)
       .then(res => this.props.fetchSnack(this.props.snackId))
       .then(res => this.setState({editing: false}))
@@ -63,8 +60,8 @@ export default class SnackReview extends React.Component {
         <div className='snack-review-form-errors'>
           {errors.map(error => <p className='snack-review-form-error' key={errors.indexOf(error)}>{error}</p>)}
         </div>
-        <input type="submit" value="Submit" />
-        <button onClick={this.handleCancel}>Cancel</button>
+        <input className='button' type="submit" value="Submit" />
+        <button className='button' onClick={this.handleCancel}>Cancel</button>
       </form>
       // <SnackReviewEditForm review={review} updateSnackReview={this.props.updateSnackReview} fetchSnack={this.props.fetchSnack} snackId={this.props.snackId}/>
       // null
@@ -82,6 +79,7 @@ export default class SnackReview extends React.Component {
           <div className='review-header'>
             <p className='review-title'>{review.title}</p>
             <p className='review-datetime'>{new Date(review.updatedAt).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}</p>
+            {/* <p className='review-datetime'>{review.updatedAt === review.createdAt ? '' : 'updated on '}{new Date(review.updatedAt).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}</p> */}
           </div>
           <div className='review-rating stars' style={{'--rating': `${review.stars}`}} ></div>
           <p className='review-body'>{review.body}</p>

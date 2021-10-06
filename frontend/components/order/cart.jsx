@@ -5,8 +5,9 @@ import CartItem from './cart_item'
 
 export default class Cart extends React.Component {
   componentDidMount() {
-    this.props.fetchCartItems(this.props.currentUser.id)
+    if (this.props.currentUser) this.props.fetchCartItems(this.props.currentUser.id)
   }
+
   componentWillUnmount() {
     this.props.refreshCartItems()
   }

@@ -24,8 +24,6 @@ export default class SnackReviewForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    if (!this.state.stars) console.log('fix this')
-    console.log(this.state)
     this.props.createSnackReview(this.state)
       .then(res => this.props.fetchSnack(this.props.snackId))
   }
@@ -48,7 +46,7 @@ export default class SnackReviewForm extends React.Component {
           <div className='snack-review-form-errors'>
             {errors.map(error => <p className='snack-review-form-error' key={errors.indexOf(error)}>{error}</p>)}
           </div>
-          <input type="submit" value="Submit" />
+          <input className='button' type="submit" value="Submit" />
         </form>
     )
   }
