@@ -4,7 +4,7 @@ export const RECEIVE_SNACK = 'RECEIVE_SNACK'
 export const RECEIVE_SEARCHED_SNACKS = 'RECEIVE_SEARCHED_SNACKS'
 export const CLEAR_SEARCHED_SNACKS = 'CLEAR_SEARCHED_SNACKS'
 export const RECEIVE_REC_SNACKS = 'RECEIVE_REC_SNACKS'
-export const RECEIVE_SNACK_NAMES = 'RECEIVE_SNACK_NAMES'
+export const RECEIVE_SUGGESTIONS = 'RECEIVE_SUGGESTIONS'
 
 const receiveSnack = snack => ({
   type: RECEIVE_SNACK,
@@ -25,9 +25,9 @@ const receiveRecSnacks = snacks => ({
   snacks
 })
 
-const receiveSnackNames = names => ({
-  type: RECEIVE_SNACK_NAMES,
-  names
+const receiveSuggestions = suggestions => ({
+  type: RECEIVE_SUGGESTIONS,
+  suggestions
 })
 
 export const fetchSnack = snackId => dispatch => (
@@ -49,7 +49,7 @@ export const fetchRecSnacks = () => dispatch => (
     .then(snacks => dispatch(receiveRecSnacks(snacks)))
 )
 
-export const fetchSnackNames = () => dispatch => (
-  SnackAPIUtils.fetchSnackNames()
-    .then(names => dispatch(receiveSnackNames(names)))
+export const fetchSuggestions = () => dispatch => (
+  SnackAPIUtils.fetchSuggestions()
+    .then(suggestions => dispatch(receiveSuggestions(suggestions)))
 )

@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { moneyFormatter } from '../../utils/extra_utils'
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 export default class OrderHistory extends React.Component {
   constructor(props) {
@@ -30,13 +33,28 @@ export default class OrderHistory extends React.Component {
     
     return (
       <div className='order-history-main-div'>
-        <select className='order-history-select' defaultValue={orders[0].id} onChange={this.handleChange}>
+        <div className='order-history-select-menu'>
+          <FormControl fullWidth>
+            <Select
+              value={order.id}
+              onChange={this.handleChange}
+              sx={{height: 30}}
+            >
+              {orders.map(order =>
+                <MenuItem className='order-history-select-option' key={order.id} value={order.id}>
+                  {new Date(order.createdAt).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}
+                </MenuItem>
+              )}
+            </Select>
+          </FormControl>
+        </div>
+        {/* <select className='order-history-select' defaultValue={orders[0].id} onChange={this.handleChange}>
           {orders.map(order =>
             <option className='order-history-select-option' key={order.id} value={order.id}>
-              {new Date(order.createdAt).toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}
+              {new Date(order.createdAt).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}
             </option>
           )}
-        </select>
+        </select> */}
         <div className='order-history-order'>
           {/* <p>{new Date(order.createdAt).toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'})}</p> */}
           {order.orderItems.map((orderItem, idx) =>

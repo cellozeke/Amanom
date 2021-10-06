@@ -9,7 +9,30 @@ export default class SearchBar extends React.Component {
   }
 
   handleInput = e => {
-    this.setState({searchString: e.target.value})
+    this.setState({searchString: e.target.value.toLowerCase()})
+  }
+
+  handleClick = id => e => {
+    e.preventDefault()
+    this.props.history.push(`/snacks/${id}`)
+  }
+
+  handleFocus = e => {
+    e.preventDefault()
+    let dropdown = document.querySelector('.search-bar-dropdown')
+    setTimeout(() => {
+      dropdown.classList.remove('dropdown-hidden')
+      dropdown.classList.add('dropdown-visible')
+    }, 100)
+  }
+
+  handleBlur = e => {
+    e.preventDefault()
+    let dropdown = document.querySelector('.search-bar-dropdown')
+    setTimeout(() => {
+      dropdown.classList.remove('dropdown-visible')
+      dropdown.classList.add('dropdown-hidden')
+    }, 100)
   }
 
   handleSubmit = e => {
@@ -18,13 +41,17 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
-    let { names } = this.props
+    let { suggestions } = this.props
+    let filteredSuggestions = suggestions.filter(suggestion => suggestion.name.toLowerCase().includes(this.state.searchString))
     return (
       <form className='search-bar-form'>
-        <input className='search-bar-input' type="text" list='datalist' onChange={this.handleInput}/>
-        <datalist id='datalist'>
-          {names.map(name => <option value={name}></option>)}
-        </datalist>
+        <input className='search-bar-input' type="text" list='datalist' onChange={this.handleInput} onFocus={this.handleFocus} onBlur={this.handleBlur}/>
+        <div className='search-bar-dropdown dropdown-hidden'>
+          {filteredSuggestions.map(suggestion => <p className='search-bar-suggestion' value={suggestion.name} key={suggestion.name} onClick={this.handleClick(suggestion.id)}>{suggestion.name}</p>)}
+        </div>
+        {/* <datalist className='search-bar-datalist' id='datalist'>
+          {names.map(name => <option value={name} key={name}></option>)}
+        </datalist> */}
         <button className='search-bar-submit' onClick={this.handleSubmit}>
           <input className='search-bar-img' type="image" src="/images/search.png" onSubmit={this.handleSubmit}/>
         </button>

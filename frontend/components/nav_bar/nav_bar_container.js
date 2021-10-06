@@ -3,18 +3,18 @@ import { connect } from "react-redux"
 import NavBar from "./nav_bar"
 import { withRouter } from "react-router-dom"
 import { getCartItems, isCartDataReady } from "../../selectors/cart"
-import { fetchSnackNames } from "../../actions/snack_actions"
+import { fetchSuggestions } from "../../actions/snack_actions"
 
 const mapStateToProps = state => ({
   currentUser: state.entities.users[state.session.id],
   cartItems: getCartItems(state),
   isCartDataReady: isCartDataReady(state),
-  names: state.entities.names
+  suggestions: state.entities.suggestions
 })
 
 const mapDispatchToProps = dispatch => ({
   logOut: () => dispatch(logOut()),
-  fetchSnackNames: () => dispatch(fetchSnackNames())
+  fetchSuggestions: () => dispatch(fetchSuggestions())
 })
 
 const NavBarContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar))
