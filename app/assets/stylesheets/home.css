@@ -1,3 +1,10 @@
+.home-main-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1580px;
+}
+
 .home-recs-div {
   position: absolute;
   height: 400px;

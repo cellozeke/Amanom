@@ -78,5 +78,11 @@ html * {
   height: auto;
 }
 
+.main-body {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  // width: 1920px;
+}
 
 
