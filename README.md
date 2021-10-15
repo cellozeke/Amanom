@@ -2,7 +2,7 @@
 
 ## Overview
 
-Amanom is an Amazon clone specializing in snacks. Users can search for snacks and add reviews or tags to them. Registered users also have access to a shopping cart and a profile where they can view their reviews and past orders.
+Amanom is an Amazon clone specializing in snacks. Users can search for snacks and add reviews to them. Registered users also have access to a shopping cart and a profile where they can view their reviews and past orders.
 
 ## Link to live site
 
@@ -16,9 +16,9 @@ Amanom utilizes a Ruby on Rails backend that runs on a PostgreSQL database and c
 
 ### Front page image slider
 
-![alt text](https://im5.ezgif.com/tmp/ezgif-5-21d5a2a746bc.gif)
+![alt text](https://live.staticflickr.com/65535/51589819356_fe02b71b63_o.gif)
 
-The front page contains an image slider that automatically scrolls through each slide at a set interval. Users can also click on the side arrows to manually scroll, which ends the automatic scroll. Clicking on a slide redirects users to the relevant page. This feature's main difficulty was implementing the automatic scroll; I eventually wrote handlers to start a counter when the home page loads and delete the counter when navigating away.
+The front page contains an image slider that automatically scrolls through each slide at a set interval. Users can also click on the side arrows to scroll manually, which ends the automatic scroll. Clicking on a slide redirects users to the relevant page. This feature's main difficulty was implementing the automatic scroll; I eventually wrote handlers to start a counter when the home page loads and delete the counter when navigating away.
 
 ```
   componentDidMount() {
@@ -34,31 +34,24 @@ The front page contains an image slider that automatically scrolls through each 
     clearInterval(this.slide)
   }
 ```
-### Search function
+### Sort and filter function
 
-![alt text](https://im5.ezgif.com/tmp/ezgif-5-300d907ead84.gif)
+![alt text](https://live.staticflickr.com/65535/51590478824_99c3231b3b_o.gif)
 
-The nav bar contains a search bar that allows users to type in search terms; alternatively, users can click on categories in the categories bar. This links to a search results page that displays snacks whose names, descriptions, or tags contain any of the search terms. 
+The search results page has sort and filter functionality. Relevance sorting was trickier than the others to implement, as it required me to assign a point value system to snacks based on matches between the search terms and their names/descriptions. Eventually, I would like to add tagging functionality and include that in relevance algorithm as well.
 
-<!-- This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ... -->
+```
+  def show_search_results
+    results = {}
+    params[:words].each do |word|
+      (Snack.find_by_sql ['SELECT * FROM snacks WHERE name ILIKE ?', "%#{word}%"]).each do |snack|
+        results[snack] ? results[snack] += 2 : results[snack] = 2
+      end
+      (Snack.find_by_sql ['SELECT * FROM snacks WHERE description ILIKE ?', "%#{word}%"]).each do |snack|
+        results[snack] ? results[snack] += 1 : results[snack] = 1
+      end
+    end
+    @results = Hash[results.sort_by { |_, v| -v }]
+    render :show_search_results
+  end
+```
