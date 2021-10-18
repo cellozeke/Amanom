@@ -78,10 +78,16 @@ html * {
   height: auto;
 }
 
+// .main-div {
+//   min-height: 80vh;
+// }
+
 .main-body {
   display: flex;
   justify-content: center;
   height: 100%;
+  min-height: 80vh;
+  // height: 90vh;
   // width: 1920px;
 }
 
