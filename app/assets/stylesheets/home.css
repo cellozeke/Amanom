@@ -3,6 +3,7 @@
   justify-content: center;
   width: 100%;
   max-width: 1580px;
+  min-height: 90vh;
 }
 
 .home-recs-div {
