@@ -57,7 +57,7 @@ export default class CartItem extends React.Component {
                 onChange={this.handleQuantity}
                 sx={{height: 24, width: 56, fontSize: 14, padding: 0}}
               >
-                {[...Array(11).keys()].map(quantity =>
+                {[...Array(11).keys()].slice(1).map(quantity =>
                   <MenuItem key={quantity} value={quantity}> {quantity} </MenuItem>
                 )}
               </Select>
