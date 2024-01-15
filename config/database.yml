@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: Amanom_production
-  username: Amanom
+  database: amanom_production
+  username: amanom
   password: <%= ENV['AMANOM_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
