@@ -2,8 +2,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 1580px;
-  min-height: 90vh;
+  max-width: 100%;
 }
 
 .home-recs-div {
@@ -11,7 +10,7 @@
   height: 400px;
   width: 100%;
   z-index: 5;
-  top: 220px;
+  bottom: 40px;
   display: flex;
   justify-content: space-between;
   padding: 20px 50px;

@@ -29,7 +29,8 @@
 
 .slider{
   width: 100%;
-  height: 622px;
+  height: 100%;
+  /* height: 622px; */
   overflow: hidden;
 }
 
@@ -44,10 +45,11 @@
 }
 
 .slide{
+  height: 100%;
   max-width: 20%;
   width: 20%;
   transition: 1.2s;
-  background-size: 100%;
+  background-size: 100% 90vh;
   /* background-size: 1536px 622px; */
   background-repeat: no-repeat;
   background-clip: content-box;
@@ -55,7 +57,7 @@
 
 .slide img{
   width: 1536px;
-  height: 622px;
+  height: 100%;
 }
 
 .slide-img1 {
